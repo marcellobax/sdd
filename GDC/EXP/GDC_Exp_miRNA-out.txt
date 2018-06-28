@@ -1,0 +1,957 @@
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix heals: <http://idea.rpi.edu/heals/ont/heals#> .
+@prefix gdc-kb: <http://idea.rpi.edu/heals/kb/gdc#> .
+@prefix ncit: <http://purl.obolibrary.org/obo/NCIT_> .
+@prefix ogg: <http://purl.obolibrary.org/obo/OGG_>.
+@prefix go: <http://purl.obolibrary.org/obo/GO_>.
+@prefix sio: <http://semanticscience.org/resource/> .
+@prefix uo: <http://purl.obolibrary.org/obo/UO_> . 
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix oae: <http://purl.obolibrary.org/obo/OAE_> .
+@prefix hp: <http://purl.obolibrary.org/obo/HP_> .
+@prefix hasco: <http://hadatac.org/ont/hasco#> .
+@prefix stato: <http://purl.obolibrary.org/obo/STATO_>.
+@prefix np: <http://www.nanopub.org/nschema#>.
+
+gdc-kb:head-actual_entry { 
+	gdc-kb:nanoPub-actual_entry	rdf:type np:Nanopublication ;
+		np:hasAssertion gdc-kb:assertion-actual_entry ;
+		np:hasProvenance gdc-kb:provenance-actual_entry ;
+		np:hasPublicationInfo gdc-kb:pubInfo-actual_entry .
+}
+
+gdc-kb:assertion-actual_entry {
+	gdc-kb:miRNA_ID	rdf:type	owl:Class ;
+		rdfs:subClassOf sio:Identifier ;
+		sio:isAttributeOf gdc-kb:gene .
+
+	gdc-kb:read_count	rdf:type	owl:Class ;
+		rdfs:subClassOf sio:Count ;
+		rdfs:subClassOf stato:0000064 ;
+		sio:isAttributeOf gdc-kb:gene_expression_value ;
+		rdfs:comment "raw read count"^^xsd:string .
+
+	gdc-kb:reads_per_million_miRNA_mapped	rdf:type	owl:Class ;
+		rdfs:subClassOf sio:Ratio ;
+		sio:isAttributeOf gdc-kb:gene_expression_value ;
+		rdfs:comment "counts normalized to reads per million mapped reads (RPM)"^^xsd:string .
+
+	gdc-kb:cross-mapped	rdf:type	owl:Class ;
+		rdfs:subClassOf xsd:boolean ;
+		sio:isAttributeOf gdc-kb:overlap ;
+		rdfs:comment "it's a phenomenon of mi-RNA parts exchanging"^^xsd:string .
+
+	gdc-kb:isoform_coords	rdf:type	owl:Class ;
+		rdfs:subClassOf sio:Coordinate ;
+		sio:isAttributeOf gdc-kb:isoform .
+
+	gdc-kb:miRNA_region	rdf:type	owl:Class ;
+		rdfs:subClassOf sio:SpatialRegion ;
+		sio:isAttributeOf gdc-kb:gene .
+
+}
+
+gdc-kb:provenance-actual_entry {
+	gdc-kb:assertion-actual_entry	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime .
+
+	gdc-kb:miRNA_ID
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:read_count
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:reads_per_million_miRNA_mapped
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:cross-mapped
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:isoform_coords
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:miRNA_region
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:pubInfo-actual_entry {
+	gdc-kb:nanoPub-actual_entry	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime .
+}
+
+gdc-kb:head-virtual_entry { 
+	gdc-kb:nanoPub-virtual_entry	rdf:type np:Nanopublication ;
+		np:hasAssertion gdc-kb:assertion-virtual_entry ;
+		np:hasProvenance gdc-kb:provenance-virtual_entry ;
+		np:hasPublicationInfo gdc-kb:pubInfo-virtual_entry .
+}
+
+gdc-kb:assertion-virtual_entry {
+	gdc-kb:subject	rdf:type	owl:Class ;
+		rdfs:label "subject" ;
+		rdfs:subClassOf sio:Human ;
+		sio:hasRole [ rdf:type	sio:SubjectRole ;
+			sio:inRelationTo gdc-kb:study ] .
+
+	gdc-kb:gene_expression_value	rdf:type	owl:Class ;
+		rdfs:label "gene_expression_value" ;
+		rdfs:subClassOf sio:GeneExpressionValue .
+
+	gdc-kb:overlap	rdf:type	owl:Class ;
+		rdfs:label "overlap" ;
+		rdfs:subClassOf sio:Overlap .
+
+	gdc-kb:gene	rdf:type	owl:Class ;
+		rdfs:label "gene" ;
+		rdfs:subClassOf sio:Gene ;
+		sio:isPartOf gdc-kb:subject .
+
+	gdc-kb:study	rdf:type	owl:Class ;
+		rdfs:label "study" ;
+		rdfs:subClassOf hasco:Study .
+
+	gdc-kb:isoform	rdf:type	owl:Class ;
+		rdfs:label "isoform" ;
+		rdfs:subClassOf heals:Isoform .
+
+}
+
+gdc-kb:provenance-virtual_entry {
+	gdc-kb:assertion-virtual_entry	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime .
+
+	gdc-kb:subject
+		prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:gene_expression_value
+		prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:overlap
+		prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:gene
+		prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:study
+		prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:isoform
+		prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:pubInfo-virtual_entry {
+	gdc-kb:nanoPub-virtual_entry	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime .
+}
+
+gdc-kb:head-7b79a7e016f9f45377dfcb9c91560fbc {
+	gdc-kb:nanoPub-7b79a7e016f9f45377dfcb9c91560fbc
+		rdf:type np:Nanopublication ;
+		np:hasAssertion gdc-kb:assertion-7b79a7e016f9f45377dfcb9c91560fbc ;
+		np:hasProvenance gdc-kb:provenance-7b79a7e016f9f45377dfcb9c91560fbc ;
+		np:hasPublicationInfo gdc-kb:pubInfo-7b79a7e016f9f45377dfcb9c91560fbc .
+}
+
+gdc-kb:assertion-7b79a7e016f9f45377dfcb9c91560fbc {
+	gdc-kb:miRNA_ID-7b79a7e016f9f45377dfcb9c91560fbc	rdf:type	gdc-kb:miRNA_ID ;
+		sio:isAttributeOf gdc-kb:gene-7b79a7e016f9f45377dfcb9c91560fbc ;
+		sio:hasValue	"hsa-let-7a-1"^^xsd:string .
+
+	gdc-kb:read_count-7b79a7e016f9f45377dfcb9c91560fbc	rdf:type	gdc-kb:read_count ;
+		sio:isAttributeOf gdc-kb:gene_expression_value-7b79a7e016f9f45377dfcb9c91560fbc ;
+		rdfs:comment "raw read count"^^xsd:string ;
+		sio:hasValue	"30869"^^xsd:integer .
+
+	gdc-kb:reads_per_million_miRNA_mapped-7b79a7e016f9f45377dfcb9c91560fbc	rdf:type	gdc-kb:reads_per_million_miRNA_mapped ;
+		sio:isAttributeOf gdc-kb:gene_expression_value-7b79a7e016f9f45377dfcb9c91560fbc ;
+		rdfs:comment "counts normalized to reads per million mapped reads (RPM)"^^xsd:string ;
+		sio:hasValue	"6051.282112"^^xsd:float .
+
+	gdc-kb:cross-mapped-7b79a7e016f9f45377dfcb9c91560fbc	rdf:type	gdc-kb:cross-mapped ;
+		sio:isAttributeOf gdc-kb:overlap-7b79a7e016f9f45377dfcb9c91560fbc ;
+		rdfs:comment "it's a phenomenon of mi-RNA parts exchanging"^^xsd:string ;
+		rdf:type	sio:False ;
+		rdfs:label	"Not cross-mapped"^^xsd:string ;
+		sio:hasValue	"N"^^xsd:string .
+
+	gdc-kb:gene-7b79a7e016f9f45377dfcb9c91560fbc	rdf:type	gdc-kb:gene;
+		rdf:type	sio:Gene;
+		sio:hasIdentifier gdc-kb:miRNA_ID-7b79a7e016f9f45377dfcb9c91560fbc ;
+		sio:isPartOf gdc-kb:subject-7b79a7e016f9f45377dfcb9c91560fbc .
+
+	gdc-kb:gene_expression_value-7b79a7e016f9f45377dfcb9c91560fbc	rdf:type	gdc-kb:gene_expression_value;
+		rdf:type	sio:GeneExpressionValue ;
+		sio:inRelationTo gdc-kb:gene-7b79a7e016f9f45377dfcb9c91560fbc .
+
+	gdc-kb:overlap-7b79a7e016f9f45377dfcb9c91560fbc	rdf:type	gdc-kb:overlap;
+		rdf:type	sio:Overlap ;
+		sio:inRelationTo gdc-kb:gene_expression_value-7b79a7e016f9f45377dfcb9c91560fbc .
+
+}
+
+gdc-kb:provenance-7b79a7e016f9f45377dfcb9c91560fbc {
+	gdc-kb:assertion-7b79a7e016f9f45377dfcb9c91560fbc prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime .
+
+	gdc-kb:miRNA_ID-7b79a7e016f9f45377dfcb9c91560fbc	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:read_count-7b79a7e016f9f45377dfcb9c91560fbc	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:reads_per_million_miRNA_mapped-7b79a7e016f9f45377dfcb9c91560fbc	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:cross-mapped-7b79a7e016f9f45377dfcb9c91560fbc	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:gene-7b79a7e016f9f45377dfcb9c91560fbc	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:gene_expression_value-7b79a7e016f9f45377dfcb9c91560fbc	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:overlap-7b79a7e016f9f45377dfcb9c91560fbc	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:pubInfo-7b79a7e016f9f45377dfcb9c91560fbc {
+	gdc-kb:nanoPub-7b79a7e016f9f45377dfcb9c91560fbc prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime .
+
+	gdc-kb:miRNA_ID-7b79a7e016f9f45377dfcb9c91560fbc
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:read_count-7b79a7e016f9f45377dfcb9c91560fbc
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:reads_per_million_miRNA_mapped-7b79a7e016f9f45377dfcb9c91560fbc
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:cross-mapped-7b79a7e016f9f45377dfcb9c91560fbc
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:head-a534cca4114807d0a4337dddca9febd6 {
+	gdc-kb:nanoPub-a534cca4114807d0a4337dddca9febd6
+		rdf:type np:Nanopublication ;
+		np:hasAssertion gdc-kb:assertion-a534cca4114807d0a4337dddca9febd6 ;
+		np:hasProvenance gdc-kb:provenance-a534cca4114807d0a4337dddca9febd6 ;
+		np:hasPublicationInfo gdc-kb:pubInfo-a534cca4114807d0a4337dddca9febd6 .
+}
+
+gdc-kb:assertion-a534cca4114807d0a4337dddca9febd6 {
+	gdc-kb:miRNA_ID-a534cca4114807d0a4337dddca9febd6	rdf:type	gdc-kb:miRNA_ID ;
+		sio:isAttributeOf gdc-kb:gene-a534cca4114807d0a4337dddca9febd6 ;
+		sio:hasValue	"hsa-let-7a-2"^^xsd:string .
+
+	gdc-kb:read_count-a534cca4114807d0a4337dddca9febd6	rdf:type	gdc-kb:read_count ;
+		sio:isAttributeOf gdc-kb:gene_expression_value-a534cca4114807d0a4337dddca9febd6 ;
+		rdfs:comment "raw read count"^^xsd:string ;
+		sio:hasValue	"30775"^^xsd:integer .
+
+	gdc-kb:reads_per_million_miRNA_mapped-a534cca4114807d0a4337dddca9febd6	rdf:type	gdc-kb:reads_per_million_miRNA_mapped ;
+		sio:isAttributeOf gdc-kb:gene_expression_value-a534cca4114807d0a4337dddca9febd6 ;
+		rdfs:comment "counts normalized to reads per million mapped reads (RPM)"^^xsd:string ;
+		sio:hasValue	"6032.855194"^^xsd:float .
+
+	gdc-kb:cross-mapped-a534cca4114807d0a4337dddca9febd6	rdf:type	gdc-kb:cross-mapped ;
+		sio:isAttributeOf gdc-kb:overlap-a534cca4114807d0a4337dddca9febd6 ;
+		rdfs:comment "it's a phenomenon of mi-RNA parts exchanging"^^xsd:string ;
+		rdf:type	sio:False ;
+		rdfs:label	"Not cross-mapped"^^xsd:string ;
+		sio:hasValue	"N"^^xsd:string .
+
+	gdc-kb:gene-a534cca4114807d0a4337dddca9febd6	rdf:type	gdc-kb:gene;
+		rdf:type	sio:Gene;
+		sio:hasIdentifier gdc-kb:miRNA_ID-a534cca4114807d0a4337dddca9febd6 ;
+		sio:isPartOf gdc-kb:subject-a534cca4114807d0a4337dddca9febd6 .
+
+	gdc-kb:gene_expression_value-a534cca4114807d0a4337dddca9febd6	rdf:type	gdc-kb:gene_expression_value;
+		rdf:type	sio:GeneExpressionValue ;
+		sio:inRelationTo gdc-kb:gene-a534cca4114807d0a4337dddca9febd6 .
+
+	gdc-kb:overlap-a534cca4114807d0a4337dddca9febd6	rdf:type	gdc-kb:overlap;
+		rdf:type	sio:Overlap ;
+		sio:inRelationTo gdc-kb:gene_expression_value-a534cca4114807d0a4337dddca9febd6 .
+
+}
+
+gdc-kb:provenance-a534cca4114807d0a4337dddca9febd6 {
+	gdc-kb:assertion-a534cca4114807d0a4337dddca9febd6 prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime .
+
+	gdc-kb:miRNA_ID-a534cca4114807d0a4337dddca9febd6	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:read_count-a534cca4114807d0a4337dddca9febd6	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:reads_per_million_miRNA_mapped-a534cca4114807d0a4337dddca9febd6	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:cross-mapped-a534cca4114807d0a4337dddca9febd6	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:gene-a534cca4114807d0a4337dddca9febd6	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:gene_expression_value-a534cca4114807d0a4337dddca9febd6	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:overlap-a534cca4114807d0a4337dddca9febd6	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:pubInfo-a534cca4114807d0a4337dddca9febd6 {
+	gdc-kb:nanoPub-a534cca4114807d0a4337dddca9febd6 prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime .
+
+	gdc-kb:miRNA_ID-a534cca4114807d0a4337dddca9febd6
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:read_count-a534cca4114807d0a4337dddca9febd6
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:reads_per_million_miRNA_mapped-a534cca4114807d0a4337dddca9febd6
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:cross-mapped-a534cca4114807d0a4337dddca9febd6
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:head-f54afcf208a111e238eef59be580eff2 {
+	gdc-kb:nanoPub-f54afcf208a111e238eef59be580eff2
+		rdf:type np:Nanopublication ;
+		np:hasAssertion gdc-kb:assertion-f54afcf208a111e238eef59be580eff2 ;
+		np:hasProvenance gdc-kb:provenance-f54afcf208a111e238eef59be580eff2 ;
+		np:hasPublicationInfo gdc-kb:pubInfo-f54afcf208a111e238eef59be580eff2 .
+}
+
+gdc-kb:assertion-f54afcf208a111e238eef59be580eff2 {
+	gdc-kb:miRNA_ID-f54afcf208a111e238eef59be580eff2	rdf:type	gdc-kb:miRNA_ID ;
+		sio:isAttributeOf gdc-kb:gene-f54afcf208a111e238eef59be580eff2 ;
+		sio:hasValue	"hsa-let-7a-3"^^xsd:string .
+
+	gdc-kb:read_count-f54afcf208a111e238eef59be580eff2	rdf:type	gdc-kb:read_count ;
+		sio:isAttributeOf gdc-kb:gene_expression_value-f54afcf208a111e238eef59be580eff2 ;
+		rdfs:comment "raw read count"^^xsd:string ;
+		sio:hasValue	"30891"^^xsd:integer .
+
+	gdc-kb:reads_per_million_miRNA_mapped-f54afcf208a111e238eef59be580eff2	rdf:type	gdc-kb:reads_per_million_miRNA_mapped ;
+		sio:isAttributeOf gdc-kb:gene_expression_value-f54afcf208a111e238eef59be580eff2 ;
+		rdfs:comment "counts normalized to reads per million mapped reads (RPM)"^^xsd:string ;
+		sio:hasValue	"6055.594794"^^xsd:float .
+
+	gdc-kb:cross-mapped-f54afcf208a111e238eef59be580eff2	rdf:type	gdc-kb:cross-mapped ;
+		sio:isAttributeOf gdc-kb:overlap-f54afcf208a111e238eef59be580eff2 ;
+		rdfs:comment "it's a phenomenon of mi-RNA parts exchanging"^^xsd:string ;
+		rdf:type	sio:False ;
+		rdfs:label	"Not cross-mapped"^^xsd:string ;
+		sio:hasValue	"N"^^xsd:string .
+
+	gdc-kb:gene-f54afcf208a111e238eef59be580eff2	rdf:type	gdc-kb:gene;
+		rdf:type	sio:Gene;
+		sio:hasIdentifier gdc-kb:miRNA_ID-f54afcf208a111e238eef59be580eff2 ;
+		sio:isPartOf gdc-kb:subject-f54afcf208a111e238eef59be580eff2 .
+
+	gdc-kb:gene_expression_value-f54afcf208a111e238eef59be580eff2	rdf:type	gdc-kb:gene_expression_value;
+		rdf:type	sio:GeneExpressionValue ;
+		sio:inRelationTo gdc-kb:gene-f54afcf208a111e238eef59be580eff2 .
+
+	gdc-kb:overlap-f54afcf208a111e238eef59be580eff2	rdf:type	gdc-kb:overlap;
+		rdf:type	sio:Overlap ;
+		sio:inRelationTo gdc-kb:gene_expression_value-f54afcf208a111e238eef59be580eff2 .
+
+}
+
+gdc-kb:provenance-f54afcf208a111e238eef59be580eff2 {
+	gdc-kb:assertion-f54afcf208a111e238eef59be580eff2 prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime .
+
+	gdc-kb:miRNA_ID-f54afcf208a111e238eef59be580eff2	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:read_count-f54afcf208a111e238eef59be580eff2	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:reads_per_million_miRNA_mapped-f54afcf208a111e238eef59be580eff2	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:cross-mapped-f54afcf208a111e238eef59be580eff2	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:gene-f54afcf208a111e238eef59be580eff2	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:gene_expression_value-f54afcf208a111e238eef59be580eff2	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:overlap-f54afcf208a111e238eef59be580eff2	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:pubInfo-f54afcf208a111e238eef59be580eff2 {
+	gdc-kb:nanoPub-f54afcf208a111e238eef59be580eff2 prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime .
+
+	gdc-kb:miRNA_ID-f54afcf208a111e238eef59be580eff2
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:read_count-f54afcf208a111e238eef59be580eff2
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:reads_per_million_miRNA_mapped-f54afcf208a111e238eef59be580eff2
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:cross-mapped-f54afcf208a111e238eef59be580eff2
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:head-ce2ca2c0b2ea3998e40d56ce0bc84223 {
+	gdc-kb:nanoPub-ce2ca2c0b2ea3998e40d56ce0bc84223
+		rdf:type np:Nanopublication ;
+		np:hasAssertion gdc-kb:assertion-ce2ca2c0b2ea3998e40d56ce0bc84223 ;
+		np:hasProvenance gdc-kb:provenance-ce2ca2c0b2ea3998e40d56ce0bc84223 ;
+		np:hasPublicationInfo gdc-kb:pubInfo-ce2ca2c0b2ea3998e40d56ce0bc84223 .
+}
+
+gdc-kb:assertion-ce2ca2c0b2ea3998e40d56ce0bc84223 {
+	gdc-kb:miRNA_ID-ce2ca2c0b2ea3998e40d56ce0bc84223	rdf:type	gdc-kb:miRNA_ID ;
+		sio:isAttributeOf gdc-kb:gene-ce2ca2c0b2ea3998e40d56ce0bc84223 ;
+		sio:hasValue	"hsa-let-7b"^^xsd:string .
+
+	gdc-kb:read_count-ce2ca2c0b2ea3998e40d56ce0bc84223	rdf:type	gdc-kb:read_count ;
+		sio:isAttributeOf gdc-kb:gene_expression_value-ce2ca2c0b2ea3998e40d56ce0bc84223 ;
+		rdfs:comment "raw read count"^^xsd:string ;
+		sio:hasValue	"16720"^^xsd:integer .
+
+	gdc-kb:reads_per_million_miRNA_mapped-ce2ca2c0b2ea3998e40d56ce0bc84223	rdf:type	gdc-kb:reads_per_million_miRNA_mapped ;
+		sio:isAttributeOf gdc-kb:gene_expression_value-ce2ca2c0b2ea3998e40d56ce0bc84223 ;
+		rdfs:comment "counts normalized to reads per million mapped reads (RPM)"^^xsd:string ;
+		sio:hasValue	"3277.638955"^^xsd:float .
+
+	gdc-kb:cross-mapped-ce2ca2c0b2ea3998e40d56ce0bc84223	rdf:type	gdc-kb:cross-mapped ;
+		sio:isAttributeOf gdc-kb:overlap-ce2ca2c0b2ea3998e40d56ce0bc84223 ;
+		rdfs:comment "it's a phenomenon of mi-RNA parts exchanging"^^xsd:string ;
+		rdf:type	sio:False ;
+		rdfs:label	"Not cross-mapped"^^xsd:string ;
+		sio:hasValue	"N"^^xsd:string .
+
+	gdc-kb:gene-ce2ca2c0b2ea3998e40d56ce0bc84223	rdf:type	gdc-kb:gene;
+		rdf:type	sio:Gene;
+		sio:hasIdentifier gdc-kb:miRNA_ID-ce2ca2c0b2ea3998e40d56ce0bc84223 ;
+		sio:isPartOf gdc-kb:subject-ce2ca2c0b2ea3998e40d56ce0bc84223 .
+
+	gdc-kb:gene_expression_value-ce2ca2c0b2ea3998e40d56ce0bc84223	rdf:type	gdc-kb:gene_expression_value;
+		rdf:type	sio:GeneExpressionValue ;
+		sio:inRelationTo gdc-kb:gene-ce2ca2c0b2ea3998e40d56ce0bc84223 .
+
+	gdc-kb:overlap-ce2ca2c0b2ea3998e40d56ce0bc84223	rdf:type	gdc-kb:overlap;
+		rdf:type	sio:Overlap ;
+		sio:inRelationTo gdc-kb:gene_expression_value-ce2ca2c0b2ea3998e40d56ce0bc84223 .
+
+}
+
+gdc-kb:provenance-ce2ca2c0b2ea3998e40d56ce0bc84223 {
+	gdc-kb:assertion-ce2ca2c0b2ea3998e40d56ce0bc84223 prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime .
+
+	gdc-kb:miRNA_ID-ce2ca2c0b2ea3998e40d56ce0bc84223	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:read_count-ce2ca2c0b2ea3998e40d56ce0bc84223	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:reads_per_million_miRNA_mapped-ce2ca2c0b2ea3998e40d56ce0bc84223	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:cross-mapped-ce2ca2c0b2ea3998e40d56ce0bc84223	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:gene-ce2ca2c0b2ea3998e40d56ce0bc84223	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:gene_expression_value-ce2ca2c0b2ea3998e40d56ce0bc84223	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:overlap-ce2ca2c0b2ea3998e40d56ce0bc84223	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:pubInfo-ce2ca2c0b2ea3998e40d56ce0bc84223 {
+	gdc-kb:nanoPub-ce2ca2c0b2ea3998e40d56ce0bc84223 prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime .
+
+	gdc-kb:miRNA_ID-ce2ca2c0b2ea3998e40d56ce0bc84223
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:read_count-ce2ca2c0b2ea3998e40d56ce0bc84223
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:reads_per_million_miRNA_mapped-ce2ca2c0b2ea3998e40d56ce0bc84223
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:cross-mapped-ce2ca2c0b2ea3998e40d56ce0bc84223
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:head-bb6d832171d3c4d66ef5ecd0a1365785 {
+	gdc-kb:nanoPub-bb6d832171d3c4d66ef5ecd0a1365785
+		rdf:type np:Nanopublication ;
+		np:hasAssertion gdc-kb:assertion-bb6d832171d3c4d66ef5ecd0a1365785 ;
+		np:hasProvenance gdc-kb:provenance-bb6d832171d3c4d66ef5ecd0a1365785 ;
+		np:hasPublicationInfo gdc-kb:pubInfo-bb6d832171d3c4d66ef5ecd0a1365785 .
+}
+
+gdc-kb:assertion-bb6d832171d3c4d66ef5ecd0a1365785 {
+	gdc-kb:miRNA_ID-bb6d832171d3c4d66ef5ecd0a1365785	rdf:type	gdc-kb:miRNA_ID ;
+		sio:isAttributeOf gdc-kb:gene-bb6d832171d3c4d66ef5ecd0a1365785 ;
+		sio:hasValue	"hsa-let-7c"^^xsd:string .
+
+	gdc-kb:read_count-bb6d832171d3c4d66ef5ecd0a1365785	rdf:type	gdc-kb:read_count ;
+		sio:isAttributeOf gdc-kb:gene_expression_value-bb6d832171d3c4d66ef5ecd0a1365785 ;
+		rdfs:comment "raw read count"^^xsd:string ;
+		sio:hasValue	"4251"^^xsd:integer .
+
+	gdc-kb:reads_per_million_miRNA_mapped-bb6d832171d3c4d66ef5ecd0a1365785	rdf:type	gdc-kb:reads_per_million_miRNA_mapped ;
+		sio:isAttributeOf gdc-kb:gene_expression_value-bb6d832171d3c4d66ef5ecd0a1365785 ;
+		rdfs:comment "counts normalized to reads per million mapped reads (RPM)"^^xsd:string ;
+		sio:hasValue	"833.327942"^^xsd:float .
+
+	gdc-kb:cross-mapped-bb6d832171d3c4d66ef5ecd0a1365785	rdf:type	gdc-kb:cross-mapped ;
+		sio:isAttributeOf gdc-kb:overlap-bb6d832171d3c4d66ef5ecd0a1365785 ;
+		rdfs:comment "it's a phenomenon of mi-RNA parts exchanging"^^xsd:string ;
+		rdf:type	sio:False ;
+		rdfs:label	"Not cross-mapped"^^xsd:string ;
+		sio:hasValue	"N"^^xsd:string .
+
+	gdc-kb:gene-bb6d832171d3c4d66ef5ecd0a1365785	rdf:type	gdc-kb:gene;
+		rdf:type	sio:Gene;
+		sio:hasIdentifier gdc-kb:miRNA_ID-bb6d832171d3c4d66ef5ecd0a1365785 ;
+		sio:isPartOf gdc-kb:subject-bb6d832171d3c4d66ef5ecd0a1365785 .
+
+	gdc-kb:gene_expression_value-bb6d832171d3c4d66ef5ecd0a1365785	rdf:type	gdc-kb:gene_expression_value;
+		rdf:type	sio:GeneExpressionValue ;
+		sio:inRelationTo gdc-kb:gene-bb6d832171d3c4d66ef5ecd0a1365785 .
+
+	gdc-kb:overlap-bb6d832171d3c4d66ef5ecd0a1365785	rdf:type	gdc-kb:overlap;
+		rdf:type	sio:Overlap ;
+		sio:inRelationTo gdc-kb:gene_expression_value-bb6d832171d3c4d66ef5ecd0a1365785 .
+
+}
+
+gdc-kb:provenance-bb6d832171d3c4d66ef5ecd0a1365785 {
+	gdc-kb:assertion-bb6d832171d3c4d66ef5ecd0a1365785 prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime .
+
+	gdc-kb:miRNA_ID-bb6d832171d3c4d66ef5ecd0a1365785	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:read_count-bb6d832171d3c4d66ef5ecd0a1365785	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:reads_per_million_miRNA_mapped-bb6d832171d3c4d66ef5ecd0a1365785	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:cross-mapped-bb6d832171d3c4d66ef5ecd0a1365785	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:gene-bb6d832171d3c4d66ef5ecd0a1365785	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:gene_expression_value-bb6d832171d3c4d66ef5ecd0a1365785	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:overlap-bb6d832171d3c4d66ef5ecd0a1365785	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:pubInfo-bb6d832171d3c4d66ef5ecd0a1365785 {
+	gdc-kb:nanoPub-bb6d832171d3c4d66ef5ecd0a1365785 prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime .
+
+	gdc-kb:miRNA_ID-bb6d832171d3c4d66ef5ecd0a1365785
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:read_count-bb6d832171d3c4d66ef5ecd0a1365785
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:reads_per_million_miRNA_mapped-bb6d832171d3c4d66ef5ecd0a1365785
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:cross-mapped-bb6d832171d3c4d66ef5ecd0a1365785
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:head-c573ecf6cfaa07b6da9f49746f55a4f7 {
+	gdc-kb:nanoPub-c573ecf6cfaa07b6da9f49746f55a4f7
+		rdf:type np:Nanopublication ;
+		np:hasAssertion gdc-kb:assertion-c573ecf6cfaa07b6da9f49746f55a4f7 ;
+		np:hasProvenance gdc-kb:provenance-c573ecf6cfaa07b6da9f49746f55a4f7 ;
+		np:hasPublicationInfo gdc-kb:pubInfo-c573ecf6cfaa07b6da9f49746f55a4f7 .
+}
+
+gdc-kb:assertion-c573ecf6cfaa07b6da9f49746f55a4f7 {
+	gdc-kb:miRNA_ID-c573ecf6cfaa07b6da9f49746f55a4f7	rdf:type	gdc-kb:miRNA_ID ;
+		sio:isAttributeOf gdc-kb:gene-c573ecf6cfaa07b6da9f49746f55a4f7 ;
+		sio:hasValue	"hsa-let-7d"^^xsd:string .
+
+	gdc-kb:read_count-c573ecf6cfaa07b6da9f49746f55a4f7	rdf:type	gdc-kb:read_count ;
+		sio:isAttributeOf gdc-kb:gene_expression_value-c573ecf6cfaa07b6da9f49746f55a4f7 ;
+		rdfs:comment "raw read count"^^xsd:string ;
+		sio:hasValue	"1904"^^xsd:integer .
+
+	gdc-kb:reads_per_million_miRNA_mapped-c573ecf6cfaa07b6da9f49746f55a4f7	rdf:type	gdc-kb:reads_per_million_miRNA_mapped ;
+		sio:isAttributeOf gdc-kb:gene_expression_value-c573ecf6cfaa07b6da9f49746f55a4f7 ;
+		rdfs:comment "counts normalized to reads per million mapped reads (RPM)"^^xsd:string ;
+		sio:hasValue	"373.243096"^^xsd:float .
+
+	gdc-kb:cross-mapped-c573ecf6cfaa07b6da9f49746f55a4f7	rdf:type	gdc-kb:cross-mapped ;
+		sio:isAttributeOf gdc-kb:overlap-c573ecf6cfaa07b6da9f49746f55a4f7 ;
+		rdfs:comment "it's a phenomenon of mi-RNA parts exchanging"^^xsd:string ;
+		rdf:type	sio:False ;
+		rdfs:label	"Not cross-mapped"^^xsd:string ;
+		sio:hasValue	"N"^^xsd:string .
+
+	gdc-kb:gene-c573ecf6cfaa07b6da9f49746f55a4f7	rdf:type	gdc-kb:gene;
+		rdf:type	sio:Gene;
+		sio:hasIdentifier gdc-kb:miRNA_ID-c573ecf6cfaa07b6da9f49746f55a4f7 ;
+		sio:isPartOf gdc-kb:subject-c573ecf6cfaa07b6da9f49746f55a4f7 .
+
+	gdc-kb:gene_expression_value-c573ecf6cfaa07b6da9f49746f55a4f7	rdf:type	gdc-kb:gene_expression_value;
+		rdf:type	sio:GeneExpressionValue ;
+		sio:inRelationTo gdc-kb:gene-c573ecf6cfaa07b6da9f49746f55a4f7 .
+
+	gdc-kb:overlap-c573ecf6cfaa07b6da9f49746f55a4f7	rdf:type	gdc-kb:overlap;
+		rdf:type	sio:Overlap ;
+		sio:inRelationTo gdc-kb:gene_expression_value-c573ecf6cfaa07b6da9f49746f55a4f7 .
+
+}
+
+gdc-kb:provenance-c573ecf6cfaa07b6da9f49746f55a4f7 {
+	gdc-kb:assertion-c573ecf6cfaa07b6da9f49746f55a4f7 prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime .
+
+	gdc-kb:miRNA_ID-c573ecf6cfaa07b6da9f49746f55a4f7	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:read_count-c573ecf6cfaa07b6da9f49746f55a4f7	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:reads_per_million_miRNA_mapped-c573ecf6cfaa07b6da9f49746f55a4f7	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:cross-mapped-c573ecf6cfaa07b6da9f49746f55a4f7	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:gene-c573ecf6cfaa07b6da9f49746f55a4f7	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:gene_expression_value-c573ecf6cfaa07b6da9f49746f55a4f7	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:overlap-c573ecf6cfaa07b6da9f49746f55a4f7	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:pubInfo-c573ecf6cfaa07b6da9f49746f55a4f7 {
+	gdc-kb:nanoPub-c573ecf6cfaa07b6da9f49746f55a4f7 prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime .
+
+	gdc-kb:miRNA_ID-c573ecf6cfaa07b6da9f49746f55a4f7
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:read_count-c573ecf6cfaa07b6da9f49746f55a4f7
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:reads_per_million_miRNA_mapped-c573ecf6cfaa07b6da9f49746f55a4f7
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:cross-mapped-c573ecf6cfaa07b6da9f49746f55a4f7
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:head-934e56602c4fc43b78fe41879b14a974 {
+	gdc-kb:nanoPub-934e56602c4fc43b78fe41879b14a974
+		rdf:type np:Nanopublication ;
+		np:hasAssertion gdc-kb:assertion-934e56602c4fc43b78fe41879b14a974 ;
+		np:hasProvenance gdc-kb:provenance-934e56602c4fc43b78fe41879b14a974 ;
+		np:hasPublicationInfo gdc-kb:pubInfo-934e56602c4fc43b78fe41879b14a974 .
+}
+
+gdc-kb:assertion-934e56602c4fc43b78fe41879b14a974 {
+	gdc-kb:miRNA_ID-934e56602c4fc43b78fe41879b14a974	rdf:type	gdc-kb:miRNA_ID ;
+		sio:isAttributeOf gdc-kb:gene-934e56602c4fc43b78fe41879b14a974 ;
+		sio:hasValue	"hsa-let-7e"^^xsd:string .
+
+	gdc-kb:read_count-934e56602c4fc43b78fe41879b14a974	rdf:type	gdc-kb:read_count ;
+		sio:isAttributeOf gdc-kb:gene_expression_value-934e56602c4fc43b78fe41879b14a974 ;
+		rdfs:comment "raw read count"^^xsd:string ;
+		sio:hasValue	"3840"^^xsd:integer .
+
+	gdc-kb:reads_per_million_miRNA_mapped-934e56602c4fc43b78fe41879b14a974	rdf:type	gdc-kb:reads_per_million_miRNA_mapped ;
+		sio:isAttributeOf gdc-kb:gene_expression_value-934e56602c4fc43b78fe41879b14a974 ;
+		rdfs:comment "counts normalized to reads per million mapped reads (RPM)"^^xsd:string ;
+		sio:hasValue	"752.759186"^^xsd:float .
+
+	gdc-kb:cross-mapped-934e56602c4fc43b78fe41879b14a974	rdf:type	gdc-kb:cross-mapped ;
+		sio:isAttributeOf gdc-kb:overlap-934e56602c4fc43b78fe41879b14a974 ;
+		rdfs:comment "it's a phenomenon of mi-RNA parts exchanging"^^xsd:string ;
+		rdf:type	sio:False ;
+		rdfs:label	"Not cross-mapped"^^xsd:string ;
+		sio:hasValue	"N"^^xsd:string .
+
+	gdc-kb:gene-934e56602c4fc43b78fe41879b14a974	rdf:type	gdc-kb:gene;
+		rdf:type	sio:Gene;
+		sio:hasIdentifier gdc-kb:miRNA_ID-934e56602c4fc43b78fe41879b14a974 ;
+		sio:isPartOf gdc-kb:subject-934e56602c4fc43b78fe41879b14a974 .
+
+	gdc-kb:gene_expression_value-934e56602c4fc43b78fe41879b14a974	rdf:type	gdc-kb:gene_expression_value;
+		rdf:type	sio:GeneExpressionValue ;
+		sio:inRelationTo gdc-kb:gene-934e56602c4fc43b78fe41879b14a974 .
+
+	gdc-kb:overlap-934e56602c4fc43b78fe41879b14a974	rdf:type	gdc-kb:overlap;
+		rdf:type	sio:Overlap ;
+		sio:inRelationTo gdc-kb:gene_expression_value-934e56602c4fc43b78fe41879b14a974 .
+
+}
+
+gdc-kb:provenance-934e56602c4fc43b78fe41879b14a974 {
+	gdc-kb:assertion-934e56602c4fc43b78fe41879b14a974 prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime .
+
+	gdc-kb:miRNA_ID-934e56602c4fc43b78fe41879b14a974	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:read_count-934e56602c4fc43b78fe41879b14a974	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:reads_per_million_miRNA_mapped-934e56602c4fc43b78fe41879b14a974	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:cross-mapped-934e56602c4fc43b78fe41879b14a974	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:gene-934e56602c4fc43b78fe41879b14a974	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:gene_expression_value-934e56602c4fc43b78fe41879b14a974	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:overlap-934e56602c4fc43b78fe41879b14a974	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:pubInfo-934e56602c4fc43b78fe41879b14a974 {
+	gdc-kb:nanoPub-934e56602c4fc43b78fe41879b14a974 prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime .
+
+	gdc-kb:miRNA_ID-934e56602c4fc43b78fe41879b14a974
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:read_count-934e56602c4fc43b78fe41879b14a974
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:reads_per_million_miRNA_mapped-934e56602c4fc43b78fe41879b14a974
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:cross-mapped-934e56602c4fc43b78fe41879b14a974
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:head-7c62b1e5224c4b57c03559054e7879b5 {
+	gdc-kb:nanoPub-7c62b1e5224c4b57c03559054e7879b5
+		rdf:type np:Nanopublication ;
+		np:hasAssertion gdc-kb:assertion-7c62b1e5224c4b57c03559054e7879b5 ;
+		np:hasProvenance gdc-kb:provenance-7c62b1e5224c4b57c03559054e7879b5 ;
+		np:hasPublicationInfo gdc-kb:pubInfo-7c62b1e5224c4b57c03559054e7879b5 .
+}
+
+gdc-kb:assertion-7c62b1e5224c4b57c03559054e7879b5 {
+	gdc-kb:miRNA_ID-7c62b1e5224c4b57c03559054e7879b5	rdf:type	gdc-kb:miRNA_ID ;
+		sio:isAttributeOf gdc-kb:gene-7c62b1e5224c4b57c03559054e7879b5 ;
+		sio:hasValue	"hsa-let-7f-1"^^xsd:string .
+
+	gdc-kb:read_count-7c62b1e5224c4b57c03559054e7879b5	rdf:type	gdc-kb:read_count ;
+		sio:isAttributeOf gdc-kb:gene_expression_value-7c62b1e5224c4b57c03559054e7879b5 ;
+		rdfs:comment "raw read count"^^xsd:string ;
+		sio:hasValue	"16371"^^xsd:integer .
+
+	gdc-kb:reads_per_million_miRNA_mapped-7c62b1e5224c4b57c03559054e7879b5	rdf:type	gdc-kb:reads_per_million_miRNA_mapped ;
+		sio:isAttributeOf gdc-kb:gene_expression_value-7c62b1e5224c4b57c03559054e7879b5 ;
+		rdfs:comment "counts normalized to reads per million mapped reads (RPM)"^^xsd:string ;
+		sio:hasValue	"3209.224123"^^xsd:float .
+
+	gdc-kb:cross-mapped-7c62b1e5224c4b57c03559054e7879b5	rdf:type	gdc-kb:cross-mapped ;
+		sio:isAttributeOf gdc-kb:overlap-7c62b1e5224c4b57c03559054e7879b5 ;
+		rdfs:comment "it's a phenomenon of mi-RNA parts exchanging"^^xsd:string ;
+		rdf:type	sio:False ;
+		rdfs:label	"Not cross-mapped"^^xsd:string ;
+		sio:hasValue	"N"^^xsd:string .
+
+	gdc-kb:gene-7c62b1e5224c4b57c03559054e7879b5	rdf:type	gdc-kb:gene;
+		rdf:type	sio:Gene;
+		sio:hasIdentifier gdc-kb:miRNA_ID-7c62b1e5224c4b57c03559054e7879b5 ;
+		sio:isPartOf gdc-kb:subject-7c62b1e5224c4b57c03559054e7879b5 .
+
+	gdc-kb:gene_expression_value-7c62b1e5224c4b57c03559054e7879b5	rdf:type	gdc-kb:gene_expression_value;
+		rdf:type	sio:GeneExpressionValue ;
+		sio:inRelationTo gdc-kb:gene-7c62b1e5224c4b57c03559054e7879b5 .
+
+	gdc-kb:overlap-7c62b1e5224c4b57c03559054e7879b5	rdf:type	gdc-kb:overlap;
+		rdf:type	sio:Overlap ;
+		sio:inRelationTo gdc-kb:gene_expression_value-7c62b1e5224c4b57c03559054e7879b5 .
+
+}
+
+gdc-kb:provenance-7c62b1e5224c4b57c03559054e7879b5 {
+	gdc-kb:assertion-7c62b1e5224c4b57c03559054e7879b5 prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime .
+
+	gdc-kb:miRNA_ID-7c62b1e5224c4b57c03559054e7879b5	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:read_count-7c62b1e5224c4b57c03559054e7879b5	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:reads_per_million_miRNA_mapped-7c62b1e5224c4b57c03559054e7879b5	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:cross-mapped-7c62b1e5224c4b57c03559054e7879b5	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:gene-7c62b1e5224c4b57c03559054e7879b5	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:gene_expression_value-7c62b1e5224c4b57c03559054e7879b5	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:overlap-7c62b1e5224c4b57c03559054e7879b5	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:pubInfo-7c62b1e5224c4b57c03559054e7879b5 {
+	gdc-kb:nanoPub-7c62b1e5224c4b57c03559054e7879b5 prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime .
+
+	gdc-kb:miRNA_ID-7c62b1e5224c4b57c03559054e7879b5
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:read_count-7c62b1e5224c4b57c03559054e7879b5
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:reads_per_million_miRNA_mapped-7c62b1e5224c4b57c03559054e7879b5
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:cross-mapped-7c62b1e5224c4b57c03559054e7879b5
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:head-b804436b9bc295c472abe5dcf9adf487 {
+	gdc-kb:nanoPub-b804436b9bc295c472abe5dcf9adf487
+		rdf:type np:Nanopublication ;
+		np:hasAssertion gdc-kb:assertion-b804436b9bc295c472abe5dcf9adf487 ;
+		np:hasProvenance gdc-kb:provenance-b804436b9bc295c472abe5dcf9adf487 ;
+		np:hasPublicationInfo gdc-kb:pubInfo-b804436b9bc295c472abe5dcf9adf487 .
+}
+
+gdc-kb:assertion-b804436b9bc295c472abe5dcf9adf487 {
+	gdc-kb:miRNA_ID-b804436b9bc295c472abe5dcf9adf487	rdf:type	gdc-kb:miRNA_ID ;
+		sio:isAttributeOf gdc-kb:gene-b804436b9bc295c472abe5dcf9adf487 ;
+		sio:hasValue	"hsa-let-7f-2"^^xsd:string .
+
+	gdc-kb:read_count-b804436b9bc295c472abe5dcf9adf487	rdf:type	gdc-kb:read_count ;
+		sio:isAttributeOf gdc-kb:gene_expression_value-b804436b9bc295c472abe5dcf9adf487 ;
+		rdfs:comment "raw read count"^^xsd:string ;
+		sio:hasValue	"16672"^^xsd:integer .
+
+	gdc-kb:reads_per_million_miRNA_mapped-b804436b9bc295c472abe5dcf9adf487	rdf:type	gdc-kb:reads_per_million_miRNA_mapped ;
+		sio:isAttributeOf gdc-kb:gene_expression_value-b804436b9bc295c472abe5dcf9adf487 ;
+		rdfs:comment "counts normalized to reads per million mapped reads (RPM)"^^xsd:string ;
+		sio:hasValue	"3268.229465"^^xsd:float .
+
+	gdc-kb:cross-mapped-b804436b9bc295c472abe5dcf9adf487	rdf:type	gdc-kb:cross-mapped ;
+		sio:isAttributeOf gdc-kb:overlap-b804436b9bc295c472abe5dcf9adf487 ;
+		rdfs:comment "it's a phenomenon of mi-RNA parts exchanging"^^xsd:string ;
+		rdf:type	sio:False ;
+		rdfs:label	"Not cross-mapped"^^xsd:string ;
+		sio:hasValue	"N"^^xsd:string .
+
+	gdc-kb:gene-b804436b9bc295c472abe5dcf9adf487	rdf:type	gdc-kb:gene;
+		rdf:type	sio:Gene;
+		sio:hasIdentifier gdc-kb:miRNA_ID-b804436b9bc295c472abe5dcf9adf487 ;
+		sio:isPartOf gdc-kb:subject-b804436b9bc295c472abe5dcf9adf487 .
+
+	gdc-kb:gene_expression_value-b804436b9bc295c472abe5dcf9adf487	rdf:type	gdc-kb:gene_expression_value;
+		rdf:type	sio:GeneExpressionValue ;
+		sio:inRelationTo gdc-kb:gene-b804436b9bc295c472abe5dcf9adf487 .
+
+	gdc-kb:overlap-b804436b9bc295c472abe5dcf9adf487	rdf:type	gdc-kb:overlap;
+		rdf:type	sio:Overlap ;
+		sio:inRelationTo gdc-kb:gene_expression_value-b804436b9bc295c472abe5dcf9adf487 .
+
+}
+
+gdc-kb:provenance-b804436b9bc295c472abe5dcf9adf487 {
+	gdc-kb:assertion-b804436b9bc295c472abe5dcf9adf487 prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime .
+
+	gdc-kb:miRNA_ID-b804436b9bc295c472abe5dcf9adf487	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:read_count-b804436b9bc295c472abe5dcf9adf487	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:reads_per_million_miRNA_mapped-b804436b9bc295c472abe5dcf9adf487	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:cross-mapped-b804436b9bc295c472abe5dcf9adf487	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:gene-b804436b9bc295c472abe5dcf9adf487	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:gene_expression_value-b804436b9bc295c472abe5dcf9adf487	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:overlap-b804436b9bc295c472abe5dcf9adf487	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:pubInfo-b804436b9bc295c472abe5dcf9adf487 {
+	gdc-kb:nanoPub-b804436b9bc295c472abe5dcf9adf487 prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime .
+
+	gdc-kb:miRNA_ID-b804436b9bc295c472abe5dcf9adf487
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:read_count-b804436b9bc295c472abe5dcf9adf487
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:reads_per_million_miRNA_mapped-b804436b9bc295c472abe5dcf9adf487
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:cross-mapped-b804436b9bc295c472abe5dcf9adf487
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:head-162067fce44e331f2056e6cf5d2859b2 {
+	gdc-kb:nanoPub-162067fce44e331f2056e6cf5d2859b2
+		rdf:type np:Nanopublication ;
+		np:hasAssertion gdc-kb:assertion-162067fce44e331f2056e6cf5d2859b2 ;
+		np:hasProvenance gdc-kb:provenance-162067fce44e331f2056e6cf5d2859b2 ;
+		np:hasPublicationInfo gdc-kb:pubInfo-162067fce44e331f2056e6cf5d2859b2 .
+}
+
+gdc-kb:assertion-162067fce44e331f2056e6cf5d2859b2 {
+	gdc-kb:miRNA_ID-162067fce44e331f2056e6cf5d2859b2	rdf:type	gdc-kb:miRNA_ID ;
+		sio:isAttributeOf gdc-kb:gene-162067fce44e331f2056e6cf5d2859b2 ;
+		sio:hasValue	"hsa-let-7g"^^xsd:string .
+
+	gdc-kb:read_count-162067fce44e331f2056e6cf5d2859b2	rdf:type	gdc-kb:read_count ;
+		sio:isAttributeOf gdc-kb:gene_expression_value-162067fce44e331f2056e6cf5d2859b2 ;
+		rdfs:comment "raw read count"^^xsd:string ;
+		sio:hasValue	"3456"^^xsd:integer .
+
+	gdc-kb:reads_per_million_miRNA_mapped-162067fce44e331f2056e6cf5d2859b2	rdf:type	gdc-kb:reads_per_million_miRNA_mapped ;
+		sio:isAttributeOf gdc-kb:gene_expression_value-162067fce44e331f2056e6cf5d2859b2 ;
+		rdfs:comment "counts normalized to reads per million mapped reads (RPM)"^^xsd:string ;
+		sio:hasValue	"677.483267"^^xsd:float .
+
+	gdc-kb:cross-mapped-162067fce44e331f2056e6cf5d2859b2	rdf:type	gdc-kb:cross-mapped ;
+		sio:isAttributeOf gdc-kb:overlap-162067fce44e331f2056e6cf5d2859b2 ;
+		rdfs:comment "it's a phenomenon of mi-RNA parts exchanging"^^xsd:string ;
+		rdf:type	sio:False ;
+		rdfs:label	"Not cross-mapped"^^xsd:string ;
+		sio:hasValue	"N"^^xsd:string .
+
+	gdc-kb:gene-162067fce44e331f2056e6cf5d2859b2	rdf:type	gdc-kb:gene;
+		rdf:type	sio:Gene;
+		sio:hasIdentifier gdc-kb:miRNA_ID-162067fce44e331f2056e6cf5d2859b2 ;
+		sio:isPartOf gdc-kb:subject-162067fce44e331f2056e6cf5d2859b2 .
+
+	gdc-kb:gene_expression_value-162067fce44e331f2056e6cf5d2859b2	rdf:type	gdc-kb:gene_expression_value;
+		rdf:type	sio:GeneExpressionValue ;
+		sio:inRelationTo gdc-kb:gene-162067fce44e331f2056e6cf5d2859b2 .
+
+	gdc-kb:overlap-162067fce44e331f2056e6cf5d2859b2	rdf:type	gdc-kb:overlap;
+		rdf:type	sio:Overlap ;
+		sio:inRelationTo gdc-kb:gene_expression_value-162067fce44e331f2056e6cf5d2859b2 .
+
+}
+
+gdc-kb:provenance-162067fce44e331f2056e6cf5d2859b2 {
+	gdc-kb:assertion-162067fce44e331f2056e6cf5d2859b2 prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime .
+
+	gdc-kb:miRNA_ID-162067fce44e331f2056e6cf5d2859b2	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:read_count-162067fce44e331f2056e6cf5d2859b2	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:reads_per_million_miRNA_mapped-162067fce44e331f2056e6cf5d2859b2	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:cross-mapped-162067fce44e331f2056e6cf5d2859b2	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:gene-162067fce44e331f2056e6cf5d2859b2	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:gene_expression_value-162067fce44e331f2056e6cf5d2859b2	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:overlap-162067fce44e331f2056e6cf5d2859b2	prov:generatedAtTime	"2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:pubInfo-162067fce44e331f2056e6cf5d2859b2 {
+	gdc-kb:nanoPub-162067fce44e331f2056e6cf5d2859b2 prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime .
+
+	gdc-kb:miRNA_ID-162067fce44e331f2056e6cf5d2859b2
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:read_count-162067fce44e331f2056e6cf5d2859b2
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:reads_per_million_miRNA_mapped-162067fce44e331f2056e6cf5d2859b2
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+	gdc-kb:cross-mapped-162067fce44e331f2056e6cf5d2859b2
+		prov:generatedAtTime "2017-12-20T19:48:23Z"^^xsd:dateTime  .
+
+}
+

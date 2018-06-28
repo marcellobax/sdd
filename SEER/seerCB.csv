@@ -1,0 +1,84 @@
+Column,Code,Label,Class
+T,0,T0,ncit:C48719
+T,1,T1,ncit:C48720
+T,1a,T1a,ncit:C48721
+T,1a(m),T1a(m),staging:T1a_m
+T,1a(s),T1a(s),staging:T1a_s
+T,1a1,T1a1,staging:T1a1
+T,1a2,T1a2,staging:T1a2
+T,1b,T1b,ncit:C48722
+T,1b(m),T1b(m),staging:T1b_m
+T,1b(s),T1b(s),staging:T1b_s
+T,1b1,T1b1,staging:T1b1
+T,1b2,T1b2,staging:T1b2
+T,1c,T1c,ncit:C48723
+T,1d,T1d,staging:T1d
+T,1mic,T1mic,ncit:C95805
+T,1NOS,T1NOS,staging:T1NOS
+T,1NOS(s),T1NOS(s),staging:T1NOS_s
+T,2,T2,ncit:C48724
+T,2(m),T2(m),staging:T2_m
+T,2(s),T2(s),staging:T2_s
+T,2a,T2a,ncit:C48725
+T,2a1,T2a1,staging:T2a1
+T,2a2,T2a2,staging:T2a2
+T,2b,T2b,ncit:C48726
+T,2c,T2c,ncit:C48727
+T,2d,T2d,staging:T2d
+T,2NOS,T2NOS,staging:T2NOS
+T,2aNOS,T2aNOS,staging:T2aNOS
+T,3,T3,ncit:C48728
+T,3(m),T3(m),staging:T3_m
+T,3(s),T3(s),staging:T3_s
+T,3a,T3a,ncit:C48729
+T,3b,T3b,ncit:C48730
+T,3c,T3c,ncit:C48731
+T,3d,T3d,staging:T3d
+T,3NOS,T3NOS,staging:T3NOS
+T,4,T4,ncit:C48732
+T,4a,T4a,ncit:C48733
+T,a,Ta,ncit:C96025
+T,is,Tis,ncit:C48738
+T,X,TX,ncit:C48737
+N,0,N0,ncit:C48705
+N,0(i-),N0(i-),ncit:C95921
+N,0(i+),N0(i+),ncit:C95922
+N,1,N1,ncit:C48706
+N,1a,N1a,ncit:C48707
+N,1b,N1b,ncit:C48708
+N,1c,N1c,ncit:C48709
+N,1mi,N1mi,ncit:C95955
+N,1NOS,N1NOS,staging:N1NOS
+N,2,N2,ncit:C48786
+N,2a,N2a,ncit:C48711
+N,2b,N2b,ncit:C48712
+N,2c,N2c,ncit:C48713
+N,2NOS,N2NOS,staging:N2NOS
+N,3,N3,ncit:C48714
+N,3a,N3a,ncit:C48715
+N,3b,N3b,ncit:C48716
+N,3c,N3c,ncit:C48717
+N,3NOS,N3NOS,staging:N3NOS
+N,4,N4,ncit:C96026
+N,X,NX,ncit:C48718
+M,0,M0,ncit:C48699
+M,0(i+),M0(i+),staging:M0_iPos
+M,1,M1,ncit:C48700
+M,1a,M1a,ncit:C48701
+M,1b,M1b,ncit:C48702
+M,1c,M1c,ncit:C48703
+M,1NOS,M1NOS,staging:M1NOS
+M,X,MX,ncit:C48704
+Grade,1,Grade 1 Malignant Neoplasm,ncit:C36039
+Grade,2,Grade 2 Malignant Neoplasm,ncit:C36040
+Grade,3,Grade 3 Malignant Neoplasm,ncit:C36042
+Grade,4,Grade 4 Malignant Neoplasm,ncit:C36045
+HER2,Pos,HER2 Positive,ncit:C68748
+HER2,Neg,HER2 Negative,ncit:C68749
+ER,Pos,ER Positive,ncit:C15492
+ER,Neg,ER Negative,ncit:C15493
+PR,Pos,PR Positive,ncit:C15496
+PR,Neg,PR Negative,ncit:C15497
+Sex,Male,male,sio:Male
+Sex,Female,female,sio:Female
+

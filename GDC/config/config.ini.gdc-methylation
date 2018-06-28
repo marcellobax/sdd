@@ -1,0 +1,14 @@
+[Prefixes]
+# Specify a file with the prefixes for existing ontologies used in your translation
+prefixes = GDC/config/prefixes.txt
+# Specify the base uri to be associated with all triples minted by the script
+base_uri = gdc-kb
+
+[Source Files]
+dictionary = GDC/Methylation/GDC_Methylation_SDD.csv 
+codebook = GDC/Methylation/GDC_Methylation_CB.csv
+code_mappings = code_mappings.csv
+data_file = GDC/Methylation/tenRows.csv
+
+[Output Files]
+out_file = GDC/Methylation/GDC_Methylation-out.txt

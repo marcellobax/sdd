@@ -1,0 +1,15 @@
+Column,Code,Label,Class
+education,1,illiterate,chear:NoFormalEducation
+education,2,able to write,chear:SomeElementarySchool
+education,3,primary education,chear:ElementarySchool
+education,4,secondary education,chear:SomeHighSchool
+education,6,college/graduate,chear:CollegeGraduate
+education,7,post-graduate,chear:AdvancedDegree
+educat,0,illiterate,chear:NoFormalEducation
+educat,1,primary education,chear:SomeElementarySchool
+educat,2,secondary education or higher,chear:HigherEducation
+gender,1,male,sio:Male
+gender,0,female,sio:Female
+bmicat,0,<18.5,chear:Underweight
+bmicat,1,18.5-25,chear:NormalWeight
+bmicat,2,>25,chear:OverweightOrObese

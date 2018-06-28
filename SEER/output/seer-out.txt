@@ -1,0 +1,531 @@
+@prefix nhanes-kb: <http://idea.rpi.edu/heals/kb/nhanes#> .
+@prefix gdc-kb: <http://idea.rpi.edu/heals/kb/gdc#> .
+@prefix seer-kb: <http://idea.rpi.edu/heals/kb/seer#> .
+@prefix heals-kb: <http://idea.rpi.edu/heals/kb/heals#> .
+@prefix heals: <http://idea.rpi.edu/heals/ont/heals#> .
+@prefix chear: <http://hadatac.org/ont/chear#> .
+@prefix chear-kb: <http://hadatac.org/kb/chear#> .
+@prefix uberon: <http://purl.obolibrary.org/obo/uberon.owl#> .
+@prefix sio: <http://semanticscience.org/resource/> .
+@prefix envo: <http://purl.obolibrary.org/obo/ENVO_> .
+@prefix chebi: <http://purl.obolibrary.org/obo/CHEBI_> .
+@prefix hp: <http://purl.obolibrary.org/obo/HP_> .
+@prefix oae: <http://purl.obolibrary.org/obo/OAE_> .
+@prefix ncit: <http://purl.obolibrary.org/obo/NCIT_> .
+@prefix hasco: <http://hadatac.org/ont/hasco#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix pubchem: <http://rdf.ncbi.nlm.nih.gov/pubchem/compound/> .
+@prefix doid: <http://purl.obolibrary.org/obo/DOID_> .
+@prefix uo: <http://purl.obolibrary.org/obo/UO_> . 
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix uberon: <http://purl.obolibrary.org/obo/UBERON_> .
+@prefix np: <http://www.nanopub.org/nschema#>.
+@prefix pr: <http://purl.obolibrary.org/obo/PR_>.
+
+seer-kb:head-actual_entry { 
+	seer-kb:nanoPub-actual_entry	rdf:type np:Nanopublication ;
+		np:hasAssertion seer-kb:assertion-actual_entry ;
+		np:hasProvenance seer-kb:provenance-actual_entry ;
+		np:hasPublicationInfo seer-kb:pubInfo-actual_entry .
+}
+
+seer-kb:assertion-actual_entry {
+	seer-kb:T	rdf:type	owl:Class ;
+		rdfs:subClassOf sio:Diameter ;
+		rdfs:subClassOf ncit:C120284 ;
+		sio:isAttributeOf seer-kb:tumor ;
+		sio:hasUnit obo:UO_0000016 .
+
+	seer-kb:N	rdf:type	owl:Class ;
+		rdfs:subClassOf sio:Count ;
+		sio:isAttributeOf seer-kb:lymph_node .
+
+	seer-kb:M	rdf:type	owl:Class ;
+		rdfs:subClassOf sio:StatusDescriptor ;
+		sio:isAttributeOf seer-kb:metastasis .
+
+	seer-kb:Stage	rdf:type	owl:Class ;
+		rdfs:subClassOf ncit:C90513 ;
+		sio:isAttributeOf seer-kb:tumor .
+
+	seer-kb:Age_at_diagnosis	rdf:type	owl:Class ;
+		rdfs:subClassOf sio:Age ;
+		sio:isAttributeOf seer-kb:subject ;
+		sio:existsAt seer-kb:diagnosis .
+
+	seer-kb:Race_recode_White_Black_Other	rdf:type	owl:Class ;
+		rdfs:subClassOf sio:Race ;
+		sio:isAttributeOf seer-kb:subject .
+
+	seer-kb:Sex	rdf:type	owl:Class ;
+		rdfs:subClassOf sio:BiologicalSex ;
+		sio:isAttributeOf seer-kb:subject .
+
+	seer-kb:Vital_status_recode_study_cutoff_used	rdf:type	owl:Class ;
+		rdfs:subClassOf sio:LifeStatus ;
+		sio:isAttributeOf seer-kb:subject .
+
+	seer-kb:Month_of_diagnosis_recode	rdf:type	owl:Class ;
+		rdfs:subClassOf sio:TimeInstant ;
+		sio:isAttributeOf seer-kb:diagnosis ;
+		sio:hasUnit xsd:gMonth .
+
+	seer-kb:Year_of_diagnosis	rdf:type	owl:Class ;
+		rdfs:subClassOf sio:TimeInstant ;
+		sio:isAttributeOf seer-kb:diagnosis ;
+		sio:hasUnit xsd:gYear .
+
+	seer-kb:Month_of_follow-up_recode	rdf:type	owl:Class ;
+		rdfs:subClassOf sio:TimeInstant ;
+		sio:isAttributeOf seer-kb:follow_up ;
+		sio:hasUnit xsd:gMonth .
+
+	seer-kb:Year_of_follow-up_recode	rdf:type	owl:Class ;
+		rdfs:subClassOf sio:TimeInstant ;
+		sio:isAttributeOf seer-kb:follow_up ;
+		sio:hasUnit xsd:gYear .
+
+	seer-kb:End_Calc_Vital_Status_Adjusted	rdf:type	owl:Class ;
+		rdfs:subClassOf chear:UnknownAttribute ;
+		sio:isAttributeOf seer-kb:subject .
+
+	seer-kb:Begin_Calc_Age_Adjusted	rdf:type	owl:Class ;
+		rdfs:subClassOf chear:UnknownAttribute ;
+		sio:isAttributeOf seer-kb:subject .
+
+	seer-kb:Number_of_Intervals_Calculated	rdf:type	owl:Class ;
+		rdfs:subClassOf chear:UnknownAttribute ;
+		sio:isAttributeOf seer-kb:subject .
+
+	seer-kb:Cumulative_Expected_Calculated	rdf:type	owl:Class ;
+		rdfs:subClassOf chear:UnknownAttribute ;
+		sio:isAttributeOf seer-kb:subject .
+
+	seer-kb:Final_Interval_Expected_12_month	rdf:type	owl:Class ;
+		rdfs:subClassOf chear:UnknownAttribute ;
+		sio:isAttributeOf seer-kb:subject .
+
+	seer-kb:Final_Interval_Age_Calculated	rdf:type	owl:Class ;
+		rdfs:subClassOf chear:UnknownAttribute ;
+		sio:isAttributeOf seer-kb:subject .
+
+	seer-kb:Final_Interval_Year_Calculated	rdf:type	owl:Class ;
+		rdfs:subClassOf chear:UnknownAttribute ;
+		sio:isAttributeOf seer-kb:subject .
+
+	seer-kb:Grade	rdf:type	owl:Class ;
+		rdfs:subClassOf ncit:C36041 ;
+		rdfs:subClassOf ncit:C135461 ;
+		sio:isAttributeOf seer-kb:tumor .
+
+	seer-kb:HER2	rdf:type	owl:Class ;
+		rdfs:subClassOf sio:StatusDescriptor ;
+		sio:isAttributeOf seer-kb:her2_gene .
+
+	seer-kb:ER	rdf:type	owl:Class ;
+		rdfs:subClassOf sio:StatusDescriptor ;
+		sio:isAttributeOf seer-kb:er_protein .
+
+	seer-kb:PR	rdf:type	owl:Class ;
+		rdfs:subClassOf sio:StatusDescriptor ;
+		sio:isAttributeOf seer-kb:pr_protein .
+
+	seer-kb:OncotypeDX	rdf:type	owl:Class ;
+		rdfs:subClassOf ncit:C116341 ;
+		sio:isAttributeOf seer-kb:subject .
+
+}
+
+seer-kb:provenance-actual_entry {
+	seer-kb:assertion-actual_entry	prov:generatedAtTime	"2017-12-05T14:18:25Z"^^xsd:dateTime .
+
+	seer-kb:T
+		prov:generatedAtTime "2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:N
+		prov:generatedAtTime "2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:M
+		prov:generatedAtTime "2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:Stage
+		prov:generatedAtTime "2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:Age_at_diagnosis
+		prov:generatedAtTime "2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:Race_recode_White_Black_Other
+		prov:generatedAtTime "2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:Sex
+		prov:generatedAtTime "2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:Vital_status_recode_study_cutoff_used
+		prov:generatedAtTime "2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:Month_of_diagnosis_recode
+		prov:generatedAtTime "2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:Year_of_diagnosis
+		prov:generatedAtTime "2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:Month_of_follow-up_recode
+		prov:generatedAtTime "2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:Year_of_follow-up_recode
+		prov:generatedAtTime "2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:End_Calc_Vital_Status_Adjusted
+		prov:generatedAtTime "2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:Begin_Calc_Age_Adjusted
+		prov:generatedAtTime "2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:Number_of_Intervals_Calculated
+		prov:generatedAtTime "2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:Cumulative_Expected_Calculated
+		prov:generatedAtTime "2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:Final_Interval_Expected_12_month
+		prov:generatedAtTime "2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:Final_Interval_Age_Calculated
+		prov:generatedAtTime "2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:Final_Interval_Year_Calculated
+		prov:generatedAtTime "2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:Grade
+		prov:generatedAtTime "2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:HER2
+		prov:generatedAtTime "2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:ER
+		prov:generatedAtTime "2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:PR
+		prov:generatedAtTime "2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:OncotypeDX
+		prov:generatedAtTime "2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+}
+
+seer-kb:pubInfo-actual_entry {
+	seer-kb:nanoPub-actual_entry	prov:generatedAtTime	"2017-12-05T14:18:25Z"^^xsd:dateTime .
+}
+
+seer-kb:head-virtual_entry { 
+	seer-kb:nanoPub-virtual_entry	rdf:type np:Nanopublication ;
+		np:hasAssertion seer-kb:assertion-virtual_entry ;
+		np:hasProvenance seer-kb:provenance-virtual_entry ;
+		np:hasPublicationInfo seer-kb:pubInfo-virtual_entry .
+}
+
+seer-kb:assertion-virtual_entry {
+	seer-kb:her2_gene	rdf:type	owl:Class ;
+		rdfs:label "her2_gene" ;
+		rdfs:subClassOf ncit:C17756 .
+
+	seer-kb:er_protein	rdf:type	owl:Class ;
+		rdfs:label "er_protein" ;
+		rdfs:subClassOf ncit:C38361 ;
+		rdfs:subClassOf pr:000007204 .
+
+	seer-kb:pr_protein	rdf:type	owl:Class ;
+		rdfs:label "pr_protein" ;
+		rdfs:subClassOf ncit:C17075 ;
+		rdfs:subClassOf pr:000012621 .
+
+	seer-kb:diagnosis	rdf:type	owl:Class ;
+		rdfs:label "diagnosis" ;
+		rdfs:subClassOf sio:Diagnosis .
+
+	seer-kb:subject	rdf:type	owl:Class ;
+		rdfs:label "subject" ;
+		rdfs:subClassOf sio:Human ;
+		sio:hasRole [ rdf:type	sio:SubjectRole ;
+			sio:inRelationTo seer-kb:study ] .
+
+	seer-kb:study	rdf:type	owl:Class ;
+		rdfs:label "study" ;
+		rdfs:subClassOf hasco:Study .
+
+	seer-kb:tumor	rdf:type	owl:Class ;
+		rdfs:label "tumor" ;
+		rdfs:subClassOf hp:0002664 ;
+		rdfs:subClassOf ncit:C3262 ;
+		sio:isPartOf seer-kb:subject .
+
+	seer-kb:follow_up	rdf:type	owl:Class ;
+		rdfs:label "follow_up" ;
+		rdfs:subClassOf ncit:C16033 .
+
+	seer-kb:lymph_node	rdf:type	owl:Class ;
+		rdfs:label "lymph_node" ;
+		rdfs:subClassOf uberon:0000029 ;
+		rdfs:subClassOf ncit:C12745 .
+
+	seer-kb:cancer	rdf:type	owl:Class ;
+		rdfs:label "cancer" ;
+		rdfs:subClassOf ncit:C9305 .
+
+	seer-kb:metastasis	rdf:type	owl:Class ;
+		rdfs:label "metastasis" ;
+		rdfs:subClassOf ncit:C19151 .
+
+}
+
+seer-kb:provenance-virtual_entry {
+	seer-kb:assertion-virtual_entry	prov:generatedAtTime	"2017-12-05T14:18:25Z"^^xsd:dateTime .
+
+	seer-kb:her2_gene
+		prov:generatedAtTime	"2017-12-05T14:18:25Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom seer-kb:subject .
+
+	seer-kb:er_protein
+		prov:generatedAtTime	"2017-12-05T14:18:25Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom seer-kb:subject .
+
+	seer-kb:pr_protein
+		prov:generatedAtTime	"2017-12-05T14:18:25Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom seer-kb:subject .
+
+	seer-kb:diagnosis
+		prov:generatedAtTime	"2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:subject
+		prov:generatedAtTime	"2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:study
+		prov:generatedAtTime	"2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:tumor
+		prov:generatedAtTime	"2017-12-05T14:18:25Z"^^xsd:dateTime  ;
+		prov:wasGeneratedBy seer-kb:cancer .
+
+	seer-kb:follow_up
+		prov:generatedAtTime	"2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:lymph_node
+		prov:generatedAtTime	"2017-12-05T14:18:25Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom seer-kb:subject .
+
+	seer-kb:cancer
+		prov:generatedAtTime	"2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:metastasis
+		prov:generatedAtTime	"2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+}
+
+seer-kb:pubInfo-virtual_entry {
+	seer-kb:nanoPub-virtual_entry	prov:generatedAtTime	"2017-12-05T14:18:25Z"^^xsd:dateTime .
+}
+
+seer-kb:head-872e7b55e5672dec45effb9fe58a0c84 {
+	seer-kb:nanoPub-872e7b55e5672dec45effb9fe58a0c84
+		rdf:type np:Nanopublication ;
+		np:hasAssertion seer-kb:assertion-872e7b55e5672dec45effb9fe58a0c84 ;
+		np:hasProvenance seer-kb:provenance-872e7b55e5672dec45effb9fe58a0c84 ;
+		np:hasPublicationInfo seer-kb:pubInfo-872e7b55e5672dec45effb9fe58a0c84 .
+}
+
+seer-kb:assertion-872e7b55e5672dec45effb9fe58a0c84 {
+	seer-kb:T-872e7b55e5672dec45effb9fe58a0c84	rdf:type	seer-kb:T ;
+		sio:isAttributeOf seer-kb:tumor-872e7b55e5672dec45effb9fe58a0c84 ;
+		sio:hasUnit obo:UO_0000016 ;
+		rdf:type	ncit:C48728 ;
+		rdfs:label	"T3"^^xsd:string ;
+		sio:hasValue	"3"^^xsd:integer .
+
+	seer-kb:N-872e7b55e5672dec45effb9fe58a0c84	rdf:type	seer-kb:N ;
+		sio:isAttributeOf seer-kb:lymph_node-872e7b55e5672dec45effb9fe58a0c84 ;
+		rdf:type	ncit:C48706 ;
+		rdfs:label	"N1"^^xsd:string ;
+		sio:hasValue	"1"^^xsd:integer .
+
+	seer-kb:M-872e7b55e5672dec45effb9fe58a0c84	rdf:type	seer-kb:M ;
+		sio:isAttributeOf seer-kb:metastasis-872e7b55e5672dec45effb9fe58a0c84 ;
+		rdf:type	ncit:C48699 ;
+		rdfs:label	"M0"^^xsd:string ;
+		sio:hasValue	"0"^^xsd:integer .
+
+	seer-kb:Age_at_diagnosis-872e7b55e5672dec45effb9fe58a0c84	rdf:type	seer-kb:Age_at_diagnosis ;
+		sio:isAttributeOf seer-kb:subject-872e7b55e5672dec45effb9fe58a0c84 ;
+		sio:existsAt seer-kb:diagnosis-872e7b55e5672dec45effb9fe58a0c84 ;
+		sio:hasValue	"45"^^xsd:float .
+
+	seer-kb:Race_recode_White_Black_Other-872e7b55e5672dec45effb9fe58a0c84	rdf:type	seer-kb:Race_recode_White_Black_Other ;
+		sio:isAttributeOf seer-kb:subject-872e7b55e5672dec45effb9fe58a0c84 ;
+		sio:hasValue	"Hispanic"^^xsd:string .
+
+	seer-kb:Sex-872e7b55e5672dec45effb9fe58a0c84	rdf:type	seer-kb:Sex ;
+		sio:isAttributeOf seer-kb:subject-872e7b55e5672dec45effb9fe58a0c84 ;
+		sio:hasValue	"Female"^^xsd:integer .
+
+	seer-kb:Grade-872e7b55e5672dec45effb9fe58a0c84	rdf:type	seer-kb:Grade ;
+		sio:isAttributeOf seer-kb:tumor-872e7b55e5672dec45effb9fe58a0c84 ;
+		rdf:type	ncit:C36039 ;
+		rdfs:label	"Grade 1 Malignant Neoplasm"^^xsd:string ;
+		sio:hasValue	"1"^^xsd:integer .
+
+	seer-kb:HER2-872e7b55e5672dec45effb9fe58a0c84	rdf:type	seer-kb:HER2 ;
+		sio:isAttributeOf seer-kb:her2_gene-872e7b55e5672dec45effb9fe58a0c84 ;
+		rdf:type	ncit:C68748 ;
+		rdfs:label	"HER2 Positive"^^xsd:string ;
+		sio:hasValue	"Pos"^^xsd:integer .
+
+	seer-kb:ER-872e7b55e5672dec45effb9fe58a0c84	rdf:type	seer-kb:ER ;
+		sio:isAttributeOf seer-kb:er_protein-872e7b55e5672dec45effb9fe58a0c84 ;
+		rdf:type	ncit:C15492 ;
+		rdfs:label	"ER Positive"^^xsd:string ;
+		sio:hasValue	"Pos"^^xsd:string .
+
+	seer-kb:PR-872e7b55e5672dec45effb9fe58a0c84	rdf:type	seer-kb:PR ;
+		sio:isAttributeOf seer-kb:pr_protein-872e7b55e5672dec45effb9fe58a0c84 ;
+		rdf:type	ncit:C15496 ;
+		rdfs:label	"PR Positive"^^xsd:string ;
+		sio:hasValue	"Pos"^^xsd:string .
+
+	seer-kb:OncotypeDX-872e7b55e5672dec45effb9fe58a0c84	rdf:type	seer-kb:OncotypeDX ;
+		sio:isAttributeOf seer-kb:subject-872e7b55e5672dec45effb9fe58a0c84 ;
+		sio:hasValue	"nan"^^xsd:string .
+
+	seer-kb:tumor-872e7b55e5672dec45effb9fe58a0c84	rdf:type	seer-kb:tumor;
+		rdf:type	hp:0002664;
+		rdf:type	ncit:C3262 ;
+		sio:isPartOf seer-kb:subject-872e7b55e5672dec45effb9fe58a0c84 .
+
+	seer-kb:lymph_node-872e7b55e5672dec45effb9fe58a0c84	rdf:type	seer-kb:lymph_node;
+		rdf:type	uberon:0000029;
+		rdf:type	ncit:C12745 ;
+		sio:inRelationTo seer-kb:tumor-872e7b55e5672dec45effb9fe58a0c84 .
+
+	seer-kb:metastasis-872e7b55e5672dec45effb9fe58a0c84	rdf:type	seer-kb:metastasis;
+		rdf:type	ncit:C19151 ;
+		sio:inRelationTo seer-kb:tumor-872e7b55e5672dec45effb9fe58a0c84 .
+
+	seer-kb:subject-872e7b55e5672dec45effb9fe58a0c84	rdf:type	seer-kb:subject;
+		rdf:type	sio:Human ;
+		sio:hasRole [ rdf:type	sio:SubjectRole ;
+			sio:inRelationTo seer-kb:study ] .
+
+	seer-kb:diagnosis-872e7b55e5672dec45effb9fe58a0c84	rdf:type	seer-kb:diagnosis;
+		rdf:type	sio:Diagnosis ;
+		sio:inRelationTo seer-kb:subject-872e7b55e5672dec45effb9fe58a0c84 .
+
+	seer-kb:her2_gene-872e7b55e5672dec45effb9fe58a0c84	rdf:type	seer-kb:her2_gene;
+		rdf:type	ncit:C17756 ;
+		sio:inRelationTo seer-kb:tumor-872e7b55e5672dec45effb9fe58a0c84 .
+
+	seer-kb:er_protein-872e7b55e5672dec45effb9fe58a0c84	rdf:type	seer-kb:er_protein;
+		rdf:type	ncit:C38361;
+		rdf:type	pr:000007204 ;
+		sio:inRelationTo seer-kb:tumor-872e7b55e5672dec45effb9fe58a0c84 .
+
+	seer-kb:pr_protein-872e7b55e5672dec45effb9fe58a0c84	rdf:type	seer-kb:pr_protein;
+		rdf:type	ncit:C17075;
+		rdf:type	pr:000012621 ;
+		sio:inRelationTo seer-kb:tumor-872e7b55e5672dec45effb9fe58a0c84 .
+
+	seer-kb:cancer-872e7b55e5672dec45effb9fe58a0c84	rdf:type	seer-kb:cancer;
+		rdf:type	ncit:C9305 ;
+		sio:inRelationTo seer-kb:subject-872e7b55e5672dec45effb9fe58a0c84 .
+
+}
+
+seer-kb:provenance-872e7b55e5672dec45effb9fe58a0c84 {
+	seer-kb:assertion-872e7b55e5672dec45effb9fe58a0c84 prov:generatedAtTime "2017-12-05T14:18:25Z"^^xsd:dateTime .
+
+	seer-kb:T-872e7b55e5672dec45effb9fe58a0c84	prov:generatedAtTime	"2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:N-872e7b55e5672dec45effb9fe58a0c84	prov:generatedAtTime	"2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:M-872e7b55e5672dec45effb9fe58a0c84	prov:generatedAtTime	"2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:Age_at_diagnosis-872e7b55e5672dec45effb9fe58a0c84	prov:generatedAtTime	"2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:Race_recode_White_Black_Other-872e7b55e5672dec45effb9fe58a0c84	prov:generatedAtTime	"2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:Sex-872e7b55e5672dec45effb9fe58a0c84	prov:generatedAtTime	"2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:Grade-872e7b55e5672dec45effb9fe58a0c84	prov:generatedAtTime	"2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:HER2-872e7b55e5672dec45effb9fe58a0c84	prov:generatedAtTime	"2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:ER-872e7b55e5672dec45effb9fe58a0c84	prov:generatedAtTime	"2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:PR-872e7b55e5672dec45effb9fe58a0c84	prov:generatedAtTime	"2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:OncotypeDX-872e7b55e5672dec45effb9fe58a0c84	prov:generatedAtTime	"2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:tumor-872e7b55e5672dec45effb9fe58a0c84	prov:generatedAtTime	"2017-12-05T14:18:25Z"^^xsd:dateTime  ;
+		prov:wasGeneratedBy seer-kb:cancer-872e7b55e5672dec45effb9fe58a0c84 .
+
+	seer-kb:lymph_node-872e7b55e5672dec45effb9fe58a0c84	prov:generatedAtTime	"2017-12-05T14:18:25Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom seer-kb:subject-872e7b55e5672dec45effb9fe58a0c84 .
+
+	seer-kb:metastasis-872e7b55e5672dec45effb9fe58a0c84	prov:generatedAtTime	"2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:subject-872e7b55e5672dec45effb9fe58a0c84	prov:generatedAtTime	"2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:diagnosis-872e7b55e5672dec45effb9fe58a0c84	prov:generatedAtTime	"2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:her2_gene-872e7b55e5672dec45effb9fe58a0c84	prov:generatedAtTime	"2017-12-05T14:18:25Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom seer-kb:subject-872e7b55e5672dec45effb9fe58a0c84 .
+
+	seer-kb:er_protein-872e7b55e5672dec45effb9fe58a0c84	prov:generatedAtTime	"2017-12-05T14:18:25Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom seer-kb:subject-872e7b55e5672dec45effb9fe58a0c84 .
+
+	seer-kb:pr_protein-872e7b55e5672dec45effb9fe58a0c84	prov:generatedAtTime	"2017-12-05T14:18:25Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom seer-kb:subject-872e7b55e5672dec45effb9fe58a0c84 .
+
+	seer-kb:cancer-872e7b55e5672dec45effb9fe58a0c84	prov:generatedAtTime	"2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+}
+
+seer-kb:pubInfo-872e7b55e5672dec45effb9fe58a0c84 {
+	seer-kb:nanoPub-872e7b55e5672dec45effb9fe58a0c84 prov:generatedAtTime "2017-12-05T14:18:25Z"^^xsd:dateTime .
+
+	seer-kb:T-872e7b55e5672dec45effb9fe58a0c84
+		prov:generatedAtTime "2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:N-872e7b55e5672dec45effb9fe58a0c84
+		prov:generatedAtTime "2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:M-872e7b55e5672dec45effb9fe58a0c84
+		prov:generatedAtTime "2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:Age_at_diagnosis-872e7b55e5672dec45effb9fe58a0c84
+		prov:generatedAtTime "2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:Race_recode_White_Black_Other-872e7b55e5672dec45effb9fe58a0c84
+		prov:generatedAtTime "2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:Sex-872e7b55e5672dec45effb9fe58a0c84
+		prov:generatedAtTime "2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:Grade-872e7b55e5672dec45effb9fe58a0c84
+		prov:generatedAtTime "2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:HER2-872e7b55e5672dec45effb9fe58a0c84
+		prov:generatedAtTime "2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:ER-872e7b55e5672dec45effb9fe58a0c84
+		prov:generatedAtTime "2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:PR-872e7b55e5672dec45effb9fe58a0c84
+		prov:generatedAtTime "2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+	seer-kb:OncotypeDX-872e7b55e5672dec45effb9fe58a0c84
+		prov:generatedAtTime "2017-12-05T14:18:25Z"^^xsd:dateTime  .
+
+}
+

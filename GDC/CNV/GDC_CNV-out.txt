@@ -1,0 +1,1318 @@
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix heals: <http://idea.rpi.edu/heals/ont/heals#> .
+@prefix gdc-kb: <http://idea.rpi.edu/heals/kb/gdc#> .
+@prefix ncit: <http://purl.obolibrary.org/obo/NCIT_> .
+@prefix ogg: <http://purl.obolibrary.org/obo/OGG_>.
+@prefix go: <http://purl.obolibrary.org/obo/GO_>.
+@prefix sio: <http://semanticscience.org/resource/> .
+@prefix uo: <http://purl.obolibrary.org/obo/UO_> . 
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix oae: <http://purl.obolibrary.org/obo/OAE_> .
+@prefix hp: <http://purl.obolibrary.org/obo/HP_> .
+@prefix hasco: <http://hadatac.org/ont/hasco#> .
+@prefix stato: <http://purl.obolibrary.org/obo/STATO_>.
+@prefix np: <http://www.nanopub.org/nschema#>.
+
+gdc-kb:head-actual_entry { 
+	gdc-kb:nanoPub-actual_entry	rdf:type np:Nanopublication ;
+		np:hasAssertion gdc-kb:assertion-actual_entry ;
+		np:hasProvenance gdc-kb:provenance-actual_entry ;
+		np:hasPublicationInfo gdc-kb:pubInfo-actual_entry .
+}
+
+gdc-kb:assertion-actual_entry {
+	gdc-kb:Sample	rdf:type	owl:Class ;
+		rdfs:subClassOf sio:Identifier ;
+		sio:isAttributeOf gdc-kb:sample .
+
+	gdc-kb:Chromosome	rdf:type	owl:Class ;
+		rdfs:subClassOf ncit:C13202 ;
+		sio:isAttributeOf gdc-kb:sample .
+
+	gdc-kb:Start	rdf:type	owl:Class ;
+		rdfs:subClassOf sio:Coordinate ;
+		sio:isAttributeOf gdc-kb:chromosome_start_position .
+
+	gdc-kb:End	rdf:type	owl:Class ;
+		rdfs:subClassOf sio:Coordinate ;
+		sio:isAttributeOf gdc-kb:chromosome_end_position .
+
+	gdc-kb:Num_Probes	rdf:type	owl:Class ;
+		rdfs:subClassOf sio:Count ;
+		sio:isAttributeOf gdc-kb:probe .
+
+	gdc-kb:Segment_Mean	rdf:type	owl:Class ;
+		rdfs:subClassOf sio:Mean ;
+		sio:isAttributeOf gdc-kb:segment .
+
+}
+
+gdc-kb:provenance-actual_entry {
+	gdc-kb:assertion-actual_entry	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime .
+
+	gdc-kb:Sample
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Start
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:End
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Num_Probes
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Segment_Mean
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  ;
+		prov:wasGeneratedBy "Log2 (copy_number/2)"^^xsd:string .
+
+}
+
+gdc-kb:pubInfo-actual_entry {
+	gdc-kb:nanoPub-actual_entry	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime .
+}
+
+gdc-kb:head-virtual_entry { 
+	gdc-kb:nanoPub-virtual_entry	rdf:type np:Nanopublication ;
+		np:hasAssertion gdc-kb:assertion-virtual_entry ;
+		np:hasProvenance gdc-kb:provenance-virtual_entry ;
+		np:hasPublicationInfo gdc-kb:pubInfo-virtual_entry .
+}
+
+gdc-kb:assertion-virtual_entry {
+	gdc-kb:chromosome_start_position	rdf:type	owl:Class ;
+		rdfs:label "chromosome_start_position" ;
+		rdfs:subClassOf ncit:C25431 .
+
+	gdc-kb:chromosome_end_position	rdf:type	owl:Class ;
+		rdfs:label "chromosome_end_position" ;
+		rdfs:subClassOf ncit:C25496 .
+
+	gdc-kb:subject	rdf:type	owl:Class ;
+		rdfs:label "subject" ;
+		rdfs:subClassOf sio:Human ;
+		sio:hasRole [ rdf:type	sio:SubjectRole ;
+			sio:inRelationTo gdc-kb:study ] .
+
+	gdc-kb:study	rdf:type	owl:Class ;
+		rdfs:label "study" ;
+		rdfs:subClassOf hasco:Study .
+
+	gdc-kb:sample	rdf:type	owl:Class ;
+		rdfs:label "sample" ;
+		rdfs:subClassOf sio:Sample .
+
+	gdc-kb:probe	rdf:type	owl:Class ;
+		rdfs:label "probe" ;
+		rdfs:subClassOf ncit:C43523 .
+
+	gdc-kb:segment	rdf:type	owl:Class ;
+		rdfs:label "segment" ;
+		rdfs:subClassOf ncit:C45312 .
+
+	gdc-kb:chromosome_positioning	rdf:type	owl:Class ;
+		rdfs:label "chromosome_positioning" ;
+		rdfs:subClassOf go:0051303 .
+
+}
+
+gdc-kb:provenance-virtual_entry {
+	gdc-kb:assertion-virtual_entry	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime .
+
+	gdc-kb:chromosome_start_position
+		prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:chromosome_end_position
+		prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:subject
+		prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:study
+		prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:sample
+		prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom gdc-kb:subject .
+
+	gdc-kb:probe
+		prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:segment
+		prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:chromosome_positioning
+		prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:pubInfo-virtual_entry {
+	gdc-kb:nanoPub-virtual_entry	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime .
+}
+
+gdc-kb:head-c8ccb5bfc6d82c22868afce496d783ba {
+	gdc-kb:nanoPub-c8ccb5bfc6d82c22868afce496d783ba
+		rdf:type np:Nanopublication ;
+		np:hasAssertion gdc-kb:assertion-c8ccb5bfc6d82c22868afce496d783ba ;
+		np:hasProvenance gdc-kb:provenance-c8ccb5bfc6d82c22868afce496d783ba ;
+		np:hasPublicationInfo gdc-kb:pubInfo-c8ccb5bfc6d82c22868afce496d783ba .
+}
+
+gdc-kb:assertion-c8ccb5bfc6d82c22868afce496d783ba {
+	gdc-kb:Sample-c8ccb5bfc6d82c22868afce496d783ba	rdf:type	gdc-kb:Sample ;
+		sio:isAttributeOf gdc-kb:sample-c8ccb5bfc6d82c22868afce496d783ba ;
+		sio:hasValue	"MICHE_p_TCGAb_428_429_NSP_GenomeWideSNP_6_B05_1521508"^^xsd:string .
+
+	gdc-kb:Chromosome-c8ccb5bfc6d82c22868afce496d783ba	rdf:type	gdc-kb:Chromosome ;
+		sio:isAttributeOf gdc-kb:sample-c8ccb5bfc6d82c22868afce496d783ba ;
+		rdf:type	ncit:C13204 ;
+		rdfs:label	"Chromosome 1"^^xsd:string ;
+		sio:hasValue	"1"^^xsd:integer .
+
+	gdc-kb:Start-c8ccb5bfc6d82c22868afce496d783ba	rdf:type	gdc-kb:Start ;
+		sio:isAttributeOf gdc-kb:chromosome_start_position-c8ccb5bfc6d82c22868afce496d783ba ;
+		sio:hasValue	"61735"^^xsd:integer .
+
+	gdc-kb:End-c8ccb5bfc6d82c22868afce496d783ba	rdf:type	gdc-kb:End ;
+		sio:isAttributeOf gdc-kb:chromosome_end_position-c8ccb5bfc6d82c22868afce496d783ba ;
+		sio:hasValue	"1300687"^^xsd:integer .
+
+	gdc-kb:Num_Probes-c8ccb5bfc6d82c22868afce496d783ba	rdf:type	gdc-kb:Num_Probes ;
+		sio:isAttributeOf gdc-kb:probe-c8ccb5bfc6d82c22868afce496d783ba ;
+		sio:hasValue	"176"^^xsd:integer .
+
+	gdc-kb:Segment_Mean-c8ccb5bfc6d82c22868afce496d783ba	rdf:type	gdc-kb:Segment_Mean ;
+		sio:isAttributeOf gdc-kb:segment-c8ccb5bfc6d82c22868afce496d783ba ;
+		sio:hasValue	"-0.0069"^^xsd:float .
+
+	gdc-kb:sample-c8ccb5bfc6d82c22868afce496d783ba	rdf:type	gdc-kb:sample;
+		rdf:type	sio:Sample;
+		sio:hasIdentifier gdc-kb:Sample-c8ccb5bfc6d82c22868afce496d783ba .
+
+	gdc-kb:chromosome_start_position-c8ccb5bfc6d82c22868afce496d783ba	rdf:type	gdc-kb:chromosome_start_position;
+		rdf:type	ncit:C25431 ;
+		sio:inRelationTo gdc-kb:chromosome_positioning-c8ccb5bfc6d82c22868afce496d783ba .
+
+	gdc-kb:chromosome_end_position-c8ccb5bfc6d82c22868afce496d783ba	rdf:type	gdc-kb:chromosome_end_position;
+		rdf:type	ncit:C25496 ;
+		sio:inRelationTo gdc-kb:chromosome_positioning-c8ccb5bfc6d82c22868afce496d783ba .
+
+	gdc-kb:probe-c8ccb5bfc6d82c22868afce496d783ba	rdf:type	gdc-kb:probe;
+		rdf:type	ncit:C43523 ;
+		sio:inRelationTo gdc-kb:sample-c8ccb5bfc6d82c22868afce496d783ba .
+
+	gdc-kb:segment-c8ccb5bfc6d82c22868afce496d783ba	rdf:type	gdc-kb:segment;
+		rdf:type	ncit:C45312 ;
+		sio:inRelationTo gdc-kb:sample-c8ccb5bfc6d82c22868afce496d783ba .
+
+	gdc-kb:subject-c8ccb5bfc6d82c22868afce496d783ba	rdf:type	gdc-kb:subject;
+		rdf:type	sio:Human ;
+		sio:hasRole [ rdf:type	sio:SubjectRole ;
+			sio:inRelationTo gdc-kb:study ] .
+
+}
+
+gdc-kb:provenance-c8ccb5bfc6d82c22868afce496d783ba {
+	gdc-kb:assertion-c8ccb5bfc6d82c22868afce496d783ba prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime .
+
+	gdc-kb:Sample-c8ccb5bfc6d82c22868afce496d783ba	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-c8ccb5bfc6d82c22868afce496d783ba	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-c8ccb5bfc6d82c22868afce496d783ba	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:End-c8ccb5bfc6d82c22868afce496d783ba	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Num_Probes-c8ccb5bfc6d82c22868afce496d783ba	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Segment_Mean-c8ccb5bfc6d82c22868afce496d783ba	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  ;
+		prov:wasGeneratedBy	"Log2 (copy_number/2)"^^xsd:string .
+
+	gdc-kb:sample-c8ccb5bfc6d82c22868afce496d783ba	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom gdc-kb:subject-c8ccb5bfc6d82c22868afce496d783ba .
+
+	gdc-kb:chromosome_start_position-c8ccb5bfc6d82c22868afce496d783ba	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:chromosome_end_position-c8ccb5bfc6d82c22868afce496d783ba	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:probe-c8ccb5bfc6d82c22868afce496d783ba	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:segment-c8ccb5bfc6d82c22868afce496d783ba	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:subject-c8ccb5bfc6d82c22868afce496d783ba	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:pubInfo-c8ccb5bfc6d82c22868afce496d783ba {
+	gdc-kb:nanoPub-c8ccb5bfc6d82c22868afce496d783ba prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime .
+
+	gdc-kb:Sample-c8ccb5bfc6d82c22868afce496d783ba
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-c8ccb5bfc6d82c22868afce496d783ba
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-c8ccb5bfc6d82c22868afce496d783ba
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:End-c8ccb5bfc6d82c22868afce496d783ba
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Num_Probes-c8ccb5bfc6d82c22868afce496d783ba
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Segment_Mean-c8ccb5bfc6d82c22868afce496d783ba
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:head-9d48f6bd989827b03591e09cff902f65 {
+	gdc-kb:nanoPub-9d48f6bd989827b03591e09cff902f65
+		rdf:type np:Nanopublication ;
+		np:hasAssertion gdc-kb:assertion-9d48f6bd989827b03591e09cff902f65 ;
+		np:hasProvenance gdc-kb:provenance-9d48f6bd989827b03591e09cff902f65 ;
+		np:hasPublicationInfo gdc-kb:pubInfo-9d48f6bd989827b03591e09cff902f65 .
+}
+
+gdc-kb:assertion-9d48f6bd989827b03591e09cff902f65 {
+	gdc-kb:Sample-9d48f6bd989827b03591e09cff902f65	rdf:type	gdc-kb:Sample ;
+		sio:isAttributeOf gdc-kb:sample-9d48f6bd989827b03591e09cff902f65 ;
+		sio:hasValue	"MICHE_p_TCGAb_428_429_NSP_GenomeWideSNP_6_B05_1521508"^^xsd:string .
+
+	gdc-kb:Chromosome-9d48f6bd989827b03591e09cff902f65	rdf:type	gdc-kb:Chromosome ;
+		sio:isAttributeOf gdc-kb:sample-9d48f6bd989827b03591e09cff902f65 ;
+		rdf:type	ncit:C13204 ;
+		rdfs:label	"Chromosome 1"^^xsd:string ;
+		sio:hasValue	"1"^^xsd:integer .
+
+	gdc-kb:Start-9d48f6bd989827b03591e09cff902f65	rdf:type	gdc-kb:Start ;
+		sio:isAttributeOf gdc-kb:chromosome_start_position-9d48f6bd989827b03591e09cff902f65 ;
+		sio:hasValue	"1300759"^^xsd:integer .
+
+	gdc-kb:End-9d48f6bd989827b03591e09cff902f65	rdf:type	gdc-kb:End ;
+		sio:isAttributeOf gdc-kb:chromosome_end_position-9d48f6bd989827b03591e09cff902f65 ;
+		sio:hasValue	"1833256"^^xsd:integer .
+
+	gdc-kb:Num_Probes-9d48f6bd989827b03591e09cff902f65	rdf:type	gdc-kb:Num_Probes ;
+		sio:isAttributeOf gdc-kb:probe-9d48f6bd989827b03591e09cff902f65 ;
+		sio:hasValue	"126"^^xsd:integer .
+
+	gdc-kb:Segment_Mean-9d48f6bd989827b03591e09cff902f65	rdf:type	gdc-kb:Segment_Mean ;
+		sio:isAttributeOf gdc-kb:segment-9d48f6bd989827b03591e09cff902f65 ;
+		sio:hasValue	"0.1343"^^xsd:float .
+
+	gdc-kb:sample-9d48f6bd989827b03591e09cff902f65	rdf:type	gdc-kb:sample;
+		rdf:type	sio:Sample;
+		sio:hasIdentifier gdc-kb:Sample-9d48f6bd989827b03591e09cff902f65 .
+
+	gdc-kb:chromosome_start_position-9d48f6bd989827b03591e09cff902f65	rdf:type	gdc-kb:chromosome_start_position;
+		rdf:type	ncit:C25431 ;
+		sio:inRelationTo gdc-kb:chromosome_positioning-9d48f6bd989827b03591e09cff902f65 .
+
+	gdc-kb:chromosome_end_position-9d48f6bd989827b03591e09cff902f65	rdf:type	gdc-kb:chromosome_end_position;
+		rdf:type	ncit:C25496 ;
+		sio:inRelationTo gdc-kb:chromosome_positioning-9d48f6bd989827b03591e09cff902f65 .
+
+	gdc-kb:probe-9d48f6bd989827b03591e09cff902f65	rdf:type	gdc-kb:probe;
+		rdf:type	ncit:C43523 ;
+		sio:inRelationTo gdc-kb:sample-9d48f6bd989827b03591e09cff902f65 .
+
+	gdc-kb:segment-9d48f6bd989827b03591e09cff902f65	rdf:type	gdc-kb:segment;
+		rdf:type	ncit:C45312 ;
+		sio:inRelationTo gdc-kb:sample-9d48f6bd989827b03591e09cff902f65 .
+
+	gdc-kb:subject-9d48f6bd989827b03591e09cff902f65	rdf:type	gdc-kb:subject;
+		rdf:type	sio:Human ;
+		sio:hasRole [ rdf:type	sio:SubjectRole ;
+			sio:inRelationTo gdc-kb:study ] .
+
+}
+
+gdc-kb:provenance-9d48f6bd989827b03591e09cff902f65 {
+	gdc-kb:assertion-9d48f6bd989827b03591e09cff902f65 prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime .
+
+	gdc-kb:Sample-9d48f6bd989827b03591e09cff902f65	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-9d48f6bd989827b03591e09cff902f65	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-9d48f6bd989827b03591e09cff902f65	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:End-9d48f6bd989827b03591e09cff902f65	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Num_Probes-9d48f6bd989827b03591e09cff902f65	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Segment_Mean-9d48f6bd989827b03591e09cff902f65	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  ;
+		prov:wasGeneratedBy	"Log2 (copy_number/2)"^^xsd:string .
+
+	gdc-kb:sample-9d48f6bd989827b03591e09cff902f65	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom gdc-kb:subject-9d48f6bd989827b03591e09cff902f65 .
+
+	gdc-kb:chromosome_start_position-9d48f6bd989827b03591e09cff902f65	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:chromosome_end_position-9d48f6bd989827b03591e09cff902f65	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:probe-9d48f6bd989827b03591e09cff902f65	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:segment-9d48f6bd989827b03591e09cff902f65	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:subject-9d48f6bd989827b03591e09cff902f65	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:pubInfo-9d48f6bd989827b03591e09cff902f65 {
+	gdc-kb:nanoPub-9d48f6bd989827b03591e09cff902f65 prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime .
+
+	gdc-kb:Sample-9d48f6bd989827b03591e09cff902f65
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-9d48f6bd989827b03591e09cff902f65
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-9d48f6bd989827b03591e09cff902f65
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:End-9d48f6bd989827b03591e09cff902f65
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Num_Probes-9d48f6bd989827b03591e09cff902f65
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Segment_Mean-9d48f6bd989827b03591e09cff902f65
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:head-421bda934a895450e5e59165c06debb6 {
+	gdc-kb:nanoPub-421bda934a895450e5e59165c06debb6
+		rdf:type np:Nanopublication ;
+		np:hasAssertion gdc-kb:assertion-421bda934a895450e5e59165c06debb6 ;
+		np:hasProvenance gdc-kb:provenance-421bda934a895450e5e59165c06debb6 ;
+		np:hasPublicationInfo gdc-kb:pubInfo-421bda934a895450e5e59165c06debb6 .
+}
+
+gdc-kb:assertion-421bda934a895450e5e59165c06debb6 {
+	gdc-kb:Sample-421bda934a895450e5e59165c06debb6	rdf:type	gdc-kb:Sample ;
+		sio:isAttributeOf gdc-kb:sample-421bda934a895450e5e59165c06debb6 ;
+		sio:hasValue	"MICHE_p_TCGAb_428_429_NSP_GenomeWideSNP_6_B05_1521508"^^xsd:string .
+
+	gdc-kb:Chromosome-421bda934a895450e5e59165c06debb6	rdf:type	gdc-kb:Chromosome ;
+		sio:isAttributeOf gdc-kb:sample-421bda934a895450e5e59165c06debb6 ;
+		rdf:type	ncit:C13204 ;
+		rdfs:label	"Chromosome 1"^^xsd:string ;
+		sio:hasValue	"1"^^xsd:integer .
+
+	gdc-kb:Start-421bda934a895450e5e59165c06debb6	rdf:type	gdc-kb:Start ;
+		sio:isAttributeOf gdc-kb:chromosome_start_position-421bda934a895450e5e59165c06debb6 ;
+		sio:hasValue	"1833726"^^xsd:integer .
+
+	gdc-kb:End-421bda934a895450e5e59165c06debb6	rdf:type	gdc-kb:End ;
+		sio:isAttributeOf gdc-kb:chromosome_end_position-421bda934a895450e5e59165c06debb6 ;
+		sio:hasValue	"15822508"^^xsd:integer .
+
+	gdc-kb:Num_Probes-421bda934a895450e5e59165c06debb6	rdf:type	gdc-kb:Num_Probes ;
+		sio:isAttributeOf gdc-kb:probe-421bda934a895450e5e59165c06debb6 ;
+		sio:hasValue	"8097"^^xsd:integer .
+
+	gdc-kb:Segment_Mean-421bda934a895450e5e59165c06debb6	rdf:type	gdc-kb:Segment_Mean ;
+		sio:isAttributeOf gdc-kb:segment-421bda934a895450e5e59165c06debb6 ;
+		sio:hasValue	"-0.0118"^^xsd:float .
+
+	gdc-kb:sample-421bda934a895450e5e59165c06debb6	rdf:type	gdc-kb:sample;
+		rdf:type	sio:Sample;
+		sio:hasIdentifier gdc-kb:Sample-421bda934a895450e5e59165c06debb6 .
+
+	gdc-kb:chromosome_start_position-421bda934a895450e5e59165c06debb6	rdf:type	gdc-kb:chromosome_start_position;
+		rdf:type	ncit:C25431 ;
+		sio:inRelationTo gdc-kb:chromosome_positioning-421bda934a895450e5e59165c06debb6 .
+
+	gdc-kb:chromosome_end_position-421bda934a895450e5e59165c06debb6	rdf:type	gdc-kb:chromosome_end_position;
+		rdf:type	ncit:C25496 ;
+		sio:inRelationTo gdc-kb:chromosome_positioning-421bda934a895450e5e59165c06debb6 .
+
+	gdc-kb:probe-421bda934a895450e5e59165c06debb6	rdf:type	gdc-kb:probe;
+		rdf:type	ncit:C43523 ;
+		sio:inRelationTo gdc-kb:sample-421bda934a895450e5e59165c06debb6 .
+
+	gdc-kb:segment-421bda934a895450e5e59165c06debb6	rdf:type	gdc-kb:segment;
+		rdf:type	ncit:C45312 ;
+		sio:inRelationTo gdc-kb:sample-421bda934a895450e5e59165c06debb6 .
+
+	gdc-kb:subject-421bda934a895450e5e59165c06debb6	rdf:type	gdc-kb:subject;
+		rdf:type	sio:Human ;
+		sio:hasRole [ rdf:type	sio:SubjectRole ;
+			sio:inRelationTo gdc-kb:study ] .
+
+}
+
+gdc-kb:provenance-421bda934a895450e5e59165c06debb6 {
+	gdc-kb:assertion-421bda934a895450e5e59165c06debb6 prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime .
+
+	gdc-kb:Sample-421bda934a895450e5e59165c06debb6	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-421bda934a895450e5e59165c06debb6	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-421bda934a895450e5e59165c06debb6	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:End-421bda934a895450e5e59165c06debb6	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Num_Probes-421bda934a895450e5e59165c06debb6	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Segment_Mean-421bda934a895450e5e59165c06debb6	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  ;
+		prov:wasGeneratedBy	"Log2 (copy_number/2)"^^xsd:string .
+
+	gdc-kb:sample-421bda934a895450e5e59165c06debb6	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom gdc-kb:subject-421bda934a895450e5e59165c06debb6 .
+
+	gdc-kb:chromosome_start_position-421bda934a895450e5e59165c06debb6	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:chromosome_end_position-421bda934a895450e5e59165c06debb6	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:probe-421bda934a895450e5e59165c06debb6	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:segment-421bda934a895450e5e59165c06debb6	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:subject-421bda934a895450e5e59165c06debb6	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:pubInfo-421bda934a895450e5e59165c06debb6 {
+	gdc-kb:nanoPub-421bda934a895450e5e59165c06debb6 prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime .
+
+	gdc-kb:Sample-421bda934a895450e5e59165c06debb6
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-421bda934a895450e5e59165c06debb6
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-421bda934a895450e5e59165c06debb6
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:End-421bda934a895450e5e59165c06debb6
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Num_Probes-421bda934a895450e5e59165c06debb6
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Segment_Mean-421bda934a895450e5e59165c06debb6
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:head-da3c44aa794253e7af7c1fbe386b9a43 {
+	gdc-kb:nanoPub-da3c44aa794253e7af7c1fbe386b9a43
+		rdf:type np:Nanopublication ;
+		np:hasAssertion gdc-kb:assertion-da3c44aa794253e7af7c1fbe386b9a43 ;
+		np:hasProvenance gdc-kb:provenance-da3c44aa794253e7af7c1fbe386b9a43 ;
+		np:hasPublicationInfo gdc-kb:pubInfo-da3c44aa794253e7af7c1fbe386b9a43 .
+}
+
+gdc-kb:assertion-da3c44aa794253e7af7c1fbe386b9a43 {
+	gdc-kb:Sample-da3c44aa794253e7af7c1fbe386b9a43	rdf:type	gdc-kb:Sample ;
+		sio:isAttributeOf gdc-kb:sample-da3c44aa794253e7af7c1fbe386b9a43 ;
+		sio:hasValue	"MICHE_p_TCGAb_428_429_NSP_GenomeWideSNP_6_B05_1521508"^^xsd:string .
+
+	gdc-kb:Chromosome-da3c44aa794253e7af7c1fbe386b9a43	rdf:type	gdc-kb:Chromosome ;
+		sio:isAttributeOf gdc-kb:sample-da3c44aa794253e7af7c1fbe386b9a43 ;
+		rdf:type	ncit:C13204 ;
+		rdfs:label	"Chromosome 1"^^xsd:string ;
+		sio:hasValue	"1"^^xsd:integer .
+
+	gdc-kb:Start-da3c44aa794253e7af7c1fbe386b9a43	rdf:type	gdc-kb:Start ;
+		sio:isAttributeOf gdc-kb:chromosome_start_position-da3c44aa794253e7af7c1fbe386b9a43 ;
+		sio:hasValue	"15822572"^^xsd:integer .
+
+	gdc-kb:End-da3c44aa794253e7af7c1fbe386b9a43	rdf:type	gdc-kb:End ;
+		sio:isAttributeOf gdc-kb:chromosome_end_position-da3c44aa794253e7af7c1fbe386b9a43 ;
+		sio:hasValue	"15839166"^^xsd:integer .
+
+	gdc-kb:Num_Probes-da3c44aa794253e7af7c1fbe386b9a43	rdf:type	gdc-kb:Num_Probes ;
+		sio:isAttributeOf gdc-kb:probe-da3c44aa794253e7af7c1fbe386b9a43 ;
+		sio:hasValue	"15"^^xsd:integer .
+
+	gdc-kb:Segment_Mean-da3c44aa794253e7af7c1fbe386b9a43	rdf:type	gdc-kb:Segment_Mean ;
+		sio:isAttributeOf gdc-kb:segment-da3c44aa794253e7af7c1fbe386b9a43 ;
+		sio:hasValue	"0.503"^^xsd:float .
+
+	gdc-kb:sample-da3c44aa794253e7af7c1fbe386b9a43	rdf:type	gdc-kb:sample;
+		rdf:type	sio:Sample;
+		sio:hasIdentifier gdc-kb:Sample-da3c44aa794253e7af7c1fbe386b9a43 .
+
+	gdc-kb:chromosome_start_position-da3c44aa794253e7af7c1fbe386b9a43	rdf:type	gdc-kb:chromosome_start_position;
+		rdf:type	ncit:C25431 ;
+		sio:inRelationTo gdc-kb:chromosome_positioning-da3c44aa794253e7af7c1fbe386b9a43 .
+
+	gdc-kb:chromosome_end_position-da3c44aa794253e7af7c1fbe386b9a43	rdf:type	gdc-kb:chromosome_end_position;
+		rdf:type	ncit:C25496 ;
+		sio:inRelationTo gdc-kb:chromosome_positioning-da3c44aa794253e7af7c1fbe386b9a43 .
+
+	gdc-kb:probe-da3c44aa794253e7af7c1fbe386b9a43	rdf:type	gdc-kb:probe;
+		rdf:type	ncit:C43523 ;
+		sio:inRelationTo gdc-kb:sample-da3c44aa794253e7af7c1fbe386b9a43 .
+
+	gdc-kb:segment-da3c44aa794253e7af7c1fbe386b9a43	rdf:type	gdc-kb:segment;
+		rdf:type	ncit:C45312 ;
+		sio:inRelationTo gdc-kb:sample-da3c44aa794253e7af7c1fbe386b9a43 .
+
+	gdc-kb:subject-da3c44aa794253e7af7c1fbe386b9a43	rdf:type	gdc-kb:subject;
+		rdf:type	sio:Human ;
+		sio:hasRole [ rdf:type	sio:SubjectRole ;
+			sio:inRelationTo gdc-kb:study ] .
+
+}
+
+gdc-kb:provenance-da3c44aa794253e7af7c1fbe386b9a43 {
+	gdc-kb:assertion-da3c44aa794253e7af7c1fbe386b9a43 prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime .
+
+	gdc-kb:Sample-da3c44aa794253e7af7c1fbe386b9a43	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-da3c44aa794253e7af7c1fbe386b9a43	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-da3c44aa794253e7af7c1fbe386b9a43	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:End-da3c44aa794253e7af7c1fbe386b9a43	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Num_Probes-da3c44aa794253e7af7c1fbe386b9a43	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Segment_Mean-da3c44aa794253e7af7c1fbe386b9a43	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  ;
+		prov:wasGeneratedBy	"Log2 (copy_number/2)"^^xsd:string .
+
+	gdc-kb:sample-da3c44aa794253e7af7c1fbe386b9a43	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom gdc-kb:subject-da3c44aa794253e7af7c1fbe386b9a43 .
+
+	gdc-kb:chromosome_start_position-da3c44aa794253e7af7c1fbe386b9a43	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:chromosome_end_position-da3c44aa794253e7af7c1fbe386b9a43	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:probe-da3c44aa794253e7af7c1fbe386b9a43	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:segment-da3c44aa794253e7af7c1fbe386b9a43	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:subject-da3c44aa794253e7af7c1fbe386b9a43	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:pubInfo-da3c44aa794253e7af7c1fbe386b9a43 {
+	gdc-kb:nanoPub-da3c44aa794253e7af7c1fbe386b9a43 prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime .
+
+	gdc-kb:Sample-da3c44aa794253e7af7c1fbe386b9a43
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-da3c44aa794253e7af7c1fbe386b9a43
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-da3c44aa794253e7af7c1fbe386b9a43
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:End-da3c44aa794253e7af7c1fbe386b9a43
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Num_Probes-da3c44aa794253e7af7c1fbe386b9a43
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Segment_Mean-da3c44aa794253e7af7c1fbe386b9a43
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:head-5dfb07cee013aacf81f20b40f01e0c5a {
+	gdc-kb:nanoPub-5dfb07cee013aacf81f20b40f01e0c5a
+		rdf:type np:Nanopublication ;
+		np:hasAssertion gdc-kb:assertion-5dfb07cee013aacf81f20b40f01e0c5a ;
+		np:hasProvenance gdc-kb:provenance-5dfb07cee013aacf81f20b40f01e0c5a ;
+		np:hasPublicationInfo gdc-kb:pubInfo-5dfb07cee013aacf81f20b40f01e0c5a .
+}
+
+gdc-kb:assertion-5dfb07cee013aacf81f20b40f01e0c5a {
+	gdc-kb:Sample-5dfb07cee013aacf81f20b40f01e0c5a	rdf:type	gdc-kb:Sample ;
+		sio:isAttributeOf gdc-kb:sample-5dfb07cee013aacf81f20b40f01e0c5a ;
+		sio:hasValue	"MICHE_p_TCGAb_428_429_NSP_GenomeWideSNP_6_B05_1521508"^^xsd:string .
+
+	gdc-kb:Chromosome-5dfb07cee013aacf81f20b40f01e0c5a	rdf:type	gdc-kb:Chromosome ;
+		sio:isAttributeOf gdc-kb:sample-5dfb07cee013aacf81f20b40f01e0c5a ;
+		rdf:type	ncit:C13204 ;
+		rdfs:label	"Chromosome 1"^^xsd:string ;
+		sio:hasValue	"1"^^xsd:integer .
+
+	gdc-kb:Start-5dfb07cee013aacf81f20b40f01e0c5a	rdf:type	gdc-kb:Start ;
+		sio:isAttributeOf gdc-kb:chromosome_start_position-5dfb07cee013aacf81f20b40f01e0c5a ;
+		sio:hasValue	"15841285"^^xsd:integer .
+
+	gdc-kb:End-5dfb07cee013aacf81f20b40f01e0c5a	rdf:type	gdc-kb:End ;
+		sio:isAttributeOf gdc-kb:chromosome_end_position-5dfb07cee013aacf81f20b40f01e0c5a ;
+		sio:hasValue	"16679483"^^xsd:integer .
+
+	gdc-kb:Num_Probes-5dfb07cee013aacf81f20b40f01e0c5a	rdf:type	gdc-kb:Num_Probes ;
+		sio:isAttributeOf gdc-kb:probe-5dfb07cee013aacf81f20b40f01e0c5a ;
+		sio:hasValue	"345"^^xsd:integer .
+
+	gdc-kb:Segment_Mean-5dfb07cee013aacf81f20b40f01e0c5a	rdf:type	gdc-kb:Segment_Mean ;
+		sio:isAttributeOf gdc-kb:segment-5dfb07cee013aacf81f20b40f01e0c5a ;
+		sio:hasValue	"-0.0157"^^xsd:float .
+
+	gdc-kb:sample-5dfb07cee013aacf81f20b40f01e0c5a	rdf:type	gdc-kb:sample;
+		rdf:type	sio:Sample;
+		sio:hasIdentifier gdc-kb:Sample-5dfb07cee013aacf81f20b40f01e0c5a .
+
+	gdc-kb:chromosome_start_position-5dfb07cee013aacf81f20b40f01e0c5a	rdf:type	gdc-kb:chromosome_start_position;
+		rdf:type	ncit:C25431 ;
+		sio:inRelationTo gdc-kb:chromosome_positioning-5dfb07cee013aacf81f20b40f01e0c5a .
+
+	gdc-kb:chromosome_end_position-5dfb07cee013aacf81f20b40f01e0c5a	rdf:type	gdc-kb:chromosome_end_position;
+		rdf:type	ncit:C25496 ;
+		sio:inRelationTo gdc-kb:chromosome_positioning-5dfb07cee013aacf81f20b40f01e0c5a .
+
+	gdc-kb:probe-5dfb07cee013aacf81f20b40f01e0c5a	rdf:type	gdc-kb:probe;
+		rdf:type	ncit:C43523 ;
+		sio:inRelationTo gdc-kb:sample-5dfb07cee013aacf81f20b40f01e0c5a .
+
+	gdc-kb:segment-5dfb07cee013aacf81f20b40f01e0c5a	rdf:type	gdc-kb:segment;
+		rdf:type	ncit:C45312 ;
+		sio:inRelationTo gdc-kb:sample-5dfb07cee013aacf81f20b40f01e0c5a .
+
+	gdc-kb:subject-5dfb07cee013aacf81f20b40f01e0c5a	rdf:type	gdc-kb:subject;
+		rdf:type	sio:Human ;
+		sio:hasRole [ rdf:type	sio:SubjectRole ;
+			sio:inRelationTo gdc-kb:study ] .
+
+}
+
+gdc-kb:provenance-5dfb07cee013aacf81f20b40f01e0c5a {
+	gdc-kb:assertion-5dfb07cee013aacf81f20b40f01e0c5a prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime .
+
+	gdc-kb:Sample-5dfb07cee013aacf81f20b40f01e0c5a	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-5dfb07cee013aacf81f20b40f01e0c5a	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-5dfb07cee013aacf81f20b40f01e0c5a	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:End-5dfb07cee013aacf81f20b40f01e0c5a	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Num_Probes-5dfb07cee013aacf81f20b40f01e0c5a	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Segment_Mean-5dfb07cee013aacf81f20b40f01e0c5a	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  ;
+		prov:wasGeneratedBy	"Log2 (copy_number/2)"^^xsd:string .
+
+	gdc-kb:sample-5dfb07cee013aacf81f20b40f01e0c5a	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom gdc-kb:subject-5dfb07cee013aacf81f20b40f01e0c5a .
+
+	gdc-kb:chromosome_start_position-5dfb07cee013aacf81f20b40f01e0c5a	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:chromosome_end_position-5dfb07cee013aacf81f20b40f01e0c5a	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:probe-5dfb07cee013aacf81f20b40f01e0c5a	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:segment-5dfb07cee013aacf81f20b40f01e0c5a	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:subject-5dfb07cee013aacf81f20b40f01e0c5a	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:pubInfo-5dfb07cee013aacf81f20b40f01e0c5a {
+	gdc-kb:nanoPub-5dfb07cee013aacf81f20b40f01e0c5a prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime .
+
+	gdc-kb:Sample-5dfb07cee013aacf81f20b40f01e0c5a
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-5dfb07cee013aacf81f20b40f01e0c5a
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-5dfb07cee013aacf81f20b40f01e0c5a
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:End-5dfb07cee013aacf81f20b40f01e0c5a
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Num_Probes-5dfb07cee013aacf81f20b40f01e0c5a
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Segment_Mean-5dfb07cee013aacf81f20b40f01e0c5a
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:head-d2ccd197926e6209ad57fd6239d017ec {
+	gdc-kb:nanoPub-d2ccd197926e6209ad57fd6239d017ec
+		rdf:type np:Nanopublication ;
+		np:hasAssertion gdc-kb:assertion-d2ccd197926e6209ad57fd6239d017ec ;
+		np:hasProvenance gdc-kb:provenance-d2ccd197926e6209ad57fd6239d017ec ;
+		np:hasPublicationInfo gdc-kb:pubInfo-d2ccd197926e6209ad57fd6239d017ec .
+}
+
+gdc-kb:assertion-d2ccd197926e6209ad57fd6239d017ec {
+	gdc-kb:Sample-d2ccd197926e6209ad57fd6239d017ec	rdf:type	gdc-kb:Sample ;
+		sio:isAttributeOf gdc-kb:sample-d2ccd197926e6209ad57fd6239d017ec ;
+		sio:hasValue	"MICHE_p_TCGAb_428_429_NSP_GenomeWideSNP_6_B05_1521508"^^xsd:string .
+
+	gdc-kb:Chromosome-d2ccd197926e6209ad57fd6239d017ec	rdf:type	gdc-kb:Chromosome ;
+		sio:isAttributeOf gdc-kb:sample-d2ccd197926e6209ad57fd6239d017ec ;
+		rdf:type	ncit:C13204 ;
+		rdfs:label	"Chromosome 1"^^xsd:string ;
+		sio:hasValue	"1"^^xsd:integer .
+
+	gdc-kb:Start-d2ccd197926e6209ad57fd6239d017ec	rdf:type	gdc-kb:Start ;
+		sio:isAttributeOf gdc-kb:chromosome_start_position-d2ccd197926e6209ad57fd6239d017ec ;
+		sio:hasValue	"16684955"^^xsd:integer .
+
+	gdc-kb:End-d2ccd197926e6209ad57fd6239d017ec	rdf:type	gdc-kb:End ;
+		sio:isAttributeOf gdc-kb:chromosome_end_position-d2ccd197926e6209ad57fd6239d017ec ;
+		sio:hasValue	"16686246"^^xsd:integer .
+
+	gdc-kb:Num_Probes-d2ccd197926e6209ad57fd6239d017ec	rdf:type	gdc-kb:Num_Probes ;
+		sio:isAttributeOf gdc-kb:probe-d2ccd197926e6209ad57fd6239d017ec ;
+		sio:hasValue	"12"^^xsd:integer .
+
+	gdc-kb:Segment_Mean-d2ccd197926e6209ad57fd6239d017ec	rdf:type	gdc-kb:Segment_Mean ;
+		sio:isAttributeOf gdc-kb:segment-d2ccd197926e6209ad57fd6239d017ec ;
+		sio:hasValue	"0.6184"^^xsd:float .
+
+	gdc-kb:sample-d2ccd197926e6209ad57fd6239d017ec	rdf:type	gdc-kb:sample;
+		rdf:type	sio:Sample;
+		sio:hasIdentifier gdc-kb:Sample-d2ccd197926e6209ad57fd6239d017ec .
+
+	gdc-kb:chromosome_start_position-d2ccd197926e6209ad57fd6239d017ec	rdf:type	gdc-kb:chromosome_start_position;
+		rdf:type	ncit:C25431 ;
+		sio:inRelationTo gdc-kb:chromosome_positioning-d2ccd197926e6209ad57fd6239d017ec .
+
+	gdc-kb:chromosome_end_position-d2ccd197926e6209ad57fd6239d017ec	rdf:type	gdc-kb:chromosome_end_position;
+		rdf:type	ncit:C25496 ;
+		sio:inRelationTo gdc-kb:chromosome_positioning-d2ccd197926e6209ad57fd6239d017ec .
+
+	gdc-kb:probe-d2ccd197926e6209ad57fd6239d017ec	rdf:type	gdc-kb:probe;
+		rdf:type	ncit:C43523 ;
+		sio:inRelationTo gdc-kb:sample-d2ccd197926e6209ad57fd6239d017ec .
+
+	gdc-kb:segment-d2ccd197926e6209ad57fd6239d017ec	rdf:type	gdc-kb:segment;
+		rdf:type	ncit:C45312 ;
+		sio:inRelationTo gdc-kb:sample-d2ccd197926e6209ad57fd6239d017ec .
+
+	gdc-kb:subject-d2ccd197926e6209ad57fd6239d017ec	rdf:type	gdc-kb:subject;
+		rdf:type	sio:Human ;
+		sio:hasRole [ rdf:type	sio:SubjectRole ;
+			sio:inRelationTo gdc-kb:study ] .
+
+}
+
+gdc-kb:provenance-d2ccd197926e6209ad57fd6239d017ec {
+	gdc-kb:assertion-d2ccd197926e6209ad57fd6239d017ec prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime .
+
+	gdc-kb:Sample-d2ccd197926e6209ad57fd6239d017ec	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-d2ccd197926e6209ad57fd6239d017ec	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-d2ccd197926e6209ad57fd6239d017ec	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:End-d2ccd197926e6209ad57fd6239d017ec	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Num_Probes-d2ccd197926e6209ad57fd6239d017ec	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Segment_Mean-d2ccd197926e6209ad57fd6239d017ec	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  ;
+		prov:wasGeneratedBy	"Log2 (copy_number/2)"^^xsd:string .
+
+	gdc-kb:sample-d2ccd197926e6209ad57fd6239d017ec	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom gdc-kb:subject-d2ccd197926e6209ad57fd6239d017ec .
+
+	gdc-kb:chromosome_start_position-d2ccd197926e6209ad57fd6239d017ec	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:chromosome_end_position-d2ccd197926e6209ad57fd6239d017ec	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:probe-d2ccd197926e6209ad57fd6239d017ec	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:segment-d2ccd197926e6209ad57fd6239d017ec	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:subject-d2ccd197926e6209ad57fd6239d017ec	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:pubInfo-d2ccd197926e6209ad57fd6239d017ec {
+	gdc-kb:nanoPub-d2ccd197926e6209ad57fd6239d017ec prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime .
+
+	gdc-kb:Sample-d2ccd197926e6209ad57fd6239d017ec
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-d2ccd197926e6209ad57fd6239d017ec
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-d2ccd197926e6209ad57fd6239d017ec
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:End-d2ccd197926e6209ad57fd6239d017ec
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Num_Probes-d2ccd197926e6209ad57fd6239d017ec
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Segment_Mean-d2ccd197926e6209ad57fd6239d017ec
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:head-0f95510602d453d1b7a036cfc9238eed {
+	gdc-kb:nanoPub-0f95510602d453d1b7a036cfc9238eed
+		rdf:type np:Nanopublication ;
+		np:hasAssertion gdc-kb:assertion-0f95510602d453d1b7a036cfc9238eed ;
+		np:hasProvenance gdc-kb:provenance-0f95510602d453d1b7a036cfc9238eed ;
+		np:hasPublicationInfo gdc-kb:pubInfo-0f95510602d453d1b7a036cfc9238eed .
+}
+
+gdc-kb:assertion-0f95510602d453d1b7a036cfc9238eed {
+	gdc-kb:Sample-0f95510602d453d1b7a036cfc9238eed	rdf:type	gdc-kb:Sample ;
+		sio:isAttributeOf gdc-kb:sample-0f95510602d453d1b7a036cfc9238eed ;
+		sio:hasValue	"MICHE_p_TCGAb_428_429_NSP_GenomeWideSNP_6_B05_1521508"^^xsd:string .
+
+	gdc-kb:Chromosome-0f95510602d453d1b7a036cfc9238eed	rdf:type	gdc-kb:Chromosome ;
+		sio:isAttributeOf gdc-kb:sample-0f95510602d453d1b7a036cfc9238eed ;
+		rdf:type	ncit:C13204 ;
+		rdfs:label	"Chromosome 1"^^xsd:string ;
+		sio:hasValue	"1"^^xsd:integer .
+
+	gdc-kb:Start-0f95510602d453d1b7a036cfc9238eed	rdf:type	gdc-kb:Start ;
+		sio:isAttributeOf gdc-kb:chromosome_start_position-0f95510602d453d1b7a036cfc9238eed ;
+		sio:hasValue	"16686290"^^xsd:integer .
+
+	gdc-kb:End-0f95510602d453d1b7a036cfc9238eed	rdf:type	gdc-kb:End ;
+		sio:isAttributeOf gdc-kb:chromosome_end_position-0f95510602d453d1b7a036cfc9238eed ;
+		sio:hasValue	"16766922"^^xsd:integer .
+
+	gdc-kb:Num_Probes-0f95510602d453d1b7a036cfc9238eed	rdf:type	gdc-kb:Num_Probes ;
+		sio:isAttributeOf gdc-kb:probe-0f95510602d453d1b7a036cfc9238eed ;
+		sio:hasValue	"31"^^xsd:integer .
+
+	gdc-kb:Segment_Mean-0f95510602d453d1b7a036cfc9238eed	rdf:type	gdc-kb:Segment_Mean ;
+		sio:isAttributeOf gdc-kb:segment-0f95510602d453d1b7a036cfc9238eed ;
+		sio:hasValue	"-0.251"^^xsd:float .
+
+	gdc-kb:sample-0f95510602d453d1b7a036cfc9238eed	rdf:type	gdc-kb:sample;
+		rdf:type	sio:Sample;
+		sio:hasIdentifier gdc-kb:Sample-0f95510602d453d1b7a036cfc9238eed .
+
+	gdc-kb:chromosome_start_position-0f95510602d453d1b7a036cfc9238eed	rdf:type	gdc-kb:chromosome_start_position;
+		rdf:type	ncit:C25431 ;
+		sio:inRelationTo gdc-kb:chromosome_positioning-0f95510602d453d1b7a036cfc9238eed .
+
+	gdc-kb:chromosome_end_position-0f95510602d453d1b7a036cfc9238eed	rdf:type	gdc-kb:chromosome_end_position;
+		rdf:type	ncit:C25496 ;
+		sio:inRelationTo gdc-kb:chromosome_positioning-0f95510602d453d1b7a036cfc9238eed .
+
+	gdc-kb:probe-0f95510602d453d1b7a036cfc9238eed	rdf:type	gdc-kb:probe;
+		rdf:type	ncit:C43523 ;
+		sio:inRelationTo gdc-kb:sample-0f95510602d453d1b7a036cfc9238eed .
+
+	gdc-kb:segment-0f95510602d453d1b7a036cfc9238eed	rdf:type	gdc-kb:segment;
+		rdf:type	ncit:C45312 ;
+		sio:inRelationTo gdc-kb:sample-0f95510602d453d1b7a036cfc9238eed .
+
+	gdc-kb:subject-0f95510602d453d1b7a036cfc9238eed	rdf:type	gdc-kb:subject;
+		rdf:type	sio:Human ;
+		sio:hasRole [ rdf:type	sio:SubjectRole ;
+			sio:inRelationTo gdc-kb:study ] .
+
+}
+
+gdc-kb:provenance-0f95510602d453d1b7a036cfc9238eed {
+	gdc-kb:assertion-0f95510602d453d1b7a036cfc9238eed prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime .
+
+	gdc-kb:Sample-0f95510602d453d1b7a036cfc9238eed	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-0f95510602d453d1b7a036cfc9238eed	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-0f95510602d453d1b7a036cfc9238eed	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:End-0f95510602d453d1b7a036cfc9238eed	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Num_Probes-0f95510602d453d1b7a036cfc9238eed	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Segment_Mean-0f95510602d453d1b7a036cfc9238eed	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  ;
+		prov:wasGeneratedBy	"Log2 (copy_number/2)"^^xsd:string .
+
+	gdc-kb:sample-0f95510602d453d1b7a036cfc9238eed	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom gdc-kb:subject-0f95510602d453d1b7a036cfc9238eed .
+
+	gdc-kb:chromosome_start_position-0f95510602d453d1b7a036cfc9238eed	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:chromosome_end_position-0f95510602d453d1b7a036cfc9238eed	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:probe-0f95510602d453d1b7a036cfc9238eed	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:segment-0f95510602d453d1b7a036cfc9238eed	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:subject-0f95510602d453d1b7a036cfc9238eed	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:pubInfo-0f95510602d453d1b7a036cfc9238eed {
+	gdc-kb:nanoPub-0f95510602d453d1b7a036cfc9238eed prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime .
+
+	gdc-kb:Sample-0f95510602d453d1b7a036cfc9238eed
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-0f95510602d453d1b7a036cfc9238eed
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-0f95510602d453d1b7a036cfc9238eed
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:End-0f95510602d453d1b7a036cfc9238eed
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Num_Probes-0f95510602d453d1b7a036cfc9238eed
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Segment_Mean-0f95510602d453d1b7a036cfc9238eed
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:head-04c7d14479a118ddff845d8455f1a45d {
+	gdc-kb:nanoPub-04c7d14479a118ddff845d8455f1a45d
+		rdf:type np:Nanopublication ;
+		np:hasAssertion gdc-kb:assertion-04c7d14479a118ddff845d8455f1a45d ;
+		np:hasProvenance gdc-kb:provenance-04c7d14479a118ddff845d8455f1a45d ;
+		np:hasPublicationInfo gdc-kb:pubInfo-04c7d14479a118ddff845d8455f1a45d .
+}
+
+gdc-kb:assertion-04c7d14479a118ddff845d8455f1a45d {
+	gdc-kb:Sample-04c7d14479a118ddff845d8455f1a45d	rdf:type	gdc-kb:Sample ;
+		sio:isAttributeOf gdc-kb:sample-04c7d14479a118ddff845d8455f1a45d ;
+		sio:hasValue	"MICHE_p_TCGAb_428_429_NSP_GenomeWideSNP_6_B05_1521508"^^xsd:string .
+
+	gdc-kb:Chromosome-04c7d14479a118ddff845d8455f1a45d	rdf:type	gdc-kb:Chromosome ;
+		sio:isAttributeOf gdc-kb:sample-04c7d14479a118ddff845d8455f1a45d ;
+		rdf:type	ncit:C13204 ;
+		rdfs:label	"Chromosome 1"^^xsd:string ;
+		sio:hasValue	"1"^^xsd:integer .
+
+	gdc-kb:Start-04c7d14479a118ddff845d8455f1a45d	rdf:type	gdc-kb:Start ;
+		sio:isAttributeOf gdc-kb:chromosome_start_position-04c7d14479a118ddff845d8455f1a45d ;
+		sio:hasValue	"16767520"^^xsd:integer .
+
+	gdc-kb:End-04c7d14479a118ddff845d8455f1a45d	rdf:type	gdc-kb:End ;
+		sio:isAttributeOf gdc-kb:chromosome_end_position-04c7d14479a118ddff845d8455f1a45d ;
+		sio:hasValue	"21974705"^^xsd:integer .
+
+	gdc-kb:Num_Probes-04c7d14479a118ddff845d8455f1a45d	rdf:type	gdc-kb:Num_Probes ;
+		sio:isAttributeOf gdc-kb:probe-04c7d14479a118ddff845d8455f1a45d ;
+		sio:hasValue	"3422"^^xsd:integer .
+
+	gdc-kb:Segment_Mean-04c7d14479a118ddff845d8455f1a45d	rdf:type	gdc-kb:Segment_Mean ;
+		sio:isAttributeOf gdc-kb:segment-04c7d14479a118ddff845d8455f1a45d ;
+		sio:hasValue	"-0.0027"^^xsd:float .
+
+	gdc-kb:sample-04c7d14479a118ddff845d8455f1a45d	rdf:type	gdc-kb:sample;
+		rdf:type	sio:Sample;
+		sio:hasIdentifier gdc-kb:Sample-04c7d14479a118ddff845d8455f1a45d .
+
+	gdc-kb:chromosome_start_position-04c7d14479a118ddff845d8455f1a45d	rdf:type	gdc-kb:chromosome_start_position;
+		rdf:type	ncit:C25431 ;
+		sio:inRelationTo gdc-kb:chromosome_positioning-04c7d14479a118ddff845d8455f1a45d .
+
+	gdc-kb:chromosome_end_position-04c7d14479a118ddff845d8455f1a45d	rdf:type	gdc-kb:chromosome_end_position;
+		rdf:type	ncit:C25496 ;
+		sio:inRelationTo gdc-kb:chromosome_positioning-04c7d14479a118ddff845d8455f1a45d .
+
+	gdc-kb:probe-04c7d14479a118ddff845d8455f1a45d	rdf:type	gdc-kb:probe;
+		rdf:type	ncit:C43523 ;
+		sio:inRelationTo gdc-kb:sample-04c7d14479a118ddff845d8455f1a45d .
+
+	gdc-kb:segment-04c7d14479a118ddff845d8455f1a45d	rdf:type	gdc-kb:segment;
+		rdf:type	ncit:C45312 ;
+		sio:inRelationTo gdc-kb:sample-04c7d14479a118ddff845d8455f1a45d .
+
+	gdc-kb:subject-04c7d14479a118ddff845d8455f1a45d	rdf:type	gdc-kb:subject;
+		rdf:type	sio:Human ;
+		sio:hasRole [ rdf:type	sio:SubjectRole ;
+			sio:inRelationTo gdc-kb:study ] .
+
+}
+
+gdc-kb:provenance-04c7d14479a118ddff845d8455f1a45d {
+	gdc-kb:assertion-04c7d14479a118ddff845d8455f1a45d prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime .
+
+	gdc-kb:Sample-04c7d14479a118ddff845d8455f1a45d	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-04c7d14479a118ddff845d8455f1a45d	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-04c7d14479a118ddff845d8455f1a45d	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:End-04c7d14479a118ddff845d8455f1a45d	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Num_Probes-04c7d14479a118ddff845d8455f1a45d	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Segment_Mean-04c7d14479a118ddff845d8455f1a45d	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  ;
+		prov:wasGeneratedBy	"Log2 (copy_number/2)"^^xsd:string .
+
+	gdc-kb:sample-04c7d14479a118ddff845d8455f1a45d	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom gdc-kb:subject-04c7d14479a118ddff845d8455f1a45d .
+
+	gdc-kb:chromosome_start_position-04c7d14479a118ddff845d8455f1a45d	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:chromosome_end_position-04c7d14479a118ddff845d8455f1a45d	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:probe-04c7d14479a118ddff845d8455f1a45d	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:segment-04c7d14479a118ddff845d8455f1a45d	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:subject-04c7d14479a118ddff845d8455f1a45d	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:pubInfo-04c7d14479a118ddff845d8455f1a45d {
+	gdc-kb:nanoPub-04c7d14479a118ddff845d8455f1a45d prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime .
+
+	gdc-kb:Sample-04c7d14479a118ddff845d8455f1a45d
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-04c7d14479a118ddff845d8455f1a45d
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-04c7d14479a118ddff845d8455f1a45d
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:End-04c7d14479a118ddff845d8455f1a45d
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Num_Probes-04c7d14479a118ddff845d8455f1a45d
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Segment_Mean-04c7d14479a118ddff845d8455f1a45d
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:head-e60bf298722769146c165decc65ffed0 {
+	gdc-kb:nanoPub-e60bf298722769146c165decc65ffed0
+		rdf:type np:Nanopublication ;
+		np:hasAssertion gdc-kb:assertion-e60bf298722769146c165decc65ffed0 ;
+		np:hasProvenance gdc-kb:provenance-e60bf298722769146c165decc65ffed0 ;
+		np:hasPublicationInfo gdc-kb:pubInfo-e60bf298722769146c165decc65ffed0 .
+}
+
+gdc-kb:assertion-e60bf298722769146c165decc65ffed0 {
+	gdc-kb:Sample-e60bf298722769146c165decc65ffed0	rdf:type	gdc-kb:Sample ;
+		sio:isAttributeOf gdc-kb:sample-e60bf298722769146c165decc65ffed0 ;
+		sio:hasValue	"MICHE_p_TCGAb_428_429_NSP_GenomeWideSNP_6_B05_1521508"^^xsd:string .
+
+	gdc-kb:Chromosome-e60bf298722769146c165decc65ffed0	rdf:type	gdc-kb:Chromosome ;
+		sio:isAttributeOf gdc-kb:sample-e60bf298722769146c165decc65ffed0 ;
+		rdf:type	ncit:C13204 ;
+		rdfs:label	"Chromosome 1"^^xsd:string ;
+		sio:hasValue	"1"^^xsd:integer .
+
+	gdc-kb:Start-e60bf298722769146c165decc65ffed0	rdf:type	gdc-kb:Start ;
+		sio:isAttributeOf gdc-kb:chromosome_start_position-e60bf298722769146c165decc65ffed0 ;
+		sio:hasValue	"21974983"^^xsd:integer .
+
+	gdc-kb:End-e60bf298722769146c165decc65ffed0	rdf:type	gdc-kb:End ;
+		sio:isAttributeOf gdc-kb:chromosome_end_position-e60bf298722769146c165decc65ffed0 ;
+		sio:hasValue	"21994022"^^xsd:integer .
+
+	gdc-kb:Num_Probes-e60bf298722769146c165decc65ffed0	rdf:type	gdc-kb:Num_Probes ;
+		sio:isAttributeOf gdc-kb:probe-e60bf298722769146c165decc65ffed0 ;
+		sio:hasValue	"7"^^xsd:integer .
+
+	gdc-kb:Segment_Mean-e60bf298722769146c165decc65ffed0	rdf:type	gdc-kb:Segment_Mean ;
+		sio:isAttributeOf gdc-kb:segment-e60bf298722769146c165decc65ffed0 ;
+		sio:hasValue	"-0.3023"^^xsd:float .
+
+	gdc-kb:sample-e60bf298722769146c165decc65ffed0	rdf:type	gdc-kb:sample;
+		rdf:type	sio:Sample;
+		sio:hasIdentifier gdc-kb:Sample-e60bf298722769146c165decc65ffed0 .
+
+	gdc-kb:chromosome_start_position-e60bf298722769146c165decc65ffed0	rdf:type	gdc-kb:chromosome_start_position;
+		rdf:type	ncit:C25431 ;
+		sio:inRelationTo gdc-kb:chromosome_positioning-e60bf298722769146c165decc65ffed0 .
+
+	gdc-kb:chromosome_end_position-e60bf298722769146c165decc65ffed0	rdf:type	gdc-kb:chromosome_end_position;
+		rdf:type	ncit:C25496 ;
+		sio:inRelationTo gdc-kb:chromosome_positioning-e60bf298722769146c165decc65ffed0 .
+
+	gdc-kb:probe-e60bf298722769146c165decc65ffed0	rdf:type	gdc-kb:probe;
+		rdf:type	ncit:C43523 ;
+		sio:inRelationTo gdc-kb:sample-e60bf298722769146c165decc65ffed0 .
+
+	gdc-kb:segment-e60bf298722769146c165decc65ffed0	rdf:type	gdc-kb:segment;
+		rdf:type	ncit:C45312 ;
+		sio:inRelationTo gdc-kb:sample-e60bf298722769146c165decc65ffed0 .
+
+	gdc-kb:subject-e60bf298722769146c165decc65ffed0	rdf:type	gdc-kb:subject;
+		rdf:type	sio:Human ;
+		sio:hasRole [ rdf:type	sio:SubjectRole ;
+			sio:inRelationTo gdc-kb:study ] .
+
+}
+
+gdc-kb:provenance-e60bf298722769146c165decc65ffed0 {
+	gdc-kb:assertion-e60bf298722769146c165decc65ffed0 prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime .
+
+	gdc-kb:Sample-e60bf298722769146c165decc65ffed0	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-e60bf298722769146c165decc65ffed0	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-e60bf298722769146c165decc65ffed0	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:End-e60bf298722769146c165decc65ffed0	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Num_Probes-e60bf298722769146c165decc65ffed0	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Segment_Mean-e60bf298722769146c165decc65ffed0	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  ;
+		prov:wasGeneratedBy	"Log2 (copy_number/2)"^^xsd:string .
+
+	gdc-kb:sample-e60bf298722769146c165decc65ffed0	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom gdc-kb:subject-e60bf298722769146c165decc65ffed0 .
+
+	gdc-kb:chromosome_start_position-e60bf298722769146c165decc65ffed0	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:chromosome_end_position-e60bf298722769146c165decc65ffed0	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:probe-e60bf298722769146c165decc65ffed0	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:segment-e60bf298722769146c165decc65ffed0	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:subject-e60bf298722769146c165decc65ffed0	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:pubInfo-e60bf298722769146c165decc65ffed0 {
+	gdc-kb:nanoPub-e60bf298722769146c165decc65ffed0 prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime .
+
+	gdc-kb:Sample-e60bf298722769146c165decc65ffed0
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-e60bf298722769146c165decc65ffed0
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-e60bf298722769146c165decc65ffed0
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:End-e60bf298722769146c165decc65ffed0
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Num_Probes-e60bf298722769146c165decc65ffed0
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Segment_Mean-e60bf298722769146c165decc65ffed0
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:head-4e5d8f4014452d99fdb11f899443e8d1 {
+	gdc-kb:nanoPub-4e5d8f4014452d99fdb11f899443e8d1
+		rdf:type np:Nanopublication ;
+		np:hasAssertion gdc-kb:assertion-4e5d8f4014452d99fdb11f899443e8d1 ;
+		np:hasProvenance gdc-kb:provenance-4e5d8f4014452d99fdb11f899443e8d1 ;
+		np:hasPublicationInfo gdc-kb:pubInfo-4e5d8f4014452d99fdb11f899443e8d1 .
+}
+
+gdc-kb:assertion-4e5d8f4014452d99fdb11f899443e8d1 {
+	gdc-kb:Sample-4e5d8f4014452d99fdb11f899443e8d1	rdf:type	gdc-kb:Sample ;
+		sio:isAttributeOf gdc-kb:sample-4e5d8f4014452d99fdb11f899443e8d1 ;
+		sio:hasValue	"MICHE_p_TCGAb_428_429_NSP_GenomeWideSNP_6_B05_1521508"^^xsd:string .
+
+	gdc-kb:Chromosome-4e5d8f4014452d99fdb11f899443e8d1	rdf:type	gdc-kb:Chromosome ;
+		sio:isAttributeOf gdc-kb:sample-4e5d8f4014452d99fdb11f899443e8d1 ;
+		rdf:type	ncit:C13204 ;
+		rdfs:label	"Chromosome 1"^^xsd:string ;
+		sio:hasValue	"1"^^xsd:integer .
+
+	gdc-kb:Start-4e5d8f4014452d99fdb11f899443e8d1	rdf:type	gdc-kb:Start ;
+		sio:isAttributeOf gdc-kb:chromosome_start_position-4e5d8f4014452d99fdb11f899443e8d1 ;
+		sio:hasValue	"21996664"^^xsd:integer .
+
+	gdc-kb:End-4e5d8f4014452d99fdb11f899443e8d1	rdf:type	gdc-kb:End ;
+		sio:isAttributeOf gdc-kb:chromosome_end_position-4e5d8f4014452d99fdb11f899443e8d1 ;
+		sio:hasValue	"22010750"^^xsd:integer .
+
+	gdc-kb:Num_Probes-4e5d8f4014452d99fdb11f899443e8d1	rdf:type	gdc-kb:Num_Probes ;
+		sio:isAttributeOf gdc-kb:probe-4e5d8f4014452d99fdb11f899443e8d1 ;
+		sio:hasValue	"6"^^xsd:integer .
+
+	gdc-kb:Segment_Mean-4e5d8f4014452d99fdb11f899443e8d1	rdf:type	gdc-kb:Segment_Mean ;
+		sio:isAttributeOf gdc-kb:segment-4e5d8f4014452d99fdb11f899443e8d1 ;
+		sio:hasValue	"-1.2746"^^xsd:float .
+
+	gdc-kb:sample-4e5d8f4014452d99fdb11f899443e8d1	rdf:type	gdc-kb:sample;
+		rdf:type	sio:Sample;
+		sio:hasIdentifier gdc-kb:Sample-4e5d8f4014452d99fdb11f899443e8d1 .
+
+	gdc-kb:chromosome_start_position-4e5d8f4014452d99fdb11f899443e8d1	rdf:type	gdc-kb:chromosome_start_position;
+		rdf:type	ncit:C25431 ;
+		sio:inRelationTo gdc-kb:chromosome_positioning-4e5d8f4014452d99fdb11f899443e8d1 .
+
+	gdc-kb:chromosome_end_position-4e5d8f4014452d99fdb11f899443e8d1	rdf:type	gdc-kb:chromosome_end_position;
+		rdf:type	ncit:C25496 ;
+		sio:inRelationTo gdc-kb:chromosome_positioning-4e5d8f4014452d99fdb11f899443e8d1 .
+
+	gdc-kb:probe-4e5d8f4014452d99fdb11f899443e8d1	rdf:type	gdc-kb:probe;
+		rdf:type	ncit:C43523 ;
+		sio:inRelationTo gdc-kb:sample-4e5d8f4014452d99fdb11f899443e8d1 .
+
+	gdc-kb:segment-4e5d8f4014452d99fdb11f899443e8d1	rdf:type	gdc-kb:segment;
+		rdf:type	ncit:C45312 ;
+		sio:inRelationTo gdc-kb:sample-4e5d8f4014452d99fdb11f899443e8d1 .
+
+	gdc-kb:subject-4e5d8f4014452d99fdb11f899443e8d1	rdf:type	gdc-kb:subject;
+		rdf:type	sio:Human ;
+		sio:hasRole [ rdf:type	sio:SubjectRole ;
+			sio:inRelationTo gdc-kb:study ] .
+
+}
+
+gdc-kb:provenance-4e5d8f4014452d99fdb11f899443e8d1 {
+	gdc-kb:assertion-4e5d8f4014452d99fdb11f899443e8d1 prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime .
+
+	gdc-kb:Sample-4e5d8f4014452d99fdb11f899443e8d1	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-4e5d8f4014452d99fdb11f899443e8d1	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-4e5d8f4014452d99fdb11f899443e8d1	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:End-4e5d8f4014452d99fdb11f899443e8d1	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Num_Probes-4e5d8f4014452d99fdb11f899443e8d1	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Segment_Mean-4e5d8f4014452d99fdb11f899443e8d1	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  ;
+		prov:wasGeneratedBy	"Log2 (copy_number/2)"^^xsd:string .
+
+	gdc-kb:sample-4e5d8f4014452d99fdb11f899443e8d1	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom gdc-kb:subject-4e5d8f4014452d99fdb11f899443e8d1 .
+
+	gdc-kb:chromosome_start_position-4e5d8f4014452d99fdb11f899443e8d1	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:chromosome_end_position-4e5d8f4014452d99fdb11f899443e8d1	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:probe-4e5d8f4014452d99fdb11f899443e8d1	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:segment-4e5d8f4014452d99fdb11f899443e8d1	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:subject-4e5d8f4014452d99fdb11f899443e8d1	prov:generatedAtTime	"2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:pubInfo-4e5d8f4014452d99fdb11f899443e8d1 {
+	gdc-kb:nanoPub-4e5d8f4014452d99fdb11f899443e8d1 prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime .
+
+	gdc-kb:Sample-4e5d8f4014452d99fdb11f899443e8d1
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-4e5d8f4014452d99fdb11f899443e8d1
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-4e5d8f4014452d99fdb11f899443e8d1
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:End-4e5d8f4014452d99fdb11f899443e8d1
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Num_Probes-4e5d8f4014452d99fdb11f899443e8d1
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+	gdc-kb:Segment_Mean-4e5d8f4014452d99fdb11f899443e8d1
+		prov:generatedAtTime "2017-12-20T19:48:31Z"^^xsd:dateTime  .
+
+}
+

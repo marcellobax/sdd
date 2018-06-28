@@ -1,0 +1,1692 @@
+@prefix nhanes-kb: <http://idea.rpi.edu/heals/kb/nhanes#> .
+@prefix gdc-kb: <http://idea.rpi.edu/heals/kb/gdc#> .
+@prefix seer-kb: <http://idea.rpi.edu/heals/kb/seer#> .
+@prefix heals-kb: <http://idea.rpi.edu/heals/kb/heals#> .
+@prefix heals: <http://idea.rpi.edu/heals/ont/heals#> .
+@prefix chear: <http://hadatac.org/ont/chear#> .
+@prefix chear-kb: <http://hadatac.org/kb/chear#> .
+@prefix uberon: <http://purl.obolibrary.org/obo/uberon.owl#> .
+@prefix sio: <http://semanticscience.org/resource/> .
+@prefix envo: <http://purl.obolibrary.org/obo/ENVO_> .
+@prefix chebi: <http://purl.obolibrary.org/obo/CHEBI_> .
+@prefix hp: <http://purl.obolibrary.org/obo/HP_> .
+@prefix oae: <http://purl.obolibrary.org/obo/OAE_> .
+@prefix ncit: <http://purl.obolibrary.org/obo/NCIT_> .
+@prefix hasco: <http://hadatac.org/ont/hasco#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix pubchem: <http://rdf.ncbi.nlm.nih.gov/pubchem/compound/> .
+@prefix doid: <http://purl.obolibrary.org/obo/DOID_> .
+@prefix uo: <http://purl.obolibrary.org/obo/UO_> . 
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix uberon: <http://purl.obolibrary.org/obo/UBERON_> .
+@prefix np: <http://www.nanopub.org/nschema#>.
+@prefix pr: <http://purl.obolibrary.org/obo/PR_>.
+
+gdc-kb:head-actual_entry { 
+	gdc-kb:nanoPub-actual_entry	rdf:type np:Nanopublication ;
+		np:hasAssertion gdc-kb:assertion-actual_entry ;
+		np:hasProvenance gdc-kb:provenance-actual_entry ;
+		np:hasPublicationInfo gdc-kb:pubInfo-actual_entry .
+}
+
+gdc-kb:assertion-actual_entry {
+	gdc-kb:Composite_Element_REF	rdf:type	owl:Class ;
+		rdfs:subClassOf sio:Identifier ;
+		sio:isAttributeOf gdc-kb:composite_element .
+
+	gdc-kb:Beta_value	rdf:type	owl:Class ;
+		rdfs:subClassOf uo:0000190 ;
+		sio:isAttributeOf gdc-kb:composite_element .
+
+	gdc-kb:Chromosome	rdf:type	owl:Class ;
+		rdfs:subClassOf ncit:C13203 ;
+		sio:isAttributeOf gdc-kb:composite_element .
+
+	gdc-kb:Start	rdf:type	owl:Class ;
+		rdfs:subClassOf sio:Coordinate ;
+		sio:isAttributeOf gdc-kb:chromosome_start_position ;
+		sio:inRelationTo gdc-kb:composite_element .
+
+	gdc-kb:End	rdf:type	owl:Class ;
+		rdfs:subClassOf sio:Coordinate ;
+		sio:isAttributeOf gdc-kb:chromosome_end_position ;
+		sio:inRelationTo gdc-kb:composite_element .
+
+	gdc-kb:Gene_Symbol	rdf:type	owl:Class ;
+		rdfs:subClassOf sio:Symbol ;
+		sio:isAttributeOf gdc-kb:gene_symbol .
+
+	gdc-kb:Gene_Type	rdf:type	owl:Class ;
+		rdfs:subClassOf ogg:0000000003 ;
+		sio:isAttributeOf gdc-kb:gene_symbol .
+
+	gdc-kb:Transcript_ID	rdf:type	owl:Class ;
+		rdfs:subClassOf go:0005669 ;
+		sio:isAttributeOf gdc-kb:gene_symbol .
+
+	gdc-kb:Position_to_TSS	rdf:type	owl:Class ;
+		rdfs:subClassOf go:0051303 ;
+		sio:isAttributeOf gdc-kb:gene_symbol ;
+		sio:hasUnit heals:Basepair .
+
+	gdc-kb:CGI_Coordinate	rdf:type	owl:Class ;
+		rdfs:subClassOf ncit:C44465 ;
+		sio:isAttributeOf gdc-kb:composite_element .
+
+	gdc-kb:Feature_Type	rdf:type	owl:Class ;
+		rdfs:subClassOf heals:FeatureType ;
+		sio:isAttributeOf gdc-kb:composite_element .
+
+}
+
+gdc-kb:provenance-actual_entry {
+	gdc-kb:assertion-actual_entry	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime .
+
+	gdc-kb:Composite_Element_REF
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Beta_value
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Start
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:End
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Gene_Symbol
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Gene_Type
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Transcript_ID
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Position_to_TSS
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:CGI_Coordinate
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Feature_Type
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:pubInfo-actual_entry {
+	gdc-kb:nanoPub-actual_entry	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime .
+}
+
+gdc-kb:head-virtual_entry { 
+	gdc-kb:nanoPub-virtual_entry	rdf:type np:Nanopublication ;
+		np:hasAssertion gdc-kb:assertion-virtual_entry ;
+		np:hasProvenance gdc-kb:provenance-virtual_entry ;
+		np:hasPublicationInfo gdc-kb:pubInfo-virtual_entry .
+}
+
+gdc-kb:assertion-virtual_entry {
+	gdc-kb:composite_element	rdf:type	owl:Class ;
+		rdfs:label "composite_element" ;
+		rdfs:subClassOf ncit:C54668 .
+
+	gdc-kb:chromosome_start_position	rdf:type	owl:Class ;
+		rdfs:label "chromosome_start_position" ;
+		rdfs:subClassOf ncit:C25431 .
+
+	gdc-kb:chromosome_end_position	rdf:type	owl:Class ;
+		rdfs:label "chromosome_end_position" ;
+		rdfs:subClassOf ncit:C25496 .
+
+	gdc-kb:gene_symbol	rdf:type	owl:Class ;
+		rdfs:label "gene_symbol" ;
+		rdfs:subClassOf ncit:C43568 ;
+		sio:isPartOf gdc-kb:composite_element .
+
+}
+
+gdc-kb:provenance-virtual_entry {
+	gdc-kb:assertion-virtual_entry	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime .
+
+	gdc-kb:composite_element
+		prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:chromosome_start_position
+		prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom "start position"^^xsd:string .
+
+	gdc-kb:chromosome_end_position
+		prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom "end position"^^xsd:string .
+
+	gdc-kb:gene_symbol
+		prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:pubInfo-virtual_entry {
+	gdc-kb:nanoPub-virtual_entry	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime .
+}
+
+gdc-kb:head-cg00000029 {
+	gdc-kb:nanoPub-cg00000029
+		rdf:type np:Nanopublication ;
+		np:hasAssertion gdc-kb:assertion-cg00000029 ;
+		np:hasProvenance gdc-kb:provenance-cg00000029 ;
+		np:hasPublicationInfo gdc-kb:pubInfo-cg00000029 .
+}
+
+gdc-kb:assertion-cg00000029 {
+	gdc-kb:Composite_Element_REF-cg00000029	rdf:type	gdc-kb:Composite_Element_REF ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000029 ;
+		sio:hasValue	"cg00000029"^^xsd:string .
+
+	gdc-kb:Beta_value-cg00000029	rdf:type	gdc-kb:Beta_value ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000029 ;
+		sio:hasValue	"0.226860348919"^^xsd:float .
+
+	gdc-kb:Chromosome-cg00000029	rdf:type	gdc-kb:Chromosome ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000029 ;
+		rdf:type	ncit:C13211 ;
+		rdfs:label	"Chromosome 16"^^xsd:string ;
+		sio:hasValue	"chr16"^^xsd:string .
+
+	gdc-kb:Start-cg00000029	rdf:type	gdc-kb:Start ;
+		sio:isAttributeOf gdc-kb:chromosome_start_position-cg00000029 ;
+		sio:hasValue	"53434200"^^xsd:integer .
+
+	gdc-kb:End-cg00000029	rdf:type	gdc-kb:End ;
+		sio:isAttributeOf gdc-kb:chromosome_end_position-cg00000029 ;
+		sio:hasValue	"53434201"^^xsd:integer .
+
+	gdc-kb:Gene_Symbol-cg00000029	rdf:type	gdc-kb:Gene_Symbol ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000029 ;
+		sio:hasValue	"RBL2;RBL2;RBL2"^^xsd:string .
+
+	gdc-kb:Gene_Type-cg00000029	rdf:type	gdc-kb:Gene_Type ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000029 ;
+		sio:hasValue	"protein_coding;protein_coding;protein_coding"^^xsd:string .
+
+	gdc-kb:Transcript_ID-cg00000029	rdf:type	gdc-kb:Transcript_ID ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000029 ;
+		sio:hasValue	"ENST00000262133.9;ENST00000544405.5;ENST00000567964.5"^^xsd:string .
+
+	gdc-kb:Position_to_TSS-cg00000029	rdf:type	gdc-kb:Position_to_TSS ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000029 ;
+		sio:hasUnit heals:Basepair ;
+		sio:hasValue	"-221;-1420;222"^^xsd:string .
+
+	gdc-kb:CGI_Coordinate-cg00000029	rdf:type	gdc-kb:CGI_Coordinate ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000029 ;
+		sio:hasValue	"CGI:chr16:53434489-53435297"^^xsd:string .
+
+	gdc-kb:Feature_Type-cg00000029	rdf:type	gdc-kb:Feature_Type ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000029 ;
+		rdfs:label	"N_Shore"^^xsd:string ;
+		sio:hasValue	"N_Shore"^^xsd:string .
+
+	gdc-kb:composite_element-cg00000029	rdf:type	gdc-kb:composite_element;
+		rdf:type	ncit:C54668;
+		sio:hasIdentifier gdc-kb:Composite_Element_REF-cg00000029 .
+
+	gdc-kb:chromosome_start_position-cg00000029	rdf:type	gdc-kb:chromosome_start_position;
+		rdf:type	ncit:C25431 ;
+		sio:inRelationTo go:ChromosomePositioning .
+
+	gdc-kb:chromosome_end_position-cg00000029	rdf:type	gdc-kb:chromosome_end_position;
+		rdf:type	ncit:C25496 ;
+		sio:inRelationTo go:ChromosomePositioning .
+
+	gdc-kb:gene_symbol-cg00000029	rdf:type	gdc-kb:gene_symbol;
+		rdf:type	ncit:C43568 ;
+		sio:isPartOf gdc-kb:composite_element-cg00000029 .
+
+}
+
+gdc-kb:provenance-cg00000029 {
+	gdc-kb:assertion-cg00000029 prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime .
+
+	gdc-kb:Composite_Element_REF-cg00000029	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Beta_value-cg00000029	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-cg00000029	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-cg00000029	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		sio:inRelationTo	gdc-kb:composite_element-cg00000029 .
+
+	gdc-kb:End-cg00000029	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		sio:inRelationTo	gdc-kb:composite_element-cg00000029 .
+
+	gdc-kb:Gene_Symbol-cg00000029	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Gene_Type-cg00000029	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Transcript_ID-cg00000029	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Position_to_TSS-cg00000029	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:CGI_Coordinate-cg00000029	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Feature_Type-cg00000029	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:composite_element-cg00000029	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:chromosome_start_position-cg00000029	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom "start position"^^xsd:string .
+
+	gdc-kb:chromosome_end_position-cg00000029	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom "end position"^^xsd:string .
+
+	gdc-kb:gene_symbol-cg00000029	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:pubInfo-cg00000029 {
+	gdc-kb:nanoPub-cg00000029 prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime .
+
+	gdc-kb:Composite_Element_REF-cg00000029
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Beta_value-cg00000029
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-cg00000029
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-cg00000029
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:End-cg00000029
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Gene_Symbol-cg00000029
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Gene_Type-cg00000029
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Transcript_ID-cg00000029
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Position_to_TSS-cg00000029
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:CGI_Coordinate-cg00000029
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Feature_Type-cg00000029
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:head-cg00000108 {
+	gdc-kb:nanoPub-cg00000108
+		rdf:type np:Nanopublication ;
+		np:hasAssertion gdc-kb:assertion-cg00000108 ;
+		np:hasProvenance gdc-kb:provenance-cg00000108 ;
+		np:hasPublicationInfo gdc-kb:pubInfo-cg00000108 .
+}
+
+gdc-kb:assertion-cg00000108 {
+	gdc-kb:Composite_Element_REF-cg00000108	rdf:type	gdc-kb:Composite_Element_REF ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000108 ;
+		sio:hasValue	"cg00000108"^^xsd:string .
+
+	gdc-kb:Beta_value-cg00000108	rdf:type	gdc-kb:Beta_value ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000108 .
+
+	gdc-kb:Chromosome-cg00000108	rdf:type	gdc-kb:Chromosome ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000108 ;
+		rdf:type	ncit:C13219 ;
+		rdfs:label	"Chromosome 3"^^xsd:string ;
+		sio:hasValue	"chr3"^^xsd:string .
+
+	gdc-kb:Start-cg00000108	rdf:type	gdc-kb:Start ;
+		sio:isAttributeOf gdc-kb:chromosome_start_position-cg00000108 ;
+		sio:hasValue	"37417715"^^xsd:integer .
+
+	gdc-kb:End-cg00000108	rdf:type	gdc-kb:End ;
+		sio:isAttributeOf gdc-kb:chromosome_end_position-cg00000108 ;
+		sio:hasValue	"37417716"^^xsd:integer .
+
+	gdc-kb:Gene_Symbol-cg00000108	rdf:type	gdc-kb:Gene_Symbol ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000108 ;
+		sio:hasValue	"C3orf35;C3orf35;C3orf35;C3orf35;C3orf35;C3orf35;C3orf35;C3orf35"^^xsd:string .
+
+	gdc-kb:Gene_Type-cg00000108	rdf:type	gdc-kb:Gene_Type ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000108 ;
+		sio:hasValue	"lincRNA;lincRNA;lincRNA;lincRNA;lincRNA;lincRNA;lincRNA;lincRNA"^^xsd:string .
+
+	gdc-kb:Transcript_ID-cg00000108	rdf:type	gdc-kb:Transcript_ID ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000108 ;
+		sio:hasValue	"ENST00000328376.8;ENST00000332506.6;ENST00000425564.2;ENST00000425932.4;ENST00000426078.4;ENST00000452017.3;ENST00000466204.4;ENST00000481400.4"^^xsd:string .
+
+	gdc-kb:Position_to_TSS-cg00000108	rdf:type	gdc-kb:Position_to_TSS ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000108 ;
+		sio:hasUnit heals:Basepair ;
+		sio:hasValue	"18552;18552;6505;31445;18143;447;18552;18552"^^xsd:string .
+
+	gdc-kb:CGI_Coordinate-cg00000108	rdf:type	gdc-kb:CGI_Coordinate ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000108 ;
+		sio:hasValue	"CGI:chr3:37451927-37453047"^^xsd:string .
+
+	gdc-kb:Feature_Type-cg00000108	rdf:type	gdc-kb:Feature_Type ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000108 ;
+		sio:hasValue	"."^^xsd:string .
+
+	gdc-kb:composite_element-cg00000108	rdf:type	gdc-kb:composite_element;
+		rdf:type	ncit:C54668;
+		sio:hasIdentifier gdc-kb:Composite_Element_REF-cg00000108 .
+
+	gdc-kb:chromosome_start_position-cg00000108	rdf:type	gdc-kb:chromosome_start_position;
+		rdf:type	ncit:C25431 ;
+		sio:inRelationTo go:ChromosomePositioning .
+
+	gdc-kb:chromosome_end_position-cg00000108	rdf:type	gdc-kb:chromosome_end_position;
+		rdf:type	ncit:C25496 ;
+		sio:inRelationTo go:ChromosomePositioning .
+
+	gdc-kb:gene_symbol-cg00000108	rdf:type	gdc-kb:gene_symbol;
+		rdf:type	ncit:C43568 ;
+		sio:isPartOf gdc-kb:composite_element-cg00000108 .
+
+}
+
+gdc-kb:provenance-cg00000108 {
+	gdc-kb:assertion-cg00000108 prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime .
+
+	gdc-kb:Composite_Element_REF-cg00000108	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Beta_value-cg00000108	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-cg00000108	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-cg00000108	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		sio:inRelationTo	gdc-kb:composite_element-cg00000108 .
+
+	gdc-kb:End-cg00000108	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		sio:inRelationTo	gdc-kb:composite_element-cg00000108 .
+
+	gdc-kb:Gene_Symbol-cg00000108	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Gene_Type-cg00000108	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Transcript_ID-cg00000108	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Position_to_TSS-cg00000108	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:CGI_Coordinate-cg00000108	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Feature_Type-cg00000108	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:composite_element-cg00000108	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:chromosome_start_position-cg00000108	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom "start position"^^xsd:string .
+
+	gdc-kb:chromosome_end_position-cg00000108	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom "end position"^^xsd:string .
+
+	gdc-kb:gene_symbol-cg00000108	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:pubInfo-cg00000108 {
+	gdc-kb:nanoPub-cg00000108 prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime .
+
+	gdc-kb:Composite_Element_REF-cg00000108
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Beta_value-cg00000108
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-cg00000108
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-cg00000108
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:End-cg00000108
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Gene_Symbol-cg00000108
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Gene_Type-cg00000108
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Transcript_ID-cg00000108
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Position_to_TSS-cg00000108
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:CGI_Coordinate-cg00000108
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Feature_Type-cg00000108
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:head-cg00000109 {
+	gdc-kb:nanoPub-cg00000109
+		rdf:type np:Nanopublication ;
+		np:hasAssertion gdc-kb:assertion-cg00000109 ;
+		np:hasProvenance gdc-kb:provenance-cg00000109 ;
+		np:hasPublicationInfo gdc-kb:pubInfo-cg00000109 .
+}
+
+gdc-kb:assertion-cg00000109 {
+	gdc-kb:Composite_Element_REF-cg00000109	rdf:type	gdc-kb:Composite_Element_REF ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000109 ;
+		sio:hasValue	"cg00000109"^^xsd:string .
+
+	gdc-kb:Beta_value-cg00000109	rdf:type	gdc-kb:Beta_value ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000109 .
+
+	gdc-kb:Chromosome-cg00000109	rdf:type	gdc-kb:Chromosome ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000109 ;
+		rdf:type	ncit:C13219 ;
+		rdfs:label	"Chromosome 3"^^xsd:string ;
+		sio:hasValue	"chr3"^^xsd:string .
+
+	gdc-kb:Start-cg00000109	rdf:type	gdc-kb:Start ;
+		sio:isAttributeOf gdc-kb:chromosome_start_position-cg00000109 ;
+		sio:hasValue	"172198247"^^xsd:integer .
+
+	gdc-kb:End-cg00000109	rdf:type	gdc-kb:End ;
+		sio:isAttributeOf gdc-kb:chromosome_end_position-cg00000109 ;
+		sio:hasValue	"172198248"^^xsd:integer .
+
+	gdc-kb:Gene_Symbol-cg00000109	rdf:type	gdc-kb:Gene_Symbol ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000109 ;
+		sio:hasValue	"FNDC3B;FNDC3B;FNDC3B;FNDC3B;FNDC3B;FNDC3B"^^xsd:string .
+
+	gdc-kb:Gene_Type-cg00000109	rdf:type	gdc-kb:Gene_Type ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000109 ;
+		sio:hasValue	"protein_coding;protein_coding;protein_coding;protein_coding;protein_coding;protein_coding"^^xsd:string .
+
+	gdc-kb:Transcript_ID-cg00000109	rdf:type	gdc-kb:Transcript_ID ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000109 ;
+		sio:hasValue	"ENST00000336824.7;ENST00000415807.5;ENST00000416957.4;ENST00000443501.1;ENST00000469491.4;ENST00000478016.1"^^xsd:string .
+
+	gdc-kb:Position_to_TSS-cg00000109	rdf:type	gdc-kb:Position_to_TSS ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000109 ;
+		sio:hasUnit heals:Basepair ;
+		sio:hasValue	"157692;158618;151333;71272;158587;71273"^^xsd:string .
+
+	gdc-kb:CGI_Coordinate-cg00000109	rdf:type	gdc-kb:CGI_Coordinate ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000109 ;
+		sio:hasValue	"CGI:chr3:172039703-172040934"^^xsd:string .
+
+	gdc-kb:Feature_Type-cg00000109	rdf:type	gdc-kb:Feature_Type ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000109 ;
+		sio:hasValue	"."^^xsd:string .
+
+	gdc-kb:composite_element-cg00000109	rdf:type	gdc-kb:composite_element;
+		rdf:type	ncit:C54668;
+		sio:hasIdentifier gdc-kb:Composite_Element_REF-cg00000109 .
+
+	gdc-kb:chromosome_start_position-cg00000109	rdf:type	gdc-kb:chromosome_start_position;
+		rdf:type	ncit:C25431 ;
+		sio:inRelationTo go:ChromosomePositioning .
+
+	gdc-kb:chromosome_end_position-cg00000109	rdf:type	gdc-kb:chromosome_end_position;
+		rdf:type	ncit:C25496 ;
+		sio:inRelationTo go:ChromosomePositioning .
+
+	gdc-kb:gene_symbol-cg00000109	rdf:type	gdc-kb:gene_symbol;
+		rdf:type	ncit:C43568 ;
+		sio:isPartOf gdc-kb:composite_element-cg00000109 .
+
+}
+
+gdc-kb:provenance-cg00000109 {
+	gdc-kb:assertion-cg00000109 prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime .
+
+	gdc-kb:Composite_Element_REF-cg00000109	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Beta_value-cg00000109	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-cg00000109	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-cg00000109	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		sio:inRelationTo	gdc-kb:composite_element-cg00000109 .
+
+	gdc-kb:End-cg00000109	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		sio:inRelationTo	gdc-kb:composite_element-cg00000109 .
+
+	gdc-kb:Gene_Symbol-cg00000109	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Gene_Type-cg00000109	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Transcript_ID-cg00000109	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Position_to_TSS-cg00000109	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:CGI_Coordinate-cg00000109	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Feature_Type-cg00000109	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:composite_element-cg00000109	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:chromosome_start_position-cg00000109	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom "start position"^^xsd:string .
+
+	gdc-kb:chromosome_end_position-cg00000109	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom "end position"^^xsd:string .
+
+	gdc-kb:gene_symbol-cg00000109	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:pubInfo-cg00000109 {
+	gdc-kb:nanoPub-cg00000109 prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime .
+
+	gdc-kb:Composite_Element_REF-cg00000109
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Beta_value-cg00000109
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-cg00000109
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-cg00000109
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:End-cg00000109
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Gene_Symbol-cg00000109
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Gene_Type-cg00000109
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Transcript_ID-cg00000109
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Position_to_TSS-cg00000109
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:CGI_Coordinate-cg00000109
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Feature_Type-cg00000109
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:head-cg00000165 {
+	gdc-kb:nanoPub-cg00000165
+		rdf:type np:Nanopublication ;
+		np:hasAssertion gdc-kb:assertion-cg00000165 ;
+		np:hasProvenance gdc-kb:provenance-cg00000165 ;
+		np:hasPublicationInfo gdc-kb:pubInfo-cg00000165 .
+}
+
+gdc-kb:assertion-cg00000165 {
+	gdc-kb:Composite_Element_REF-cg00000165	rdf:type	gdc-kb:Composite_Element_REF ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000165 ;
+		sio:hasValue	"cg00000165"^^xsd:string .
+
+	gdc-kb:Beta_value-cg00000165	rdf:type	gdc-kb:Beta_value ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000165 ;
+		sio:hasValue	"0.765092299417"^^xsd:float .
+
+	gdc-kb:Chromosome-cg00000165	rdf:type	gdc-kb:Chromosome ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000165 ;
+		rdf:type	ncit:C13204 ;
+		rdfs:label	"Chromosome 1"^^xsd:string ;
+		sio:hasValue	"chr1"^^xsd:string .
+
+	gdc-kb:Start-cg00000165	rdf:type	gdc-kb:Start ;
+		sio:isAttributeOf gdc-kb:chromosome_start_position-cg00000165 ;
+		sio:hasValue	"90729117"^^xsd:integer .
+
+	gdc-kb:End-cg00000165	rdf:type	gdc-kb:End ;
+		sio:isAttributeOf gdc-kb:chromosome_end_position-cg00000165 ;
+		sio:hasValue	"90729118"^^xsd:integer .
+
+	gdc-kb:Gene_Symbol-cg00000165	rdf:type	gdc-kb:Gene_Symbol ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000165 ;
+		sio:hasValue	"."^^xsd:string .
+
+	gdc-kb:Gene_Type-cg00000165	rdf:type	gdc-kb:Gene_Type ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000165 ;
+		sio:hasValue	"."^^xsd:string .
+
+	gdc-kb:Transcript_ID-cg00000165	rdf:type	gdc-kb:Transcript_ID ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000165 ;
+		sio:hasValue	"."^^xsd:string .
+
+	gdc-kb:Position_to_TSS-cg00000165	rdf:type	gdc-kb:Position_to_TSS ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000165 ;
+		sio:hasUnit heals:Basepair ;
+		sio:hasValue	"."^^xsd:string .
+
+	gdc-kb:CGI_Coordinate-cg00000165	rdf:type	gdc-kb:CGI_Coordinate ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000165 ;
+		sio:hasValue	"CGI:chr1:90724932-90727247"^^xsd:string .
+
+	gdc-kb:Feature_Type-cg00000165	rdf:type	gdc-kb:Feature_Type ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000165 ;
+		rdfs:label	"S_Shore"^^xsd:string ;
+		sio:hasValue	"S_Shore"^^xsd:string .
+
+	gdc-kb:composite_element-cg00000165	rdf:type	gdc-kb:composite_element;
+		rdf:type	ncit:C54668;
+		sio:hasIdentifier gdc-kb:Composite_Element_REF-cg00000165 .
+
+	gdc-kb:chromosome_start_position-cg00000165	rdf:type	gdc-kb:chromosome_start_position;
+		rdf:type	ncit:C25431 ;
+		sio:inRelationTo go:ChromosomePositioning .
+
+	gdc-kb:chromosome_end_position-cg00000165	rdf:type	gdc-kb:chromosome_end_position;
+		rdf:type	ncit:C25496 ;
+		sio:inRelationTo go:ChromosomePositioning .
+
+	gdc-kb:gene_symbol-cg00000165	rdf:type	gdc-kb:gene_symbol;
+		rdf:type	ncit:C43568 ;
+		sio:isPartOf gdc-kb:composite_element-cg00000165 .
+
+}
+
+gdc-kb:provenance-cg00000165 {
+	gdc-kb:assertion-cg00000165 prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime .
+
+	gdc-kb:Composite_Element_REF-cg00000165	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Beta_value-cg00000165	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-cg00000165	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-cg00000165	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		sio:inRelationTo	gdc-kb:composite_element-cg00000165 .
+
+	gdc-kb:End-cg00000165	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		sio:inRelationTo	gdc-kb:composite_element-cg00000165 .
+
+	gdc-kb:Gene_Symbol-cg00000165	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Gene_Type-cg00000165	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Transcript_ID-cg00000165	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Position_to_TSS-cg00000165	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:CGI_Coordinate-cg00000165	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Feature_Type-cg00000165	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:composite_element-cg00000165	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:chromosome_start_position-cg00000165	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom "start position"^^xsd:string .
+
+	gdc-kb:chromosome_end_position-cg00000165	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom "end position"^^xsd:string .
+
+	gdc-kb:gene_symbol-cg00000165	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:pubInfo-cg00000165 {
+	gdc-kb:nanoPub-cg00000165 prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime .
+
+	gdc-kb:Composite_Element_REF-cg00000165
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Beta_value-cg00000165
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-cg00000165
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-cg00000165
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:End-cg00000165
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Gene_Symbol-cg00000165
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Gene_Type-cg00000165
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Transcript_ID-cg00000165
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Position_to_TSS-cg00000165
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:CGI_Coordinate-cg00000165
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Feature_Type-cg00000165
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:head-cg00000236 {
+	gdc-kb:nanoPub-cg00000236
+		rdf:type np:Nanopublication ;
+		np:hasAssertion gdc-kb:assertion-cg00000236 ;
+		np:hasProvenance gdc-kb:provenance-cg00000236 ;
+		np:hasPublicationInfo gdc-kb:pubInfo-cg00000236 .
+}
+
+gdc-kb:assertion-cg00000236 {
+	gdc-kb:Composite_Element_REF-cg00000236	rdf:type	gdc-kb:Composite_Element_REF ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000236 ;
+		sio:hasValue	"cg00000236"^^xsd:string .
+
+	gdc-kb:Beta_value-cg00000236	rdf:type	gdc-kb:Beta_value ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000236 ;
+		sio:hasValue	"0.894639883125"^^xsd:float .
+
+	gdc-kb:Chromosome-cg00000236	rdf:type	gdc-kb:Chromosome ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000236 ;
+		rdf:type	ncit:C13224 ;
+		rdfs:label	"Chromosome 8"^^xsd:string ;
+		sio:hasValue	"chr8"^^xsd:string .
+
+	gdc-kb:Start-cg00000236	rdf:type	gdc-kb:Start ;
+		sio:isAttributeOf gdc-kb:chromosome_start_position-cg00000236 ;
+		sio:hasValue	"42405776"^^xsd:integer .
+
+	gdc-kb:End-cg00000236	rdf:type	gdc-kb:End ;
+		sio:isAttributeOf gdc-kb:chromosome_end_position-cg00000236 ;
+		sio:hasValue	"42405777"^^xsd:integer .
+
+	gdc-kb:Gene_Symbol-cg00000236	rdf:type	gdc-kb:Gene_Symbol ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000236 ;
+		sio:hasValue	"VDAC3"^^xsd:string .
+
+	gdc-kb:Gene_Type-cg00000236	rdf:type	gdc-kb:Gene_Type ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000236 ;
+		sio:hasValue	"protein_coding"^^xsd:string .
+
+	gdc-kb:Transcript_ID-cg00000236	rdf:type	gdc-kb:Transcript_ID ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000236 ;
+		sio:hasValue	"ENST00000022615.7"^^xsd:string .
+
+	gdc-kb:Position_to_TSS-cg00000236	rdf:type	gdc-kb:Position_to_TSS ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000236 ;
+		sio:hasUnit heals:Basepair ;
+		sio:hasValue	"13872"^^xsd:integer .
+
+	gdc-kb:CGI_Coordinate-cg00000236	rdf:type	gdc-kb:CGI_Coordinate ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000236 ;
+		sio:hasValue	"CGI:chr8:42410918-42411241"^^xsd:string .
+
+	gdc-kb:Feature_Type-cg00000236	rdf:type	gdc-kb:Feature_Type ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000236 ;
+		sio:hasValue	"."^^xsd:string .
+
+	gdc-kb:composite_element-cg00000236	rdf:type	gdc-kb:composite_element;
+		rdf:type	ncit:C54668;
+		sio:hasIdentifier gdc-kb:Composite_Element_REF-cg00000236 .
+
+	gdc-kb:chromosome_start_position-cg00000236	rdf:type	gdc-kb:chromosome_start_position;
+		rdf:type	ncit:C25431 ;
+		sio:inRelationTo go:ChromosomePositioning .
+
+	gdc-kb:chromosome_end_position-cg00000236	rdf:type	gdc-kb:chromosome_end_position;
+		rdf:type	ncit:C25496 ;
+		sio:inRelationTo go:ChromosomePositioning .
+
+	gdc-kb:gene_symbol-cg00000236	rdf:type	gdc-kb:gene_symbol;
+		rdf:type	ncit:C43568 ;
+		sio:isPartOf gdc-kb:composite_element-cg00000236 .
+
+}
+
+gdc-kb:provenance-cg00000236 {
+	gdc-kb:assertion-cg00000236 prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime .
+
+	gdc-kb:Composite_Element_REF-cg00000236	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Beta_value-cg00000236	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-cg00000236	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-cg00000236	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		sio:inRelationTo	gdc-kb:composite_element-cg00000236 .
+
+	gdc-kb:End-cg00000236	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		sio:inRelationTo	gdc-kb:composite_element-cg00000236 .
+
+	gdc-kb:Gene_Symbol-cg00000236	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Gene_Type-cg00000236	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Transcript_ID-cg00000236	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Position_to_TSS-cg00000236	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:CGI_Coordinate-cg00000236	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Feature_Type-cg00000236	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:composite_element-cg00000236	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:chromosome_start_position-cg00000236	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom "start position"^^xsd:string .
+
+	gdc-kb:chromosome_end_position-cg00000236	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom "end position"^^xsd:string .
+
+	gdc-kb:gene_symbol-cg00000236	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:pubInfo-cg00000236 {
+	gdc-kb:nanoPub-cg00000236 prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime .
+
+	gdc-kb:Composite_Element_REF-cg00000236
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Beta_value-cg00000236
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-cg00000236
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-cg00000236
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:End-cg00000236
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Gene_Symbol-cg00000236
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Gene_Type-cg00000236
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Transcript_ID-cg00000236
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Position_to_TSS-cg00000236
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:CGI_Coordinate-cg00000236
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Feature_Type-cg00000236
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:head-cg00000289 {
+	gdc-kb:nanoPub-cg00000289
+		rdf:type np:Nanopublication ;
+		np:hasAssertion gdc-kb:assertion-cg00000289 ;
+		np:hasProvenance gdc-kb:provenance-cg00000289 ;
+		np:hasPublicationInfo gdc-kb:pubInfo-cg00000289 .
+}
+
+gdc-kb:assertion-cg00000289 {
+	gdc-kb:Composite_Element_REF-cg00000289	rdf:type	gdc-kb:Composite_Element_REF ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000289 ;
+		sio:hasValue	"cg00000289"^^xsd:string .
+
+	gdc-kb:Beta_value-cg00000289	rdf:type	gdc-kb:Beta_value ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000289 ;
+		sio:hasValue	"0.6394258514"^^xsd:float .
+
+	gdc-kb:Chromosome-cg00000289	rdf:type	gdc-kb:Chromosome ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000289 ;
+		rdf:type	ncit:C13209 ;
+		rdfs:label	"Chromosome 14"^^xsd:string ;
+		sio:hasValue	"chr14"^^xsd:string .
+
+	gdc-kb:Start-cg00000289	rdf:type	gdc-kb:Start ;
+		sio:isAttributeOf gdc-kb:chromosome_start_position-cg00000289 ;
+		sio:hasValue	"68874422"^^xsd:integer .
+
+	gdc-kb:End-cg00000289	rdf:type	gdc-kb:End ;
+		sio:isAttributeOf gdc-kb:chromosome_end_position-cg00000289 ;
+		sio:hasValue	"68874423"^^xsd:integer .
+
+	gdc-kb:Gene_Symbol-cg00000289	rdf:type	gdc-kb:Gene_Symbol ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000289 ;
+		sio:hasValue	"ACTN1;ACTN1;ACTN1;ACTN1"^^xsd:string .
+
+	gdc-kb:Gene_Type-cg00000289	rdf:type	gdc-kb:Gene_Type ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000289 ;
+		sio:hasValue	"protein_coding;protein_coding;protein_coding;protein_coding"^^xsd:string .
+
+	gdc-kb:Transcript_ID-cg00000289	rdf:type	gdc-kb:Transcript_ID ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000289 ;
+		sio:hasValue	"ENST00000193403.9;ENST00000394419.7;ENST00000553882.1;ENST00000556083.1"^^xsd:string .
+
+	gdc-kb:Position_to_TSS-cg00000289	rdf:type	gdc-kb:Position_to_TSS ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000289 ;
+		sio:hasUnit heals:Basepair ;
+		sio:hasValue	"105019;104818;4601;13842"^^xsd:string .
+
+	gdc-kb:CGI_Coordinate-cg00000289	rdf:type	gdc-kb:CGI_Coordinate ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000289 ;
+		sio:hasValue	"CGI:chr14:68874710-68875103"^^xsd:string .
+
+	gdc-kb:Feature_Type-cg00000289	rdf:type	gdc-kb:Feature_Type ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000289 ;
+		rdfs:label	"N_Shore"^^xsd:string ;
+		sio:hasValue	"N_Shore"^^xsd:string .
+
+	gdc-kb:composite_element-cg00000289	rdf:type	gdc-kb:composite_element;
+		rdf:type	ncit:C54668;
+		sio:hasIdentifier gdc-kb:Composite_Element_REF-cg00000289 .
+
+	gdc-kb:chromosome_start_position-cg00000289	rdf:type	gdc-kb:chromosome_start_position;
+		rdf:type	ncit:C25431 ;
+		sio:inRelationTo go:ChromosomePositioning .
+
+	gdc-kb:chromosome_end_position-cg00000289	rdf:type	gdc-kb:chromosome_end_position;
+		rdf:type	ncit:C25496 ;
+		sio:inRelationTo go:ChromosomePositioning .
+
+	gdc-kb:gene_symbol-cg00000289	rdf:type	gdc-kb:gene_symbol;
+		rdf:type	ncit:C43568 ;
+		sio:isPartOf gdc-kb:composite_element-cg00000289 .
+
+}
+
+gdc-kb:provenance-cg00000289 {
+	gdc-kb:assertion-cg00000289 prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime .
+
+	gdc-kb:Composite_Element_REF-cg00000289	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Beta_value-cg00000289	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-cg00000289	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-cg00000289	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		sio:inRelationTo	gdc-kb:composite_element-cg00000289 .
+
+	gdc-kb:End-cg00000289	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		sio:inRelationTo	gdc-kb:composite_element-cg00000289 .
+
+	gdc-kb:Gene_Symbol-cg00000289	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Gene_Type-cg00000289	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Transcript_ID-cg00000289	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Position_to_TSS-cg00000289	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:CGI_Coordinate-cg00000289	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Feature_Type-cg00000289	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:composite_element-cg00000289	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:chromosome_start_position-cg00000289	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom "start position"^^xsd:string .
+
+	gdc-kb:chromosome_end_position-cg00000289	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom "end position"^^xsd:string .
+
+	gdc-kb:gene_symbol-cg00000289	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:pubInfo-cg00000289 {
+	gdc-kb:nanoPub-cg00000289 prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime .
+
+	gdc-kb:Composite_Element_REF-cg00000289
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Beta_value-cg00000289
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-cg00000289
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-cg00000289
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:End-cg00000289
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Gene_Symbol-cg00000289
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Gene_Type-cg00000289
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Transcript_ID-cg00000289
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Position_to_TSS-cg00000289
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:CGI_Coordinate-cg00000289
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Feature_Type-cg00000289
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:head-cg00000292 {
+	gdc-kb:nanoPub-cg00000292
+		rdf:type np:Nanopublication ;
+		np:hasAssertion gdc-kb:assertion-cg00000292 ;
+		np:hasProvenance gdc-kb:provenance-cg00000292 ;
+		np:hasPublicationInfo gdc-kb:pubInfo-cg00000292 .
+}
+
+gdc-kb:assertion-cg00000292 {
+	gdc-kb:Composite_Element_REF-cg00000292	rdf:type	gdc-kb:Composite_Element_REF ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000292 ;
+		sio:hasValue	"cg00000292"^^xsd:string .
+
+	gdc-kb:Beta_value-cg00000292	rdf:type	gdc-kb:Beta_value ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000292 ;
+		sio:hasValue	"0.794423205476"^^xsd:float .
+
+	gdc-kb:Chromosome-cg00000292	rdf:type	gdc-kb:Chromosome ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000292 ;
+		rdf:type	ncit:C13211 ;
+		rdfs:label	"Chromosome 16"^^xsd:string ;
+		sio:hasValue	"chr16"^^xsd:string .
+
+	gdc-kb:Start-cg00000292	rdf:type	gdc-kb:Start ;
+		sio:isAttributeOf gdc-kb:chromosome_start_position-cg00000292 ;
+		sio:hasValue	"28878779"^^xsd:integer .
+
+	gdc-kb:End-cg00000292	rdf:type	gdc-kb:End ;
+		sio:isAttributeOf gdc-kb:chromosome_end_position-cg00000292 ;
+		sio:hasValue	"28878780"^^xsd:integer .
+
+	gdc-kb:Gene_Symbol-cg00000292	rdf:type	gdc-kb:Gene_Symbol ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000292 ;
+		sio:hasValue	"ATP2A1;ATP2A1;ATP2A1;ATP2A1;ATP2A1"^^xsd:string .
+
+	gdc-kb:Gene_Type-cg00000292	rdf:type	gdc-kb:Gene_Type ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000292 ;
+		sio:hasValue	"protein_coding;protein_coding;protein_coding;protein_coding;protein_coding"^^xsd:string .
+
+	gdc-kb:Transcript_ID-cg00000292	rdf:type	gdc-kb:Transcript_ID ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000292 ;
+		sio:hasValue	"ENST00000357084.6;ENST00000395503.7;ENST00000536376.4;ENST00000562185.4;ENST00000563975.1"^^xsd:string .
+
+	gdc-kb:Position_to_TSS-cg00000292	rdf:type	gdc-kb:Position_to_TSS ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000292 ;
+		sio:hasUnit heals:Basepair ;
+		sio:hasValue	"373;290;-1275;-465;-83"^^xsd:string .
+
+	gdc-kb:CGI_Coordinate-cg00000292	rdf:type	gdc-kb:CGI_Coordinate ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000292 ;
+		sio:hasValue	"CGI:chr16:28879633-28880547"^^xsd:string .
+
+	gdc-kb:Feature_Type-cg00000292	rdf:type	gdc-kb:Feature_Type ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000292 ;
+		rdfs:label	"N_Shore"^^xsd:string ;
+		sio:hasValue	"N_Shore"^^xsd:string .
+
+	gdc-kb:composite_element-cg00000292	rdf:type	gdc-kb:composite_element;
+		rdf:type	ncit:C54668;
+		sio:hasIdentifier gdc-kb:Composite_Element_REF-cg00000292 .
+
+	gdc-kb:chromosome_start_position-cg00000292	rdf:type	gdc-kb:chromosome_start_position;
+		rdf:type	ncit:C25431 ;
+		sio:inRelationTo go:ChromosomePositioning .
+
+	gdc-kb:chromosome_end_position-cg00000292	rdf:type	gdc-kb:chromosome_end_position;
+		rdf:type	ncit:C25496 ;
+		sio:inRelationTo go:ChromosomePositioning .
+
+	gdc-kb:gene_symbol-cg00000292	rdf:type	gdc-kb:gene_symbol;
+		rdf:type	ncit:C43568 ;
+		sio:isPartOf gdc-kb:composite_element-cg00000292 .
+
+}
+
+gdc-kb:provenance-cg00000292 {
+	gdc-kb:assertion-cg00000292 prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime .
+
+	gdc-kb:Composite_Element_REF-cg00000292	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Beta_value-cg00000292	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-cg00000292	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-cg00000292	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		sio:inRelationTo	gdc-kb:composite_element-cg00000292 .
+
+	gdc-kb:End-cg00000292	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		sio:inRelationTo	gdc-kb:composite_element-cg00000292 .
+
+	gdc-kb:Gene_Symbol-cg00000292	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Gene_Type-cg00000292	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Transcript_ID-cg00000292	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Position_to_TSS-cg00000292	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:CGI_Coordinate-cg00000292	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Feature_Type-cg00000292	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:composite_element-cg00000292	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:chromosome_start_position-cg00000292	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom "start position"^^xsd:string .
+
+	gdc-kb:chromosome_end_position-cg00000292	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom "end position"^^xsd:string .
+
+	gdc-kb:gene_symbol-cg00000292	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:pubInfo-cg00000292 {
+	gdc-kb:nanoPub-cg00000292 prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime .
+
+	gdc-kb:Composite_Element_REF-cg00000292
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Beta_value-cg00000292
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-cg00000292
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-cg00000292
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:End-cg00000292
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Gene_Symbol-cg00000292
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Gene_Type-cg00000292
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Transcript_ID-cg00000292
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Position_to_TSS-cg00000292
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:CGI_Coordinate-cg00000292
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Feature_Type-cg00000292
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:head-cg00000321 {
+	gdc-kb:nanoPub-cg00000321
+		rdf:type np:Nanopublication ;
+		np:hasAssertion gdc-kb:assertion-cg00000321 ;
+		np:hasProvenance gdc-kb:provenance-cg00000321 ;
+		np:hasPublicationInfo gdc-kb:pubInfo-cg00000321 .
+}
+
+gdc-kb:assertion-cg00000321 {
+	gdc-kb:Composite_Element_REF-cg00000321	rdf:type	gdc-kb:Composite_Element_REF ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000321 ;
+		sio:hasValue	"cg00000321"^^xsd:string .
+
+	gdc-kb:Beta_value-cg00000321	rdf:type	gdc-kb:Beta_value ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000321 ;
+		sio:hasValue	"0.470036806524"^^xsd:float .
+
+	gdc-kb:Chromosome-cg00000321	rdf:type	gdc-kb:Chromosome ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000321 ;
+		rdf:type	ncit:C13224 ;
+		rdfs:label	"Chromosome 8"^^xsd:string ;
+		sio:hasValue	"chr8"^^xsd:string .
+
+	gdc-kb:Start-cg00000321	rdf:type	gdc-kb:Start ;
+		sio:isAttributeOf gdc-kb:chromosome_start_position-cg00000321 ;
+		sio:hasValue	"41310283"^^xsd:integer .
+
+	gdc-kb:End-cg00000321	rdf:type	gdc-kb:End ;
+		sio:isAttributeOf gdc-kb:chromosome_end_position-cg00000321 ;
+		sio:hasValue	"41310284"^^xsd:integer .
+
+	gdc-kb:Gene_Symbol-cg00000321	rdf:type	gdc-kb:Gene_Symbol ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000321 ;
+		sio:hasValue	"SFRP1"^^xsd:string .
+
+	gdc-kb:Gene_Type-cg00000321	rdf:type	gdc-kb:Gene_Type ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000321 ;
+		sio:hasValue	"protein_coding"^^xsd:string .
+
+	gdc-kb:Transcript_ID-cg00000321	rdf:type	gdc-kb:Transcript_ID ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000321 ;
+		sio:hasValue	"ENST00000220772.6"^^xsd:string .
+
+	gdc-kb:Position_to_TSS-cg00000321	rdf:type	gdc-kb:Position_to_TSS ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000321 ;
+		sio:hasUnit heals:Basepair ;
+		sio:hasValue	"-785"^^xsd:float .
+
+	gdc-kb:CGI_Coordinate-cg00000321	rdf:type	gdc-kb:CGI_Coordinate ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000321 ;
+		sio:hasValue	"CGI:chr8:41308333-41309621"^^xsd:string .
+
+	gdc-kb:Feature_Type-cg00000321	rdf:type	gdc-kb:Feature_Type ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000321 ;
+		rdfs:label	"S_Shore"^^xsd:string ;
+		sio:hasValue	"S_Shore"^^xsd:string .
+
+	gdc-kb:composite_element-cg00000321	rdf:type	gdc-kb:composite_element;
+		rdf:type	ncit:C54668;
+		sio:hasIdentifier gdc-kb:Composite_Element_REF-cg00000321 .
+
+	gdc-kb:chromosome_start_position-cg00000321	rdf:type	gdc-kb:chromosome_start_position;
+		rdf:type	ncit:C25431 ;
+		sio:inRelationTo go:ChromosomePositioning .
+
+	gdc-kb:chromosome_end_position-cg00000321	rdf:type	gdc-kb:chromosome_end_position;
+		rdf:type	ncit:C25496 ;
+		sio:inRelationTo go:ChromosomePositioning .
+
+	gdc-kb:gene_symbol-cg00000321	rdf:type	gdc-kb:gene_symbol;
+		rdf:type	ncit:C43568 ;
+		sio:isPartOf gdc-kb:composite_element-cg00000321 .
+
+}
+
+gdc-kb:provenance-cg00000321 {
+	gdc-kb:assertion-cg00000321 prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime .
+
+	gdc-kb:Composite_Element_REF-cg00000321	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Beta_value-cg00000321	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-cg00000321	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-cg00000321	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		sio:inRelationTo	gdc-kb:composite_element-cg00000321 .
+
+	gdc-kb:End-cg00000321	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		sio:inRelationTo	gdc-kb:composite_element-cg00000321 .
+
+	gdc-kb:Gene_Symbol-cg00000321	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Gene_Type-cg00000321	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Transcript_ID-cg00000321	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Position_to_TSS-cg00000321	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:CGI_Coordinate-cg00000321	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Feature_Type-cg00000321	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:composite_element-cg00000321	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:chromosome_start_position-cg00000321	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom "start position"^^xsd:string .
+
+	gdc-kb:chromosome_end_position-cg00000321	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom "end position"^^xsd:string .
+
+	gdc-kb:gene_symbol-cg00000321	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:pubInfo-cg00000321 {
+	gdc-kb:nanoPub-cg00000321 prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime .
+
+	gdc-kb:Composite_Element_REF-cg00000321
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Beta_value-cg00000321
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-cg00000321
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-cg00000321
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:End-cg00000321
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Gene_Symbol-cg00000321
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Gene_Type-cg00000321
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Transcript_ID-cg00000321
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Position_to_TSS-cg00000321
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:CGI_Coordinate-cg00000321
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Feature_Type-cg00000321
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:head-cg00000363 {
+	gdc-kb:nanoPub-cg00000363
+		rdf:type np:Nanopublication ;
+		np:hasAssertion gdc-kb:assertion-cg00000363 ;
+		np:hasProvenance gdc-kb:provenance-cg00000363 ;
+		np:hasPublicationInfo gdc-kb:pubInfo-cg00000363 .
+}
+
+gdc-kb:assertion-cg00000363 {
+	gdc-kb:Composite_Element_REF-cg00000363	rdf:type	gdc-kb:Composite_Element_REF ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000363 ;
+		sio:hasValue	"cg00000363"^^xsd:string .
+
+	gdc-kb:Beta_value-cg00000363	rdf:type	gdc-kb:Beta_value ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000363 ;
+		sio:hasValue	"0.25191144921"^^xsd:float .
+
+	gdc-kb:Chromosome-cg00000363	rdf:type	gdc-kb:Chromosome ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000363 ;
+		rdf:type	ncit:C13204 ;
+		rdfs:label	"Chromosome 1"^^xsd:string ;
+		sio:hasValue	"chr1"^^xsd:string .
+
+	gdc-kb:Start-cg00000363	rdf:type	gdc-kb:Start ;
+		sio:isAttributeOf gdc-kb:chromosome_start_position-cg00000363 ;
+		sio:hasValue	"230425047"^^xsd:integer .
+
+	gdc-kb:End-cg00000363	rdf:type	gdc-kb:End ;
+		sio:isAttributeOf gdc-kb:chromosome_end_position-cg00000363 ;
+		sio:hasValue	"230425048"^^xsd:integer .
+
+	gdc-kb:Gene_Symbol-cg00000363	rdf:type	gdc-kb:Gene_Symbol ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000363 ;
+		sio:hasValue	"PGBD5"^^xsd:string .
+
+	gdc-kb:Gene_Type-cg00000363	rdf:type	gdc-kb:Gene_Type ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000363 ;
+		sio:hasValue	"protein_coding"^^xsd:string .
+
+	gdc-kb:Transcript_ID-cg00000363	rdf:type	gdc-kb:Transcript_ID ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000363 ;
+		sio:hasValue	"ENST00000391860.4"^^xsd:string .
+
+	gdc-kb:Position_to_TSS-cg00000363	rdf:type	gdc-kb:Position_to_TSS ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000363 ;
+		sio:hasUnit heals:Basepair ;
+		sio:hasValue	"683"^^xsd:integer .
+
+	gdc-kb:CGI_Coordinate-cg00000363	rdf:type	gdc-kb:CGI_Coordinate ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000363 ;
+		sio:hasValue	"CGI:chr1:230425357-230426956"^^xsd:string .
+
+	gdc-kb:Feature_Type-cg00000363	rdf:type	gdc-kb:Feature_Type ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000363 ;
+		rdfs:label	"N_Shore"^^xsd:string ;
+		sio:hasValue	"N_Shore"^^xsd:string .
+
+	gdc-kb:composite_element-cg00000363	rdf:type	gdc-kb:composite_element;
+		rdf:type	ncit:C54668;
+		sio:hasIdentifier gdc-kb:Composite_Element_REF-cg00000363 .
+
+	gdc-kb:chromosome_start_position-cg00000363	rdf:type	gdc-kb:chromosome_start_position;
+		rdf:type	ncit:C25431 ;
+		sio:inRelationTo go:ChromosomePositioning .
+
+	gdc-kb:chromosome_end_position-cg00000363	rdf:type	gdc-kb:chromosome_end_position;
+		rdf:type	ncit:C25496 ;
+		sio:inRelationTo go:ChromosomePositioning .
+
+	gdc-kb:gene_symbol-cg00000363	rdf:type	gdc-kb:gene_symbol;
+		rdf:type	ncit:C43568 ;
+		sio:isPartOf gdc-kb:composite_element-cg00000363 .
+
+}
+
+gdc-kb:provenance-cg00000363 {
+	gdc-kb:assertion-cg00000363 prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime .
+
+	gdc-kb:Composite_Element_REF-cg00000363	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Beta_value-cg00000363	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-cg00000363	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-cg00000363	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		sio:inRelationTo	gdc-kb:composite_element-cg00000363 .
+
+	gdc-kb:End-cg00000363	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		sio:inRelationTo	gdc-kb:composite_element-cg00000363 .
+
+	gdc-kb:Gene_Symbol-cg00000363	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Gene_Type-cg00000363	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Transcript_ID-cg00000363	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Position_to_TSS-cg00000363	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:CGI_Coordinate-cg00000363	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Feature_Type-cg00000363	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:composite_element-cg00000363	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:chromosome_start_position-cg00000363	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom "start position"^^xsd:string .
+
+	gdc-kb:chromosome_end_position-cg00000363	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom "end position"^^xsd:string .
+
+	gdc-kb:gene_symbol-cg00000363	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:pubInfo-cg00000363 {
+	gdc-kb:nanoPub-cg00000363 prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime .
+
+	gdc-kb:Composite_Element_REF-cg00000363
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Beta_value-cg00000363
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-cg00000363
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-cg00000363
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:End-cg00000363
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Gene_Symbol-cg00000363
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Gene_Type-cg00000363
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Transcript_ID-cg00000363
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Position_to_TSS-cg00000363
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:CGI_Coordinate-cg00000363
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Feature_Type-cg00000363
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:head-cg00000622 {
+	gdc-kb:nanoPub-cg00000622
+		rdf:type np:Nanopublication ;
+		np:hasAssertion gdc-kb:assertion-cg00000622 ;
+		np:hasProvenance gdc-kb:provenance-cg00000622 ;
+		np:hasPublicationInfo gdc-kb:pubInfo-cg00000622 .
+}
+
+gdc-kb:assertion-cg00000622 {
+	gdc-kb:Composite_Element_REF-cg00000622	rdf:type	gdc-kb:Composite_Element_REF ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000622 ;
+		sio:hasValue	"cg00000622"^^xsd:string .
+
+	gdc-kb:Beta_value-cg00000622	rdf:type	gdc-kb:Beta_value ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000622 ;
+		sio:hasValue	"0.0146890564981"^^xsd:float .
+
+	gdc-kb:Chromosome-cg00000622	rdf:type	gdc-kb:Chromosome ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000622 ;
+		rdf:type	ncit:C13210 ;
+		rdfs:label	"Chromosome 15"^^xsd:string ;
+		sio:hasValue	"chr15"^^xsd:string .
+
+	gdc-kb:Start-cg00000622	rdf:type	gdc-kb:Start ;
+		sio:isAttributeOf gdc-kb:chromosome_start_position-cg00000622 ;
+		sio:hasValue	"22838620"^^xsd:integer .
+
+	gdc-kb:End-cg00000622	rdf:type	gdc-kb:End ;
+		sio:isAttributeOf gdc-kb:chromosome_end_position-cg00000622 ;
+		sio:hasValue	"22838621"^^xsd:integer .
+
+	gdc-kb:Gene_Symbol-cg00000622	rdf:type	gdc-kb:Gene_Symbol ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000622 ;
+		sio:hasValue	"NIPA2;NIPA2;NIPA2;NIPA2;NIPA2;NIPA2;NIPA2;NIPA2;NIPA2;NIPA2"^^xsd:string .
+
+	gdc-kb:Gene_Type-cg00000622	rdf:type	gdc-kb:Gene_Type ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000622 ;
+		sio:hasValue	"protein_coding;protein_coding;protein_coding;protein_coding;protein_coding;protein_coding;protein_coding;protein_coding;protein_coding;protein_coding"^^xsd:string .
+
+	gdc-kb:Transcript_ID-cg00000622	rdf:type	gdc-kb:Transcript_ID ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000622 ;
+		sio:hasValue	"ENST00000337451.6;ENST00000359727.7;ENST00000398013.6;ENST00000398014.5;ENST00000539711.2;ENST00000559571.1;ENST00000560039.1;ENST00000560205.4;ENST00000560762.4;ENST00000561072.1"^^xsd:string .
+
+	gdc-kb:Position_to_TSS-cg00000622	rdf:type	gdc-kb:Position_to_TSS ;
+		sio:isAttributeOf gdc-kb:gene_symbol-cg00000622 ;
+		sio:hasUnit heals:Basepair ;
+		sio:hasValue	"-41;-39;-68;-22;-79;-57;-71;-25;-41;-70"^^xsd:string .
+
+	gdc-kb:CGI_Coordinate-cg00000622	rdf:type	gdc-kb:CGI_Coordinate ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000622 ;
+		sio:hasValue	"CGI:chr15:22838564-22839134"^^xsd:string .
+
+	gdc-kb:Feature_Type-cg00000622	rdf:type	gdc-kb:Feature_Type ;
+		sio:isAttributeOf gdc-kb:composite_element-cg00000622 ;
+		rdfs:label	"Island"^^xsd:string ;
+		sio:hasValue	"Island"^^xsd:string .
+
+	gdc-kb:composite_element-cg00000622	rdf:type	gdc-kb:composite_element;
+		rdf:type	ncit:C54668;
+		sio:hasIdentifier gdc-kb:Composite_Element_REF-cg00000622 .
+
+	gdc-kb:chromosome_start_position-cg00000622	rdf:type	gdc-kb:chromosome_start_position;
+		rdf:type	ncit:C25431 ;
+		sio:inRelationTo go:ChromosomePositioning .
+
+	gdc-kb:chromosome_end_position-cg00000622	rdf:type	gdc-kb:chromosome_end_position;
+		rdf:type	ncit:C25496 ;
+		sio:inRelationTo go:ChromosomePositioning .
+
+	gdc-kb:gene_symbol-cg00000622	rdf:type	gdc-kb:gene_symbol;
+		rdf:type	ncit:C43568 ;
+		sio:isPartOf gdc-kb:composite_element-cg00000622 .
+
+}
+
+gdc-kb:provenance-cg00000622 {
+	gdc-kb:assertion-cg00000622 prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime .
+
+	gdc-kb:Composite_Element_REF-cg00000622	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Beta_value-cg00000622	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-cg00000622	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-cg00000622	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		sio:inRelationTo	gdc-kb:composite_element-cg00000622 .
+
+	gdc-kb:End-cg00000622	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		sio:inRelationTo	gdc-kb:composite_element-cg00000622 .
+
+	gdc-kb:Gene_Symbol-cg00000622	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Gene_Type-cg00000622	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Transcript_ID-cg00000622	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Position_to_TSS-cg00000622	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:CGI_Coordinate-cg00000622	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Feature_Type-cg00000622	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:composite_element-cg00000622	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:chromosome_start_position-cg00000622	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom "start position"^^xsd:string .
+
+	gdc-kb:chromosome_end_position-cg00000622	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  ;
+		prov:wasDerivedFrom "end position"^^xsd:string .
+
+	gdc-kb:gene_symbol-cg00000622	prov:generatedAtTime	"2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+}
+
+gdc-kb:pubInfo-cg00000622 {
+	gdc-kb:nanoPub-cg00000622 prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime .
+
+	gdc-kb:Composite_Element_REF-cg00000622
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Beta_value-cg00000622
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Chromosome-cg00000622
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Start-cg00000622
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:End-cg00000622
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Gene_Symbol-cg00000622
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Gene_Type-cg00000622
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Transcript_ID-cg00000622
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Position_to_TSS-cg00000622
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:CGI_Coordinate-cg00000622
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+	gdc-kb:Feature_Type-cg00000622
+		prov:generatedAtTime "2017-12-10T20:19:08Z"^^xsd:dateTime  .
+
+}
+
