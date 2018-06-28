@@ -1,0 +1,13 @@
+[Prefixes]
+# Specify a file with the prefixes for existing ontologies used in your translation
+prefixes = prefixes.txt
+# Specify the base uri to be associated with all triples minted by the script
+base_uri = obesity-kb
+
+[Source Files]
+dictionary = OBESITY/NHANES-SDD-Obesity.csv
+codebook = OBESITY/NHANES-SDD-ObesityCB.csv
+code_mappings = code_mappings.csv
+data_file = OBESITY/obesity_da.csv
+[Output Files]
+out_file = obesity-out.txt
